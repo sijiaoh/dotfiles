@@ -3,7 +3,14 @@
 cd $(dirname "${0}")/..
 DOTFILES_ROOT=$(pwd -P)
 
+. ${DOTFILES_ROOT}/lib/os.sh
+
 for src in ${DOTFILES_ROOT}/**/*.symlink; do
   dest=$(basename ${src})
-  ln -sfv "${src}" "${HOME}/.${dest%.symlink}"
+  if echo ${src} | grep .${OS}.symlink >/dev/null 2>&1; then
+    dest=${HOME}/.${dest%.${OS}.symlink}
+  else
+    dest=${HOME}/.${dest%.symlink}
+  fi
+  ln -sfv "${src}" "${dest}"
 done
