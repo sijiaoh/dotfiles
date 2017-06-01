@@ -2,3 +2,5 @@
 
 cd $(dirname "${0}")/..
 DOTFILES_ROOT=$(pwd -P)
+
+${DOTFILES_ROOT}/bin/link
