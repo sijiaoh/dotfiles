@@ -14,3 +14,11 @@ for src in ${DOTFILES_ROOT}/**/*.symlink; do
   fi
   ln -sfv "${src}" "${dest}"
 done
+
+for file in ${DOTFILES_ROOT}/**/symlink.sh; do
+  ${file}
+done
+
+for file in ${DOTFILES_ROOT}/**/${OS}.symlink.sh; do
+  ${file}
+done
