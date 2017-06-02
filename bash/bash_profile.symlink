@@ -10,3 +10,5 @@ if test ${OS} = 'linux'; then
   export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
   export INFOPATH="${HOME}/.linuxbrew/share/info:${INFOPATH}"
 fi
+
+eval "$(rbenv init -)"
