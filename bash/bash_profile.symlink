@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
+
+. ${DOTFILES_ROOT}/lib/os.sh
+
+# brew
+if test ${OS} = 'linux'; then
+  export PATH="${HOME}/.linuxbrew/bin:${PATH}"
+  export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
+  export INFOPATH="${HOME}/.linuxbrew/share/info:${INFOPATH}"
+fi
