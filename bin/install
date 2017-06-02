@@ -2,6 +2,8 @@
 
 . ${DOTFILES_ROOT}/lib/os.sh
 
+brew install gcc
+
 for file in ${DOTFILES_ROOT}/**/install.sh; do
   ${file}
 done
