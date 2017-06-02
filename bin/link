@@ -1,8 +1,5 @@
 #!/bin/bash -eu
 
-cd $(dirname "${0}")/..
-DOTFILES_ROOT=$(pwd -P)
-
 . ${DOTFILES_ROOT}/lib/os.sh
 
 for src in ${DOTFILES_ROOT}/**/*.symlink; do
