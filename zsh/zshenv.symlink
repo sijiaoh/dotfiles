@@ -4,6 +4,8 @@ export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
 . ${DOTFILES_ROOT}/lib/os.sh
 
+export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
+
 # brew
 if test ${OS} = 'linux'; then
   export PATH="${HOME}/.linuxbrew/bin:${PATH}"
