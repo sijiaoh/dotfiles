@@ -3,19 +3,12 @@
 . ${DOTFILES_ROOT}/lib/os.sh
 
 for src in ${DOTFILES_ROOT}/**/*.symlink; do
+  # 2 行目の記法は変数にしか使用できないため、一時的に変数に格納
   dest=$(basename ${src})
-  if echo ${src} | grep .${OS}.symlink >/dev/null 2>&1; then
-    dest=${HOME}/.${dest%.${OS}.symlink}
-  else
-    dest=${HOME}/.${dest%.symlink}
-  fi
+  dest=${HOME}/.${dest%.symlink}
   ln -sfv "${src}" "${dest}"
 done
 
 for file in ${DOTFILES_ROOT}/**/symlink.sh; do
-  ${file}
-done
-
-for file in ${DOTFILES_ROOT}/**/${OS}.symlink.sh; do
   ${file}
 done
