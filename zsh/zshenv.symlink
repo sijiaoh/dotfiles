@@ -8,9 +8,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
 # brew
 if test ${OS} = 'linux'; then
-  export PATH="${HOME}/.linuxbrew/bin:${PATH}"
-  export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
-  export INFOPATH="${HOME}/.linuxbrew/share/info:${INFOPATH}"
+  export PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
+  export MANPATH="/home/linuxbrew/.linuxbrew/share/man:${MANPATH}"
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH}"
 fi
 
 eval "$(rbenv init -)"
