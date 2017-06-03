@@ -1,3 +1,3 @@
 #!/bin/bash -eu
 
-brew install emacs
+sudo apt-get install -y emacs
