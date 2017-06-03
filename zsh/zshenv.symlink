@@ -14,3 +14,5 @@ if test ${OS} = 'linux'; then
 fi
 
 eval "$(rbenv init -)"
+
+eval "$(direnv hook zsh)"
