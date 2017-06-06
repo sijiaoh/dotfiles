@@ -1,0 +1,67 @@
+[alias]
+  tree  = log --oneline --graph --decorate
+
+  a     = add
+  aa    = add --all
+
+  b     = branch
+  bd    = branch -d
+  bD    = branch -D
+
+  c     = commit
+  cm    = commit -m
+  cv    = commit -v
+  ca    = commit --amend
+  cav   = commit --amend -v
+  can   = commit --amend --no-edit
+  cf    = commit --allow-empty -m 'Initial commit'
+
+  cl    = clean
+  cln   = clean -n
+  clf   = clean -f
+  clfn  = clean -fn
+  cld   = clean -d
+  cldn  = clean -dn
+
+  co    = checkout
+  cob   = checkout -b
+
+  d     = diff
+  dw    = diff --color-words
+  dc    = diff --cached
+  dcw   = diff --cached --color-words
+
+  f     = fetch
+  fa    = fetch --all
+
+  l     = log
+  lp    = log -p
+  ln    = log --name-status
+  lo    = log --oneline
+  lon   = log --oneline --name-status
+  lod   = log --oneline --decorate
+  lond  = log --oneline --name-status --decorate
+
+  m     = merge
+
+  p     = push
+  poh   = push origin HEAD
+  pohf  = push -f origin HEAD
+
+  pl    = pull
+  plr   = pull --rebase
+
+  r     = reset
+  rh    = reset HEAD
+  rp    = reset HEAD~
+  rph   = reset --hard HEAD~
+
+  re    = rebase
+  rei   = rebase -i
+
+  rv    = revert
+
+  s     = status
+
+  t     = log --oneline --graph --decorate
+  ta    = log --oneline --graph --decorate --all
