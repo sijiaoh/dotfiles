@@ -65,3 +65,6 @@
 
   t     = log --oneline --graph --decorate
   ta    = log --oneline --graph --decorate --all
+
+[core]
+  excludesfile = ~/.gitignore
