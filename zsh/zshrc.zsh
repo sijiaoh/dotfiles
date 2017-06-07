@@ -19,3 +19,6 @@ fi
 eval "$(rbenv init -)"
 
 eval "$(direnv hook zsh)"
+
+export GOPATH=${HOME}/work/go
+export PATH=${GOPATH}/bin:${PATH}
