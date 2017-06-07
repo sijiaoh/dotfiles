@@ -12,3 +12,4 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 
 ln -sfv ${DOTFILES_ROOT}/zsh/zshrc.zsh ${ZDOTDIR:-$HOME}/.zshrc
+ln -sfv ${DOTFILES_ROOT}/zsh/zpreztorc.zsh ${ZDOTDIR:-$HOME}/.zpreztorc
