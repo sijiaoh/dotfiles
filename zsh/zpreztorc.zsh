@@ -26,7 +26,8 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'prompt' \
-  'git'
+  'git' \
+  'docker'
 
 #
 # Autosuggestions
@@ -89,7 +90,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'steeef'
 
 # Set how themes that use promptpwd function display the pwd, can be 'short', 'long', or 'full'
 # zstyle ':prezto:module:prompt' pwd-length 'short'
