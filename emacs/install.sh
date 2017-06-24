@@ -1,3 +1,5 @@
 #!/bin/bash -eu
 
-git clone https://github.com/regashia/emacs.d.git ${HOME}/.emacs.d
+if ! test -e ${HOME}/.emacs.d; then
+  git clone https://github.com/regashia/emacs.d.git ${HOME}/.emacs.d
+fi
