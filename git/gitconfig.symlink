@@ -68,3 +68,4 @@
 
 [core]
   excludesfile = ~/.gitignore
+  editor = emacsclient -nw -a ''
