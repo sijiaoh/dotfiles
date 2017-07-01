@@ -24,3 +24,10 @@ export GOPATH=${HOME}/work/go
 export PATH=${GOPATH}/bin:${PATH}
 
 function chpwd() { ls }
+
+alias -g L='| less'
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g X='| xargs'
+alias -g XG='| xargs grep'
