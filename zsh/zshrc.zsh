@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export EDITOR="emacsclient -nw -a ''"
+export EDITOR='emacsclient -nw'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
@@ -42,7 +42,7 @@ function estart() {
   fi
 }
 
-alias e="emacsclient -nw -a ''"
+alias e='emacsclient -nw'
 alias ekill="emacsclient -e '(kill-emacs)'"
 
 estart
