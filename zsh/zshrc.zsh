@@ -34,5 +34,15 @@ alias -g T='| tail'
 alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
+function estart() {
+  if ! emacsclient -e 0 > /dev/null 2>&1; then
+    pushd ${HOME} > /dev/null 2>&1
+    emacs --daemon
+    popd > /dev/null 2>&1
+  fi
+}
+
 alias e="emacsclient -nw -a ''"
 alias ekill="emacsclient -e '(kill-emacs)'"
+
+estart
