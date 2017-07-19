@@ -27,8 +27,8 @@ bind f select-pane -R
 
 # Emacs のキーバインドでペインをリサイズする
 bind -r C-b resize-pane -L 10
-bind -r C-n resize-pane -D 10
-bind -r C-p resize-pane -U 10
+bind -r C-n resize-pane -D 5
+bind -r C-p resize-pane -U 5
 bind -r C-f resize-pane -R 10
 
 # 256 色端末を使用する
