@@ -44,5 +44,6 @@ function estart() {
 
 alias e='emacsclient -nw'
 alias ekill="emacsclient -e '(kill-emacs)'"
+alias erestart="emacsclient -e '(kill-emacs)' && estart"
 
 estart
