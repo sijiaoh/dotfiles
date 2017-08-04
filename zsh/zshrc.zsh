@@ -25,6 +25,9 @@ eval "$(direnv hook zsh)"
 export GOPATH=${HOME}/work/go
 export PATH=${GOPATH}/bin:${PATH}
 
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+
 function chpwd() { ls }
 
 alias -g L='| less'
