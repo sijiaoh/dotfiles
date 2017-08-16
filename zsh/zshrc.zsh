@@ -37,6 +37,24 @@ alias -g T='| tail'
 alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && eval "${EDITOR} ${files[@]}"
+}
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+fda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
 function estart() {
   if ! emacsclient -e 0 > /dev/null 2>&1; then
     pushd ${HOME} > /dev/null 2>&1
