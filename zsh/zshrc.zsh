@@ -37,6 +37,8 @@ alias -g T='| tail'
 alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
+export FZF_DEFAULT_OPTS="--bind 'ctrl-k:kill-line'"
+
 fe() {
   local files
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
