@@ -22,6 +22,8 @@
   clfn  = clean -fn
   cld   = clean -d
   cldn  = clean -dn
+  clfd  = clean -fd
+  clfdn  = clean -fdn
 
   co    = checkout
   cob   = checkout -b
