@@ -59,9 +59,9 @@ fda() {
 
 function estart() {
   if ! emacsclient -e 0 > /dev/null 2>&1; then
-    pushd ${HOME} > /dev/null 2>&1
+    cd > /dev/null 2>&1
     emacs --daemon
-    popd > /dev/null 2>&1
+    cd - > /dev/null 2>&1
   fi
 }
 
