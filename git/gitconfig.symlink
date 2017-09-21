@@ -72,4 +72,4 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = atom --wait
+  editor = atom -nw
