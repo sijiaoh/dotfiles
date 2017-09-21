@@ -57,6 +57,8 @@ fda() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+alias a='atom'
+
 function estart() {
   if ! emacsclient -e 0 > /dev/null 2>&1; then
     cd > /dev/null 2>&1
