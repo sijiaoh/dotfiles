@@ -24,3 +24,8 @@ def configure(keymap):
         keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
 
         keymap_local[app]['Alt-D'] = 'Alt-D'
+
+    for app in ["com.jetbrains.rubymine"]:
+        keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
+
+        keymap_local[app]['Ctrl-H'] = 'Back'
