@@ -18,6 +18,10 @@ def configure(keymap):
     # keymap_global[ "Ctrl-S" ] = "Alt-F"
     keymap_global[ "Ctrl-G" ] = "Esc"
     keymap_global[ "Ctrl-OpenBracket" ] = "Esc"
+    # 左 Command 単独押しで英数
+    keymap_global["O-LAlt"] = "102"
+    # 右 Command 単独押しでかな
+    keymap_global["O-RAlt"] = "104"
 
     keymap_local = {}
     for app in ["com.github.atom"]:
