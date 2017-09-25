@@ -4,11 +4,13 @@ def configure(keymap):
     keymap_global = keymap.defineWindowKeymap()
 
     keymap_global[ "Ctrl-M" ] = "Return"
+    keymap_global[ "Ctrl-Shift-M" ] = "Shift-Return"
     # keymap_global[ "Ctrl-H" ] = "Back"
     keymap_global[ "Alt-H" ] = "Alt-Back"
     # keymap_global[ "Ctrl-D" ] = "Delete"
     keymap_global[ "Alt-D" ] = "Alt-Delete"
     keymap_global[ "Ctrl-I" ] = "Tab"
+    keymap_global[ "Ctrl-Shift-I" ] = "Shift-Tab"
     # keymap_global[ "Ctrl-P" ] = "Up"
     # keymap_global[ "Ctrl-N" ] = "Down"
     # keymap_global[ "Ctrl-F" ] = "Right"
