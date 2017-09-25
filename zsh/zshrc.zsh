@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export EDITOR='atom'
+export EDITOR='emacsclient -nw'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
