@@ -35,6 +35,7 @@ def configure(keymap):
         keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
 
         keymap_local[app]['Ctrl-H'] = 'Back'
+
     for app in ["com.googlecode.iterm2"]:
         keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
 
