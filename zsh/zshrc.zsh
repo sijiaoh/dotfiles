@@ -37,6 +37,8 @@ alias -g T='| tail'
 alias -g X='| xargs'
 alias -g XG='| xargs grep'
 
+bindkey '^[h' backward-kill-word
+
 export FZF_DEFAULT_OPTS="--bind 'ctrl-k:kill-line'"
 
 fe() {
