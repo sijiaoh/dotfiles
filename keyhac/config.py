@@ -42,3 +42,11 @@ def configure(keymap):
         keymap_local[app][ "Alt-H" ] = "Alt-H"
         keymap_local[app][ "Alt-D" ] = "Alt-D"
         keymap_local[app][ "Ctrl-G" ] = "Ctrl-G"
+
+    for app in ["com.apple.Safari", "com.google.Chrome"]:
+        keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
+
+        keymap_local[app][ "Ctrl-P" ] = "Up"
+        keymap_local[app][ "Ctrl-N" ] = "Down"
+        keymap_local[app][ "Ctrl-F" ] = "Right"
+        keymap_local[app][ "Ctrl-B" ] = "Left"
