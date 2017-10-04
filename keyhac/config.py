@@ -30,6 +30,7 @@ def configure(keymap):
         keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
 
         keymap_local[app]['Alt-D'] = 'Alt-D'
+        keymap_local[app][ "Ctrl-I" ] = "Ctrl-I"
 
     for app in ["com.jetbrains.rubymine"]:
         keymap_local[app] = keymap.defineWindowKeymap(app_name=app)
