@@ -71,3 +71,6 @@ set-option -g bell-action none
 
 # 履歴を 5000 まで記録
 set-option -g history-limit 5000
+
+# vim の Esc の効きを良くする
+set-option -sg escape-time 10
