@@ -20,6 +20,10 @@ fi
 
 eval "$(rbenv init -)"
 
+if [ $(which pyenv) ]; then
+  export PATH=$(pyenv root)/shims:${PATH}
+fi
+
 eval "$(direnv hook zsh)"
 
 export GOPATH=${HOME}/work/go
