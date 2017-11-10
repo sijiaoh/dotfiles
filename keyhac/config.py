@@ -41,6 +41,7 @@ def configure(keymap):
 
         keymap_local[app][ "Ctrl-H" ] = "Ctrl-H"
         keymap_local[app][ "Alt-H" ] = "Alt-H"
+        keymap_local[app][ "Ctrl-D" ] = "Ctrl-D"
         keymap_local[app][ "Alt-D" ] = "Alt-D"
         keymap_local[app][ "Ctrl-G" ] = "Ctrl-G"
 
