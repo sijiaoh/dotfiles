@@ -47,6 +47,8 @@
   lond  = log --oneline --name-status --decorate
 
   m     = merge
+  moh   = merge origin HEAD
+  mom   = merge origin master
 
   p     = push
   poh   = push origin HEAD
@@ -62,6 +64,7 @@
 
   re    = rebase
   rei   = rebase -i
+  reom  = rebase origin master
 
   rv    = revert
 
