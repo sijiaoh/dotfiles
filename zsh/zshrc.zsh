@@ -85,5 +85,3 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
-
-estart
