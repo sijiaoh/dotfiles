@@ -63,6 +63,17 @@ fda() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+fge() {
+  local file
+
+  file="$(git grep --line-number $@ | fzf -0 -1 | awk -F: '{print "+" $2 " ./" $1}')"
+
+  if [[ -n $file ]]
+  then
+    emacsclient --no-wait $(echo $file)
+  fi
+}
+
 alias a='atom'
 
 function estart() {
