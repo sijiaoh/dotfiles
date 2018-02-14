@@ -63,6 +63,12 @@ fda() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
+fdd() {
+  local dir
+  dir=$(${DOTFILES_ROOT}/bin/list_parent_directories | fzf +m) &&
+  cd "$dir"
+}
+
 fge() {
   local file
 
