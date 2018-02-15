@@ -70,9 +70,17 @@ fda() {
 }
 
 fdd() {
-  local dir
-  dir=$(${DOTFILES_ROOT}/bin/list_parent_directories | fzf-tmux +m) &&
-    cd "$dir"
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux)
+  cd "$DIR"
 }
 
 fge() {

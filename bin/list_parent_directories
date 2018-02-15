@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-pwd = `pwd`.chomp
-puts pwd.split('/').reject(&:empty?).map { |path| pwd.sub(/#{path}.*/m, "") }.push(pwd).reverse.join("\n")
