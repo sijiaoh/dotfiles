@@ -60,25 +60,25 @@ fv() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+                  -o -type d -print 2> /dev/null | fzf-tmux +m) &&
   cd "$dir"
 }
 
 fda() {
   local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
 }
 
 fdd() {
   local dir
-  dir=$(${DOTFILES_ROOT}/bin/list_parent_directories | fzf +m) &&
+  dir=$(${DOTFILES_ROOT}/bin/list_parent_directories | fzf-tmux +m) &&
   cd "$dir"
 }
 
 fge() {
   local file
 
-  file="$(git grep --line-number $@ | fzf -0 -1 | awk -F: '{print "+" $2 " ./" $1}')"
+  file="$(git grep --line-number $@ | fzf-tmux -0 -1 | awk -F: '{print "+" $2 " ./" $1}')"
 
   if [[ -n $file ]]
   then
@@ -89,7 +89,7 @@ fge() {
 fgv() {
   local file
 
-  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
+  file="$(ag --nobreak --noheading $@ | fzf-tmux -0 -1 | awk -F: '{print $1 " +" $2}')"
 
   if [[ -n $file ]]
   then
