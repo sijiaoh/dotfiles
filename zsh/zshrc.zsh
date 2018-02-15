@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export EDITOR='emacsclient'
+export EDITOR='nvim'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
@@ -51,6 +51,12 @@ fe() {
   [[ -n "$files" ]] && eval "emacsclient --no-wait ${files[@]}"
 }
 
+fv() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && eval "nvim ${files[@]}"
+}
+
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -80,6 +86,17 @@ fge() {
   fi
 }
 
+fgv() {
+  local file
+
+  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
+
+  if [[ -n $file ]]
+  then
+     nvim $file
+  fi
+}
+
 alias a='atom'
 
 function estart() {
@@ -91,3 +108,4 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
+alias v='nvim'
