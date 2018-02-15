@@ -60,8 +60,8 @@ fv() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf-tmux +m) &&
-  cd "$dir"
+    -o -type d -print 2> /dev/null | fzf-tmux +m) &&
+    cd "$dir"
 }
 
 fda() {
@@ -72,7 +72,7 @@ fda() {
 fdd() {
   local dir
   dir=$(${DOTFILES_ROOT}/bin/list_parent_directories | fzf-tmux +m) &&
-  cd "$dir"
+    cd "$dir"
 }
 
 fge() {
@@ -93,7 +93,7 @@ fgv() {
 
   if [[ -n $file ]]
   then
-     nvim $file
+    nvim $file
   fi
 }
 
