@@ -56,6 +56,6 @@ fgv() {
 
   if [[ -n $file ]]
   then
-    nvim $file
+    nvim $(echo $file)
   fi
 }
