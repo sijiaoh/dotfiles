@@ -74,3 +74,18 @@ set-option -g history-limit 5000
 
 # vim の Esc の効きを良くする
 set-option -sg escape-time 10
+
+# コピーモードのキーバインドを vi にする
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key h if-shell "$is_vim" "send-keys C-t h"  "select-pane -L"
+bind-key j if-shell "$is_vim" "send-keys C-t j"  "select-pane -D"
+bind-key k if-shell "$is_vim" "send-keys C-t k"  "select-pane -U"
+bind-key l if-shell "$is_vim" "send-keys C-t l"  "select-pane -R"
+bind-key \ if-shell "$is_vim" "send-keys C-t \\" "select-pane -l"
