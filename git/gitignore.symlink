@@ -99,3 +99,6 @@ fabric.properties
 
 # Excel
 ~$*
+
+# Mac
+.DS_Store
