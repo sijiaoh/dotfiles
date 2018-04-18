@@ -1,8 +1,3 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 export EDITOR='emacsclient'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
@@ -16,6 +11,12 @@ if test ${OS} = 'linux'; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
   export MANPATH="/home/linuxbrew/.linuxbrew/share/man:${MANPATH}"
   export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH}"
+fi
+
+# Source Prezto.
+# brew のパスを通してから出ないと tmux が自動で立ち上がらない
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 eval "$(rbenv init -)"
