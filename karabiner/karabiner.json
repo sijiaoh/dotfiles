@@ -8,205 +8,49 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
-                        "description": "Emacs key bindings [C-x key strokes] (rev 1)",
+                        "description": "C-g を esc として扱う",
                         "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "C-x",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "q",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "C-x",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "f",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "o",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "C-x",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "s",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "C-x",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "any": "key_code",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "type": "basic"
-                            },
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
                                             "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^org\\.gnu\\.Aquamacs$",
-                                            "^org\\.pqrs\\.unknownapp.conkeror$",
-                                            "^com\\.microsoft\\.rdc$",
-                                            "^com\\.microsoft\\.rdc\\.mac$",
-                                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                                            "^net\\.sf\\.cord$",
-                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                            "^com\\.itap-mobile\\.qmote$",
-                                            "^com\\.nulana\\.remotixmac$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                                            "^com\\.teamviewer\\.TeamViewer$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.2X\\.Client\\.Mac$",
                                             "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^co\\.zeit\\.hyperterm$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^org\\.vim\\.",
-                                            "^com\\.vmware\\.fusion$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.vmware\\.view$",
-                                            "^com\\.parallels\\.desktop$",
-                                            "^com\\.parallels\\.vm$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.vmware\\.proxyApp\\.",
-                                            "^com\\.parallels\\.winapp\\.",
-                                            "^org\\.x\\.X11$",
-                                            "^com\\.apple\\.x11$",
-                                            "^org\\.macosforge\\.xquartz\\.X11$",
-                                            "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.googlecode\\.iterm2$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "x",
+                                    "key_code": "g",
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
                                         ],
                                         "optional": [
-                                            "caps_lock"
+                                            "caps_lock",
+                                            "shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "C-x",
-                                            "value": 1
-                                        }
+                                        "key_code": "escape"
                                     }
                                 ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "C-x",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "C-x",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Emacs key bindings [control+keys] (rev 8)",
+                        "description": "Emacs key bindings [control+keys] (rev 10)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -218,6 +62,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -232,7 +77,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -246,8 +94,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -281,6 +129,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -295,7 +144,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -309,8 +161,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -344,6 +196,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -358,7 +211,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -371,7 +227,9 @@
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
-                                            "^org\\.macports\\.X11$"
+                                            "^org\\.macports\\.X11$",
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -481,6 +339,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -495,7 +354,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -509,8 +371,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -545,6 +407,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -559,7 +422,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -573,8 +439,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -609,6 +475,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -623,7 +490,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -637,8 +507,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -673,6 +543,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -687,7 +558,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -701,8 +575,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -737,6 +611,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -751,7 +626,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -765,8 +643,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -849,6 +727,68 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.eclipse\\.platform\\.ide$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.eclipse\\.platform\\.ide$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -865,6 +805,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -879,7 +820,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -893,8 +837,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -928,6 +872,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -942,7 +887,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -956,8 +904,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -994,6 +942,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -1008,7 +957,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -1022,8 +974,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1060,6 +1012,7 @@
                                             "^org\\.pqrs\\.unknownapp.conkeror$",
                                             "^com\\.microsoft\\.rdc$",
                                             "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
                                             "^com\\.microsoft\\.rdc\\.osx\\.beta$",
                                             "^net\\.sf\\.cord$",
                                             "^com\\.thinomenon\\.RemoteDesktopConnection$",
@@ -1074,7 +1027,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
                                             "^com\\.vmware\\.fusion$",
                                             "^com\\.vmware\\.horizon$",
                                             "^com\\.vmware\\.view$",
@@ -1088,73 +1044,8 @@
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_backward",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^org\\.gnu\\.Aquamacs$",
-                                            "^org\\.pqrs\\.unknownapp.conkeror$",
-                                            "^com\\.microsoft\\.rdc$",
-                                            "^com\\.microsoft\\.rdc\\.mac$",
-                                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                                            "^net\\.sf\\.cord$",
-                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                                            "^com\\.itap-mobile\\.qmote$",
-                                            "^com\\.nulana\\.remotixmac$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                                            "^com\\.teamviewer\\.TeamViewer$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.2X\\.Client\\.Mac$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^co\\.zeit\\.hyperterm$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^org\\.vim\\.",
-                                            "^com\\.vmware\\.fusion$",
-                                            "^com\\.vmware\\.horizon$",
-                                            "^com\\.vmware\\.view$",
-                                            "^com\\.parallels\\.desktop$",
-                                            "^com\\.parallels\\.vm$",
-                                            "^com\\.parallels\\.desktop\\.console$",
-                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.vmware\\.proxyApp\\.",
-                                            "^com\\.parallels\\.winapp\\.",
-                                            "^org\\.x\\.X11$",
-                                            "^com\\.apple\\.x11$",
-                                            "^org\\.macosforge\\.xquartz\\.X11$",
-                                            "^org\\.macports\\.X11$",
-                                            "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.jetbrains\\.rubymine$"
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1179,15 +1070,84 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^org\\.gnu\\.Aquamacs$",
+                                            "^org\\.pqrs\\.unknownapp.conkeror$",
+                                            "^com\\.microsoft\\.rdc$",
+                                            "^com\\.microsoft\\.rdc\\.mac$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^com\\.microsoft\\.rdc\\.osx\\.beta$",
+                                            "^net\\.sf\\.cord$",
+                                            "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                                            "^com\\.itap-mobile\\.qmote$",
+                                            "^com\\.nulana\\.remotixmac$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                                            "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
+                                            "^com\\.teamviewer\\.TeamViewer$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.2X\\.Client\\.Mac$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyperterm$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^io\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.vim\\.",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.horizon$",
+                                            "^com\\.vmware\\.view$",
+                                            "^com\\.parallels\\.desktop$",
+                                            "^com\\.parallels\\.vm$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.vmware\\.proxyApp\\.",
+                                            "^com\\.parallels\\.winapp\\.",
+                                            "^org\\.x\\.X11$",
+                                            "^com\\.apple\\.x11$",
+                                            "^org\\.macosforge\\.xquartz\\.X11$",
+                                            "^org\\.macports\\.X11$",
+                                            "^com\\.sublimetext\\.",
+                                            "^com\\.microsoft\\.VSCode$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "オプションキーを単体で押したときに、英数・かなキーを送信する。（左オプションキーは英数、右オプションキーはかな） (rev 2)",
+                        "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな） (rev 2)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "left_option",
+                                    "key_code": "left_command",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -1196,7 +1156,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_option",
+                                        "key_code": "left_command",
                                         "lazy": true
                                     }
                                 ],
@@ -1209,7 +1169,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "right_option",
+                                    "key_code": "right_command",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -1218,48 +1178,13 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_option",
+                                        "key_code": "right_command",
                                         "lazy": true
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "japanese_kana"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "C-g を esc として扱う",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
@@ -1377,42 +1302,11 @@
                     "to": {
                         "key_code": "left_control"
                     }
-                },
-                {
-                    "from": {
-                        "key_code": "left_command"
-                    },
-                    "to": {
-                        "key_code": "left_option"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "left_option"
-                    },
-                    "to": {
-                        "key_code": "left_command"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "right_command"
-                    },
-                    "to": {
-                        "key_code": "right_option"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "right_option"
-                    },
-                    "to": {
-                        "key_code": "right_command"
-                    }
                 }
             ],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
+                "country_code": 0,
                 "keyboard_type": "ansi"
             }
         }
