@@ -59,3 +59,11 @@ function estart() {
 
 alias e='emacsclient --no-wait'
 alias v='nvim'
+
+function macvim() {
+  if [ ! -e ${1} ]; then
+    touch ${1}
+  fi
+  open -a MacVim ${1}
+}
+alias m='macvim'
