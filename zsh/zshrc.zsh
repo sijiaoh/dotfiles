@@ -41,6 +41,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g X='| xargs'
 alias -g XG='| xargs grep'
+alias GF='find . -type f | xargs grep'
 
 bindkey '^[h' backward-kill-word
 
