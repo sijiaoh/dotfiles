@@ -19,13 +19,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-eval "$(rbenv init -)"
-
-if [ $(which pyenv) ]; then
-  export PATH=$(pyenv root)/shims:${PATH}
-fi
-
-eval "$(direnv hook zsh)"
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 
 export GOPATH=${HOME}/work/go
 export PATH=${GOPATH}/bin:${PATH}
