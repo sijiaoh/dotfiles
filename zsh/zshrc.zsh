@@ -22,6 +22,8 @@ fi
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+eval "$(direnv hook zsh)"
+
 export GOPATH=${HOME}/work/go
 export PATH=${GOPATH}/bin:${PATH}
 
