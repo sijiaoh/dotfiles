@@ -41,6 +41,8 @@ alias -g X='| xargs'
 alias -g XG='| xargs grep'
 alias GF='find . -type f | xargs grep'
 
+alias cdr='cd $(git rev-parse --show-toplevel)'
+
 bindkey '^[h' backward-kill-word
 
 source ${DOTFILES_ROOT}/zsh/fzf.zsh
