@@ -9,4 +9,4 @@ eval "$(anyenv init -)"
 
 anyenv install rbenv
 anyenv install pyenv
-anyenv install ndenv
+anyenv install nodenv
