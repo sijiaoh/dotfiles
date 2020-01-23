@@ -76,3 +76,6 @@
 [core]
   excludesfile = ~/.gitignore
   editor = emacsclient
+[user]
+  email = sijiaoh@outlook.com
+  name = Sijia Wang
