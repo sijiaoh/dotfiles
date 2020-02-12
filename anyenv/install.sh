@@ -1,11 +1,12 @@
 #!/bin/bash -eu
 
 if [ ! -e ~/.anyenv ]; then
-  git clone https://github.com/riywo/anyenv ~/.anyenv
+  git clone https://github.com/anyenv/anyenv ~/.anyenv
+  anyenv install --force-init
 fi
 
 PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init)"
 
 mkdir -p $(anyenv root)/plugins
 if [ ! -e $(anyenv root)/plugins/anyenv-update ]; then
