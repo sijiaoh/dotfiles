@@ -1,4 +1,4 @@
-#!/home/linuxbrew/.linuxbrew/bin/zsh
+#!/usr/bin/env zsh
 
 set -eu
 
