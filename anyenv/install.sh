@@ -2,7 +2,7 @@
 
 if [ ! -e ~/.anyenv ]; then
   git clone https://github.com/anyenv/anyenv ~/.anyenv
-  anyenv install --force-init
+  ~/.anyenv/bin/anyenv install --force-init
 fi
 
 PATH="$HOME/.anyenv/bin:$PATH"
