@@ -76,7 +76,7 @@
 [core]
   excludesfile = ~/.gitignore
   editor = emacsclient
-  autocrlf = true
+  autocrlf = input
 [user]
   email = sijiaoh@outlook.com
   name = Sijia Wang
