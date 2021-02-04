@@ -75,7 +75,7 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = emacsclient
+  editor = vim
   autocrlf = input
 [user]
   email = sijiaoh@outlook.com
