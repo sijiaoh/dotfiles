@@ -1,5 +1,5 @@
 export TERM=xterm-256color
-export EDITOR='emacsclient'
+export EDITOR='code'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 

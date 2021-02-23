@@ -1,15 +1,8 @@
 export FZF_DEFAULT_OPTS="--bind 'ctrl-k:kill-line'"
 
 fe() {
-  local files
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && eval "emacsclient --no-wait ${files[@]}"
-}
-
-fv() {
-  local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && eval "nvim ${files[@]}"
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 fd() {
@@ -45,7 +38,7 @@ fge() {
 
   if [[ -n $file ]]
   then
-    emacsclient --no-wait $(echo $file)
+    ${EDITOR:-vim} --no-wait $(echo $file)
   fi
 }
 
