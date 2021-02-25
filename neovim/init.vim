@@ -22,3 +22,9 @@ let g:clipboard = {
   \   },
   \   'cache_enabled': 0,
   \ }
+
+" Auto disable ime.
+if executable('zenhan')
+  autocmd InsertLeave * :call system('zenhan 0')
+  autocmd CmdlineLeave * :call system('zenhan 0')
+endif
