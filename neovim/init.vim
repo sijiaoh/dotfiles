@@ -1,5 +1,3 @@
-let mapleader = "\<Space>"
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'asvetliakov/vim-easymotion'
@@ -7,6 +5,8 @@ Plug 'tpope/vim-surround'
 
 Plug '~/my-prototype-plugin'
 call plug#end()
+
+let mapleader = "\<Space>"
 
 " Use windows clipboard.
 set clipboard+=unnamedplus
