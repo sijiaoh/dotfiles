@@ -8,6 +8,12 @@ call plug#end()
 
 let mapleader = "\<Space>"
 
+" Comment.
+xmap gc  <Plug>VSCodeCommentary
+nmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
+
 " Use windows clipboard.
 set clipboard+=unnamedplus
 let g:clipboard = {
