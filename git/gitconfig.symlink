@@ -52,7 +52,7 @@
 
   p     = push
   poh   = push origin HEAD
-  pohf  = push -f origin HEAD
+  pohf  = push --force-with-lease origin HEAD
 
   pl    = pull
   plr   = pull --rebase
