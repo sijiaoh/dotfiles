@@ -1,4 +1,4 @@
-export TERM=xterm-256color
+export TERM=screen-256color
 export EDITOR='code'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
