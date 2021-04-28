@@ -1,5 +1,7 @@
 #!/bin/bash -eu
 
+brew install unzip
+
 curl -fLO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
