@@ -1,4 +1,4 @@
-export EDITOR='code'
+export EDITOR='vim'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
