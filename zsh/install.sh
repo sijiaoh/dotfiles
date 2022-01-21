@@ -14,5 +14,6 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 
 ln -sfv ${DOTFILES_ROOT}/zsh/zshrc.zsh ${ZDOTDIR:-$HOME}/.zshrc
+ln -sfv ${DOTFILES_ROOT}/zsh/p10k.zsh ${ZDOTDIR:-$HOME}/.p10k.zsh
 ln -sfv ${DOTFILES_ROOT}/zsh/zpreztorc.zsh ${ZDOTDIR:-$HOME}/.zpreztorc
 ln -sfv ${DOTFILES_ROOT}/zsh/prompt_chan_setup.zsh ${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/prompt_chan_setup
