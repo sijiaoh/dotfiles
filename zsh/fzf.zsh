@@ -5,6 +5,12 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+# Find git diff.
+fgd() {
+  IFS=$'\n' files=($(git diff --name-only | fzf --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
