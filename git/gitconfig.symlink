@@ -71,6 +71,7 @@
   s     = status
 
   t     = log --oneline --graph --decorate
+  tf    = log --oneline --graph --decorate --first-parent
   ta    = log --oneline --graph --decorate --all
 
 [core]
