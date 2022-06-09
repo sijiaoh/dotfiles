@@ -5,5 +5,8 @@ export DOTFILES_ROOT=$(pwd -P)
 
 echo "${DOTFILES_ROOT}" > ${HOME}/.dotfiles_root
 
+brew install lua
+lua ${DOTFILES_ROOT}/src/bootstrap.lua
+
 ${DOTFILES_ROOT}/bin/link
 ${DOTFILES_ROOT}/bin/install
