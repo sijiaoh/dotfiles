@@ -1,0 +1,16 @@
+local zprezto_root = "~/.zprezto"
+
+BrewInstall("zsh")
+
+Exec("git clone --recursive https://github.com/sorin-ionescu/prezto.git " .. zprezto_root)
+
+local runcoms_str = Run("ls " .. zprezto_root .. "/runcoms/^README.md(.N)")
+local runcoms = Split(runcoms_str, "\n")
+for _, runcom in ipairs(runcoms) do
+  Exec("ln -sfv " .. runcom .. " ~/." .. BaseName(runcom))
+end
+
+CreateSymlink("zshrc.zsh", "~/.zshrc")
+CreateSymlink("p10k.zsh", "~/.p10k.zsh")
+CreateSymlink("zpreztorc.zsh", "~/.zpreztorc")
+CreateSymlink("prompt_chan_setup.zsh", zprezto_root .. "/modules/prompt/functions/prompt_chan_setup")

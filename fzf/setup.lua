@@ -1,0 +1,2 @@
+BrewInstall("fzf")
+BrewInstall("coreutils")

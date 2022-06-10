@@ -28,6 +28,10 @@ function DirName(path)
   return Run("dirname " .. path)
 end
 
+function BaseName(path)
+  return Run("basename " .. path)
+end
+
 function MkdirP(path)
   Run("mkdir -p " .. path);
 end

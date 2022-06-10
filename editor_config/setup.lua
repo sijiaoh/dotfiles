@@ -1,0 +1,1 @@
+CreateSymlink(".editorconfig")
