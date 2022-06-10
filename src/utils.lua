@@ -33,7 +33,7 @@ function BaseName(path)
 end
 
 function MkdirP(path)
-  Run("mkdir -p " .. path);
+  return Exec("mkdir -p " .. path);
 end
 
 function CreateSymlink(from, to)
@@ -45,9 +45,7 @@ function CreateSymlink(from, to)
 
   local absolute_path = table.concat({ DotfilesRoot, SetupDir }, "/")
   local command = "ln -sfv " .. absolute_path .. "/" .. from .. " " .. to
-  local output = Run(command)
-
-  print(output)
+  return Exec(command)
 end
 
 function CheckFileExists(path)
@@ -55,6 +53,7 @@ function CheckFileExists(path)
 end
 
 function GitClone(path, url)
+  if CheckFileExists(path) then return true end
   return Exec("git clone " .. url .. " " .. path)
 end
 

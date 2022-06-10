@@ -1,8 +1,10 @@
 local zprezto_root = "~/.zprezto"
 
-BrewInstall("zsh")
+assert(BrewInstall("zsh"))
 
-Exec("git clone --recursive https://github.com/sorin-ionescu/prezto.git " .. zprezto_root)
+if not CheckFileExists(zprezto_root) then
+  assert(Exec("git clone --recursive https://github.com/sorin-ionescu/prezto.git " .. zprezto_root))
+end
 
 local runcoms_str = Run("ls " .. zprezto_root .. "/runcoms/^README.md(.N)")
 local runcoms = Split(runcoms_str, "\n")

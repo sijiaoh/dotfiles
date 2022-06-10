@@ -1,2 +1,2 @@
-BrewInstall("fzf")
-BrewInstall("coreutils")
+assert(BrewInstall("fzf"))
+assert(BrewInstall("coreutils"))

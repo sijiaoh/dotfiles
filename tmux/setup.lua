@@ -1,3 +1,3 @@
-BrewInstall("tmux")
+assert(BrewInstall("tmux"))
 
 CreateSymlink(".tmux.conf")
