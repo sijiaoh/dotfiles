@@ -1,4 +1,11 @@
 #
+# Sets Prezto options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+#
 # General
 #
 
@@ -7,6 +14,12 @@
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
+
+# Add additional directories to load prezto modules from
+# zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
+
+# Allow module overrides when pmodule-dirs causes module name collisions
+# zstyle ':prezto:load' pmodule-allow-overrides 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
@@ -25,11 +38,11 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'history-substring-search' \
   'prompt' \
   'git' \
   'docker' \
-  'tmux' \
-  'history-substring-search'
+  'tmux'
 
 #
 # Autosuggestions
@@ -37,6 +50,14 @@ zstyle ':prezto:load' pmodule \
 
 # Set the query found color.
 # zstyle ':prezto:module:autosuggestions:color' found ''
+
+#
+# Completions
+#
+
+# Set the entries to ignore in static '/etc/hosts' for host completion.
+# zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
+#   '0.0.0.0' '127.0.0.1'
 
 #
 # Editor
@@ -79,6 +100,13 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
+# macOS
+#
+
+# Set the keyword used by `mand` to open man pages in Dash.app
+# zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
+
+#
 # Pacman
 #
 
@@ -92,18 +120,18 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
+# zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:prompt' theme 'chan'
 zstyle :prezto:module:prompt theme powerlevel10k
 
-# Set how themes that use promptpwd function display the pwd, can be 'short', 'long', or 'full'
+# Set the working directory prompt display length.
+# By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
+# for longer or 'full' (with '~' expansion) for even longer prompt display.
 # zstyle ':prezto:module:prompt' pwd-length 'short'
 
-#
-# Ruby
-#
-
-# Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+# Set the prompt to display the return code along with an indicator for non-zero
+# return codes. This is not supported by all prompts.
+# zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
 # Python
@@ -111,6 +139,16 @@ zstyle :prezto:module:prompt theme powerlevel10k
 
 # Auto switch the Python virtualenv on directory change.
 # zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
+
+# Automatically initialize virtualenvwrapper if pre-requisites are met.
+# zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
@@ -184,3 +222,12 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
+
+#
+# Utility
+#
+
+# Enabled safe options. This aliases cp, ln, mv and rm so that they prompt
+# before deleting or overwriting files. Set to 'no' to disable this safer
+# behavior.
+# zstyle ':prezto:module:utility' safe-ops 'yes'
