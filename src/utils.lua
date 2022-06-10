@@ -51,3 +51,11 @@ end
 function GitClone(path, url)
   return Exec("git clone " .. url .. " " .. path)
 end
+
+function BrewInstall(package_name, options)
+  options = options or {}
+  local cask = options["cask"] or false
+
+  local cask_option_str = cask and " --cask " or ""
+  return Exec("brew install " .. cask_option_str .. package_name)
+end
