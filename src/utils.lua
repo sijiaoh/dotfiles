@@ -1,4 +1,5 @@
-function Exec(command)
+-- Exec command and return stdout.
+function Run(command)
   local handle = io.popen(command)
   assert(handle ~= nil)
   local result = handle:read("*a")
@@ -20,11 +21,11 @@ function Split(inputstr, sep)
 end
 
 function DirName(path)
-  return Exec("dirname " .. path)
+  return Run("dirname " .. path)
 end
 
 function MkdirP(path)
-  Exec("mkdir -p " .. path);
+  Run("mkdir -p " .. path);
 end
 
 function CreateSymlink(from, to)
@@ -34,7 +35,7 @@ function CreateSymlink(from, to)
 
   local absolute_path = table.concat({ DotfilesRoot, SetupDir }, "/")
   local command = "ln -sfv " .. absolute_path .. "/" .. from .. " " .. to
-  local output = Exec(command)
+  local output = Run(command)
 
   print(output)
 end
