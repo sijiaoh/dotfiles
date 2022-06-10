@@ -38,3 +38,11 @@ function CreateSymlink(from, to)
 
   print(output)
 end
+
+function CheckFileExists(path)
+  return os.execute("test -e " .. path) == true
+end
+
+function GitClone(path, url)
+  return os.execute("git clone " .. url .. " " .. path) == true
+end
