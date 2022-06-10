@@ -11,7 +11,5 @@ Require brew.
 ## setup.lua example
 
 ```lua
-require "./src/utils"
-
 CreateSymlink("foo.bar", "~/.foo")
 ```
