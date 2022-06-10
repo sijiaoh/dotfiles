@@ -35,6 +35,8 @@ end
 function CreateSymlink(from, to)
   assert(SetupDir ~= nil)
 
+  to = to or ("~/" .. from)
+
   MkdirP(DirName(to));
 
   local absolute_path = table.concat({ DotfilesRoot, SetupDir }, "/")
