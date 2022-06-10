@@ -1,3 +1,7 @@
+function Exec(command)
+  return os.execute(command) == true
+end
+
 -- Exec command and return stdout.
 function Run(command)
   local handle = io.popen(command)
@@ -41,9 +45,9 @@ function CreateSymlink(from, to)
 end
 
 function CheckFileExists(path)
-  return os.execute("test -e " .. path) == true
+  return Exec("test -e " .. path)
 end
 
 function GitClone(path, url)
-  return os.execute("git clone " .. url .. " " .. path) == true
+  return Exec("git clone " .. url .. " " .. path)
 end
