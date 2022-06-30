@@ -1,5 +1,8 @@
 [alias]
-  tree  = log --oneline --graph --decorate
+  tree  = log --graph --format=\"%C(auto)%h %C(blue)%an %C(auto)%d %s\"
+  t     = log --graph --format=\"%C(auto)%h %C(blue)%an %C(auto)%d %s\"
+  tf    = log --graph --format=\"%C(auto)%h %C(blue)%an %C(auto)%d %s\" --first-parent
+  ta    = log --graph --format=\"%C(auto)%h %C(blue)%an %C(auto)%d %s\" --all
 
   a     = add
   aa    = add --all
@@ -69,10 +72,6 @@
   rv    = revert
 
   s     = status
-
-  t     = log --oneline --graph --decorate
-  tf    = log --oneline --graph --decorate --first-parent
-  ta    = log --oneline --graph --decorate --all
 
 [core]
   excludesfile = ~/.gitignore
