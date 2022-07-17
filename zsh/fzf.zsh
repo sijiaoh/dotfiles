@@ -1,26 +1,32 @@
+if [[ ${TERM} =~ "screen" ]] && [ -n ${TMUX} ]; then
+  FZF_COMMAND="fzf-tmux"
+else
+  FZF_COMMAND="fzf"
+fi
+
 export FZF_DEFAULT_OPTS="--bind 'ctrl-k:kill-line'"
 
 fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 # Find git diff.
 fgd() {
-  IFS=$'\n' files=($(git diff --name-only | fzf --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(git diff --name-only | ${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf-tmux +m) &&
+    -o -type d -print 2> /dev/null | ${FZF_COMMAND} +m) &&
     cd "$dir"
 }
 
 fda() {
   local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
+  dir=$(find ${1:-.} -type d 2> /dev/null | ${FZF_COMMAND} +m) && cd "$dir"
 }
 
 fdd() {
@@ -33,14 +39,14 @@ fdd() {
       get_parent_dirs $(dirname "$1")
     fi
   }
-  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux)
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | ${FZF_COMMAND})
   cd "$DIR"
 }
 
 fge() {
   local file
 
-  file="$(git grep --line-number $@ | fzf-tmux -0 -1 | awk -F: '{print "+" $2 " ./" $1}')"
+  file="$(git grep --line-number $@ | ${FZF_COMMAND} -0 -1 | awk -F: '{print "+" $2 " ./" $1}')"
 
   if [[ -n $file ]]
   then
@@ -51,7 +57,7 @@ fge() {
 fgv() {
   local file
 
-  file="$(ag --nobreak --noheading $@ | fzf-tmux -0 -1 | awk -F: '{print $1 " +" $2}')"
+  file="$(ag --nobreak --noheading $@ | ${FZF_COMMAND} -0 -1 | awk -F: '{print $1 " +" $2}')"
 
   if [[ -n $file ]]
   then
