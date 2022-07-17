@@ -79,7 +79,7 @@
   autocrlf = input
 [user]
   email = sijiaoh@outlook.com
-  name = Sijia Wang
+  name = sijiaoh
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
