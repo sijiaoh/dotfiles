@@ -2,18 +2,9 @@ export EDITOR='code'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
-. ${DOTFILES_ROOT}/lib/os.sh
-
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
-# brew
-if test ${OS} = 'linux'; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
-  export MANPATH="/home/linuxbrew/.linuxbrew/share/man:${MANPATH}"
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH}"
-else
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+. ${DOTFILES_ROOT}/lib/brew_path.sh
 
 # Source Prezto.
 # brew のパスを通してから出ないと tmux が自動で立ち上がらない
