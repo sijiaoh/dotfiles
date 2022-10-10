@@ -41,9 +41,9 @@
 
   g     = grep
 
-  l     = log
-  lp    = log -p
-  ln    = log --name-status
+  l     = log --date=format:"'%Y/%m/%d %H:%M:%S'"
+  lp    = log --date=format:"'%Y/%m/%d %H:%M:%S'" -p
+  ln    = log --date=format:"'%Y/%m/%d %H:%M:%S'" --name-status
   lo    = log --oneline
   lon   = log --oneline --name-status
   lod   = log --oneline --decorate
