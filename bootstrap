@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-cd $(dirname "${0}")/..
+cd $(dirname "${0}")
 export DOTFILES_ROOT=$(pwd -P)
 
 echo "${DOTFILES_ROOT}" > ${HOME}/.dotfiles_root
