@@ -1,1 +1,3 @@
-CreateSymlink("karabiner.json", "~/.config/karabiner/karabiner.json")
+if IsMacOs() then
+  CreateSymlink("karabiner.json", "~/.config/karabiner/karabiner.json")
+end

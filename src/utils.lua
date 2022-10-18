@@ -64,3 +64,11 @@ function BrewInstall(package_name, options)
   local cask_option_str = cask and " --cask " or ""
   return Exec("brew install " .. cask_option_str .. package_name)
 end
+
+function IsLinux()
+  return Exec("uname -s | grep -i linux")
+end
+
+function IsMacOs()
+  return Exec("uname -s | grep -i darwin")
+end
