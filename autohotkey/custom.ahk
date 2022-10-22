@@ -12,9 +12,9 @@ SetKeyDelay 0
 is_target()
 {
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
-    Return 1 
+    Return 1
   IfWinActive,ahk_class MEADOW ; Meadow
-    Return 1 
+    Return 1
   IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0
     Return 1
   IfWinActive,ahk_class MozillaUIWindowClass ; keysnail on Firefox
@@ -33,7 +33,7 @@ is_target()
 ;   IfWinActive,ahk_class SunAwtFrame
 ;     Return 1
 ;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
+;     Return 1
 ;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
 ;     Return 1
   Return 0
@@ -183,7 +183,7 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
     forward_char()
-  Return  
+  Return
 ^d::
   If is_target()
     Send %A_ThisHotkey%
@@ -264,31 +264,57 @@ scroll_down()
   Return
 
 !a::Send ^a
++!a::Send +^a
 !b::Send ^b
++!b::Send +^b
 !c::Send ^c
++!c::Send +^c
 !d::Send ^d
++!d::Send +^d
 !e::Send ^e
++!e::Send +^e
 !f::Send ^f
++!f::Send +^f
 !g::Send ^g
++!g::Send +^g
 !h::Send ^h
++!h::Send +^h
 !i::Send ^i
++!i::Send +^i
 !j::Send ^j
++!j::Send +^j
 !k::Send ^k
++!k::Send +^k
 !l::Send ^l
++!l::Send +^l
 !m::Send ^m
++!m::Send +^m
 !n::Send ^n
++!n::Send +^n
 !o::Send ^o
++!o::Send +^o
 !p::Send ^p
++!p::Send +^p
 !q::Send ^q
++!q::Send +^q
 !r::Send ^r
++!r::Send +^r
 !s::Send ^s
++!s::Send +^s
 !t::Send ^t
++!t::Send +^t
 !u::Send ^u
++!u::Send +^u
 !v::Send ^v
++!v::Send +^v
 !w::Send ^w
++!w::Send +^w
 !x::Send ^x
++!x::Send +^x
 !y::Send ^y
++!y::Send +^y
 !z::Send ^z
++!z::Send +^z
 
 !Enter::Send ^{Enter}
 ^!m::Send ^{Enter}
