@@ -1,7 +1,5 @@
 # Dotfiles
 
-Require brew.
-
 ## File structure
 
 - [package]

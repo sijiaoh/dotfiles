@@ -4,7 +4,11 @@ export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
-. ${DOTFILES_ROOT}/lib/brew_path.sh
+. ${DOTFILES_ROOT}/lib/os.sh
+
+if test ${OS} = "macos"; then
+  . ${DOTFILES_ROOT}/lib/brew_path.sh
+fi
 
 # Source Prezto.
 # brew のパスを通してから出ないと tmux が自動で立ち上がらない

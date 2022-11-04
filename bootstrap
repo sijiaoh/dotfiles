@@ -5,8 +5,17 @@ export DOTFILES_ROOT=$(pwd -P)
 
 echo "${DOTFILES_ROOT}" > ${HOME}/.dotfiles_root
 
-. ${DOTFILES_ROOT}/lib/install_brew.sh
-. ${DOTFILES_ROOT}/lib/brew_path.sh
+. ${DOTFILES_ROOT}/lib/os.sh
 
-brew install lua
+if test ${OS} = "macos"; then
+  . ${DOTFILES_ROOT}/lib/install_brew.sh
+  . ${DOTFILES_ROOT}/lib/brew_path.sh
+fi
+
+if test ${OS} = "linux"; then
+  sudo apt-get install lua5.3
+else
+  brew install lua
+fi
+
 lua ${DOTFILES_ROOT}/src/bootstrap.lua

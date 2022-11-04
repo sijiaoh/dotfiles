@@ -1,6 +1,6 @@
 local zprezto_root = "~/.zprezto"
 
-assert(BrewInstall("zsh"))
+assert(AutoInstall("zsh"))
 
 if not CheckFileExists(zprezto_root) then
   assert(Exec("git clone --recursive https://github.com/sorin-ionescu/prezto.git " .. zprezto_root))

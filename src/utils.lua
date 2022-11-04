@@ -57,12 +57,24 @@ function GitClone(path, url)
   return Exec("git clone " .. url .. " " .. path)
 end
 
+function AptInstall(package_name)
+  return Exec("sudo apt-get install -y " .. package_name)
+end
+
 function BrewInstall(package_name, options)
   options = options or {}
   local cask = options["cask"] or false
 
   local cask_option_str = cask and " --cask " or ""
   return Exec("brew install " .. cask_option_str .. package_name)
+end
+
+function AutoInstall(package_name)
+  if IsLinux() then
+    return AptInstall(package_name)
+  else
+    return BrewInstall(package_name)
+  end
 end
 
 function IsLinux()
