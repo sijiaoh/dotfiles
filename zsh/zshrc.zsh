@@ -66,6 +66,9 @@ function macvim() {
 }
 alias m='macvim'
 
+alias b='bundle'
+alias be='bundle exec'
+
 # Speed up tab completion in wsl2.
 unsetopt PATH_DIRS
 
