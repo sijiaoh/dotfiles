@@ -69,6 +69,13 @@ alias m='macvim'
 alias b='bundle'
 alias be='bundle exec'
 
+# utilities
+
+# Use to change owner of files created in docker to current user.
+function chown_git_status_files() {
+  sudo chown -R $(whoami):$(whoami) $(git status -s | awk '{print $2}')
+}
+
 # Speed up tab completion in wsl2.
 unsetopt PATH_DIRS
 
