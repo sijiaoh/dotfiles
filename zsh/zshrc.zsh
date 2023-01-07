@@ -72,6 +72,7 @@ alias be='bundle exec'
 # utilities
 
 # Use to change owner of files created in docker to current user.
+# Run this command before git add because you need to change owner of directories.
 function chown_git_status_files() {
   sudo chown -R $(whoami):$(whoami) $(git status -s | awk '{print $2}')
 }
