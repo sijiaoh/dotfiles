@@ -1,268 +1,45 @@
-;;
-;; An autohotkey script that provides emacs-like keybinding on Windows
-;;
 #InstallKeybdHook
 #UseHook
 
-; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
 
-; Applications you want to disable emacs-like keybindings
-; (Please comment out applications you don't use)
-is_target()
-{
-;  IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
-;    Return 1
-;  IfWinActive,ahk_class MEADOW ; Meadow
-;    Return 1
-;  IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0
-;    Return 1
-;  IfWinActive,ahk_class MozillaUIWindowClass ; keysnail on Firefox
-;    Return 1
-;  ; Avoid VMwareUnity with AutoHotkey
-;  IfWinActive,ahk_class VMwareUnityHostWndClass
-;    Return 1
-;  IfWinActive,ahk_class Vim ; GVIM
-;    Return 1
-;  IfWinActive,ahk_class PuTTY
-;    Return 1
-;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
-;    Return 1
-;   IfWinActive,ahk_class Xming X
-;     Return 1
-;   IfWinActive,ahk_class SunAwtFrame
-;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1
-;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
-;     Return 1
-  Return 0
-}
+; Enter.
+^m::Send {Enter}
+^+m::Send +{Enter}
+^!m::Send ^{Enter}
+!Enter::Send ^{Enter}
 
-delete_char()
-{
-  Send {Del}
-  Return
-}
-delete_backward_char()
-{
-  Send {BS}
-  Return
-}
-kill_line()
-{
-  Send {ShiftDown}{END}{SHIFTUP}
-  Sleep 50 ;[ms] this value depends on your environment
-  Send ^x
-  Return
-}
-open_line()
-{
-  Send {END}{Enter}{Up}
-  Return
-}
-quit()
-{
-  Send {ESC}
-  Return
-}
-newline()
-{
-  Send {Enter}
-  Return
-}
-shift_newline()
-{
-  Send +{Enter}
-  Return
-}
-indent_for_tab_command()
-{
-  Send {Tab}
-  Return
-}
-newline_and_indent()
-{
-  Send {Enter}{Tab}
-  Return
-}
-select_all()
-{
-  Send ^a
-  Return
-}
-isearch_forward()
-{
-  Send ^f
-  Return
-}
-isearch_backward()
-{
-  Send ^f
-  Return
-}
-kill_region()
-{
-  Send ^x
-  Return
-}
-kill_ring_save()
-{
-  Send ^c
-  Return
-}
-yank()
-{
-  Send ^v
-  Return
-}
-undo()
-{
-  Send ^z
-  Return
-}
-find_file()
-{
-  Send ^o
-  Return
-}
-save_buffer()
-{
-  Send, ^s
-  Return
-}
-kill_emacs()
-{
-  Send !{F4}
-  Return
-}
+; Movements.
+^p::Send {Up}
+^n::Send {Down}
+^b::Send {Left}
+^f::Send {Right}
 
-move_beginning_of_line()
-{
-  Send {HOME}
-  Return
-}
-move_end_of_line()
-{
-  Send {END}
-  Return
-}
-previous_line()
-{
-  Send {Up}
-  Return
-}
-next_line()
-{
-  Send {Down}
-  Return
-}
-forward_char()
-{
-  Send {Right}
-  Return
-}
-backward_char()
-{
-  Send {Left}
-  Return
-}
-scroll_up()
-{
-  Send {PgUp}
-  Return
-}
-scroll_down()
-{
-  Send {PgDn}
-  Return
-}
+^a::Send {Home}
+^e::Send {End}
 
-^f::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    forward_char()
-  Return
-^d::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    delete_char()
-  Return
-^h::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    delete_backward_char()
-  Return
+; Others.
+^d::Send {Del}
+^h::Send {Bs}
+^i::Send {Tab}
+^[::Send {Esc}
+^g::Send {Esc}
+
 ^k::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    kill_line()
-  Return
-^[::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    quit()
-  Return
-^m::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    newline()
-  Return
-^+m::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    shift_newline()
-  Return
-^i::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    indent_for_tab_command()
-  Return
-^a::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    move_beginning_of_line()
-  Return
-^e::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    move_end_of_line()
-  Return
-^p::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    previous_line()
-  Return
-^n::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    next_line()
-  Return
-^b::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    backward_char()
-  Return
-^g::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    quit()
-  Return
+  Send {ShiftDown}{End}{ShiftUp}
+  Sleep 50 ; [ms] this value depends on your environment.
+  Send ^x
 
+; Disables Alt key press behaviour.
+*~Alt::Send {Blind}{vkFF}
+
+; Map Alt+` to Esc (for HHKB).
+; vk19 is hankaku/zenkaku.
+vk19::Send {Esc}
+!vk19::Send {Esc}
+
+; Mapping Alt+{key} to Ctrl+{key}.
+; Do not map Alt to Ctrl directly. Because Alt+Tab is not reproducible. Do it redundantly.
 !a::Send ^a
 +!a::Send +^a
 !b::Send ^b
@@ -331,33 +108,18 @@ scroll_down()
 !/::Send ^/
 +!/::Send +^/
 
-!Enter::Send ^{Enter}
-^!m::Send ^{Enter}
-
-; vk19は半角/全角
-; (!)vk19::EscだとAltEscが発動してしまう。
-; vk19と!vk19の両方がないと動かない環境がある。
-vk19::Send {Esc}
-!vk19::Send {Esc}
+; IME controls.
 
 #Include IME.ahk
 
-; 上部メニューがアクティブになるのを抑制
-*~LAlt::Send {Blind}{vkFF}
-*~RAlt::Send {Blind}{vkFF}
-
-; 左 Alt 空打ちで IME を OFF
+; Pressing the left Alt key without pressing any other keys turns on IME.
 LAlt up::
-    if (A_PriorHotkey == "*~LAlt")
-    {
-        IME_SET(0)
-    }
-    Return
+  if (A_PriorHotkey == "*~LAlt") {
+    IME_SET(0)
+  }
 
-; 右 Alt 空打ちで IME を ON
+; Pressing the right Alt key without pressing any other keys turns on IME.
 RAlt up::
-    if (A_PriorHotkey == "*~RAlt")
-    {
-        IME_SET(1)
-    }
-    Return
+  if (A_PriorHotkey == "*~RAlt") {
+    IME_SET(1)
+  }
