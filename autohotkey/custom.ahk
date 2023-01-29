@@ -113,12 +113,14 @@ vk19::Send {Esc}
 #Include IME.ahk
 
 ; Pressing the left Alt key without pressing any other keys turns on IME.
+*~LAlt::Send {Blind}{vkFF}
 LAlt up::
   if (A_PriorHotkey == "*~LAlt") {
     IME_SET(0)
   }
 
 ; Pressing the right Alt key without pressing any other keys turns on IME.
+*~RAlt::Send {Blind}{vkFF}
 RAlt up::
   if (A_PriorHotkey == "*~RAlt") {
     IME_SET(1)
