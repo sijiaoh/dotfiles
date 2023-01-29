@@ -317,12 +317,19 @@ scroll_down()
 +!z::Send +^z
 
 ![::Send ^[
++![::Send +^[
 !]::Send ^]
++!]::Send +^]
 !;::Send ^;
++!;::Send +^;
 !'::Send ^'
++!'::Send +^'
 !,::Send ^,
++!,::Send +^,
 !.::Send ^.
++!.::Send +^.
 !/::Send ^/
++!/::Send +^/
 
 !Enter::Send ^{Enter}
 ^!m::Send ^{Enter}
