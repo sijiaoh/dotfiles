@@ -334,8 +334,11 @@ scroll_down()
 !Enter::Send ^{Enter}
 ^!m::Send ^{Enter}
 
-; !sc029::EscだとAltEscが発動してしまう。
-!sc029::Send {Esc}
+; vk19は半角/全角
+; (!)vk19::EscだとAltEscが発動してしまう。
+; vk19と!vk19の両方がないと動かない環境がある。
+vk19::Send {Esc}
+!vk19::Send {Esc}
 
 #Include IME.ahk
 
