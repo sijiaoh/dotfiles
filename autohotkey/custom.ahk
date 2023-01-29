@@ -1,8 +1,6 @@
 #InstallKeybdHook
 #UseHook
 
-SetKeyDelay 0
-
 ; Enter.
 ^m::Send {Enter}
 ^+m::Send +{Enter}
