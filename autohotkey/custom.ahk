@@ -1,6 +1,12 @@
 #InstallKeybdHook
 #UseHook
 
+; Disables Alt key press behaviour.
+; *~Alt::Send {Blind}{vkFF}
+; For Alt IME.
+*~LAlt::Send {Blind}{vkFF}
+*~RAlt::Send {Blind}{vkFF}
+
 ; Enter.
 ^m::Send {Enter}
 ^+m::Send +{Enter}
@@ -27,9 +33,6 @@
   Send {ShiftDown}{End}{ShiftUp}
   Sleep 50 ; [ms] this value depends on your environment.
   Send ^x
-
-; Disables Alt key press behaviour.
-*~Alt::Send {Blind}{vkFF}
 
 ; Map Alt+` to Esc (for HHKB).
 ; vk19 is hankaku/zenkaku.
@@ -111,14 +114,12 @@ vk19::Send {Esc}
 #Include IME.ahk
 
 ; Pressing the left Alt key without pressing any other keys turns on IME.
-*~LAlt::Send {Blind}{vkFF}
 LAlt up::
   if (A_PriorHotkey == "*~LAlt") {
     IME_SET(0)
   }
 
 ; Pressing the right Alt key without pressing any other keys turns on IME.
-*~RAlt::Send {Blind}{vkFF}
 RAlt up::
   if (A_PriorHotkey == "*~RAlt") {
     IME_SET(1)
