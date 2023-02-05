@@ -17,14 +17,23 @@
 ^p::Send {Up}
 ^n::Send {Down}
 ^b::Send {Left}
++^b::Send +{Left}
+!^b::Send ^{Left}
 ^f::Send {Right}
++^f::Send +{Right}
+!^f::Send ^{Right}
 
 ^a::Send {Home}
++^a::Send +{Home}
 ^e::Send {End}
++^e::Send +{End}
 
 ; Others.
+; Do not map !^d to ^{Del} because it will trigger Ctrl+Alt+Del.
 ^d::Send {Del}
++^d::Send ^{Del}
 ^h::Send {Bs}
++^h::Send ^{Bs}
 ^i::Send {Tab}
 ^[::Send {Esc}
 ^g::Send {Esc}
