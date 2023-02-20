@@ -4,6 +4,9 @@ export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
+# Python pip will install scripts to ~/.local/bin when --user option is specified.
+export PATH=${HOME}/.local/bin:${PATH}
+
 . ${DOTFILES_ROOT}/lib/os.sh
 
 if test ${OS} = "macos"; then
