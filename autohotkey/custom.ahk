@@ -42,6 +42,7 @@
   Send {ShiftDown}{End}{ShiftUp}
   Sleep 50 ; [ms] this value depends on your environment.
   Send ^x
+  Return
 
 ; Map Alt+` to Esc (for HHKB).
 ; vk19 is hankaku/zenkaku.
