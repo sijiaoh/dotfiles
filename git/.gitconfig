@@ -51,8 +51,8 @@
   lond  = log --oneline --name-status --decorate
 
   m     = merge
-  moh   = merge origin HEAD
-  mom   = merge origin master
+  moh   = merge origin/HEAD
+  moc   = !git merge origin/$(git branch --show-current)
 
   p     = push
   poh   = push origin HEAD
