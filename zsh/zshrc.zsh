@@ -71,6 +71,14 @@ alias m='macvim'
 
 alias b='bundle'
 alias be='bundle exec'
+function bi() {
+  bundle config path vendor/bundle
+  bundle config bin vendor/bundle/bin
+  bundle config jobs 4
+  bundle config clean true
+  bundle config disable_shared_gems true
+  bundle install
+}
 
 # utilities
 
