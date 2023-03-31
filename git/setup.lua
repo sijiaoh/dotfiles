@@ -4,5 +4,7 @@ else
   assert(BrewInstall("git-filter-repo"))
 end
 
+assert(AutoInstall("git-lfs"))
+
 CreateSymlink(".gitconfig")
 CreateSymlink(".gitignore")
