@@ -8,37 +8,32 @@
 *~RAlt::Send {Blind}{vkFF}
 
 ; Enter.
-!m::Send {Enter}
-!+m::Send +{Enter}
-^!m::Send ^{Enter}
-!Enter::Send ^{Enter}
+^m::Send {Enter}
+^+m::Send +{Enter}
 
 ; Movements.
-!p::Send {Up}
-!n::Send {Down}
-!b::Send {Left}
-+!b::Send +{Left}
-!^b::Send ^{Left}
-!f::Send {Right}
-+!f::Send +{Right}
-!^f::Send ^{Right}
+^p::Send {Up}
+^n::Send {Down}
+^b::Send {Left}
++^b::Send +{Left}
+^f::Send {Right}
++^f::Send +{Right}
 
-!a::Send {Home}
-+!a::Send +{Home}
-!e::Send {End}
-+!e::Send +{End}
+^a::Send {Home}
++^a::Send +{Home}
+^e::Send {End}
++^e::Send +{End}
 
 ; Others.
-; Do not map !^d to ^{Del} because it will trigger Ctrl+Alt+Del.
-!d::Send {Del}
-+!d::Send ^{Del}
-!h::Send {Bs}
-+!h::Send ^{Bs}
-!i::Send {Tab}
-![::Send {Esc}
-!g::Send {Esc}
+^d::Send {Del}
++^d::Send ^{Del}
+^h::Send {Bs}
++^h::Send ^{Bs}
+^i::Send {Tab}
+^[::Send {Esc}
+^g::Send {Esc}
 
-!k::
+^k::
   Send {ShiftDown}{End}{ShiftUp}
   Sleep 50 ; [ms] this value depends on your environment.
   Send ^x
