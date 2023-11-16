@@ -48,8 +48,6 @@ bindkey '^[h' backward-kill-word
 
 source ${DOTFILES_ROOT}/zsh/fzf.zsh
 
-alias a='atom'
-
 function estart() {
   if ! emacsclient -e 0 > /dev/null 2>&1; then
     cd > /dev/null 2>&1
@@ -86,6 +84,10 @@ function bi() {
 # Run this command before git add because you need to change owner of directories.
 function chown_git_status_files() {
   sudo chown -R $(whoami):$(whoami) $(git status -s | awk '{print $2}')
+}
+
+function docker_stop_all() {
+  docker ps -aq | xargs docker stop
 }
 
 # Speed up tab completion in wsl2.
