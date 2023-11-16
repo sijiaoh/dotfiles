@@ -57,7 +57,9 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
+compdef e='emacsclient --no-wait'
 alias v='nvim'
+compdef v='nvim'
 
 function macvim() {
   if [ ! -e ${1} ]; then
@@ -68,7 +70,9 @@ function macvim() {
 alias m='macvim'
 
 alias b='bundle'
+compdef b='bundle'
 alias be='bundle exec'
+compdef be='bundle exec'
 function bi() {
   bundle config path vendor/bundle
   bundle config bin vendor/bundle/bin
@@ -77,6 +81,9 @@ function bi() {
   bundle config disable_shared_gems true
   bundle install
 }
+
+alias g='git'
+compdef g='git'
 
 # utilities
 

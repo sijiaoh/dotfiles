@@ -40,7 +40,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'history-substring-search' \
   'prompt' \
-  'git' \
   'docker' \
   'tmux'
 
