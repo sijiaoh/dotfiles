@@ -78,6 +78,7 @@
   excludesfile = ~/.gitignore
   editor = vim
   autocrlf = input
+  quotepath = false
 [user]
   email = sijiaoh@outlook.com
   name = sijiaoh
