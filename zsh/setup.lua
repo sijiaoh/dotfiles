@@ -15,4 +15,3 @@ end
 CreateSymlink("zshrc.zsh", "~/.zshrc")
 CreateSymlink("p10k.zsh", "~/.p10k.zsh")
 CreateSymlink("zpreztorc.zsh", "~/.zpreztorc")
-CreateSymlink("prompt_chan_setup.zsh", zprezto_root .. "/modules/prompt/functions/prompt_chan_setup")
