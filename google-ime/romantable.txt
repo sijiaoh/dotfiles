@@ -422,7 +422,7 @@ rz	らん
 sa	さ
 sd	せん
 se	せ
-sf	さい
+sf	せい
 sh	すう
 si	し
 sj	すん
