@@ -238,6 +238,7 @@ la	ぁ
 le	ぇ
 li	ぃ
 lo	ぉ
+lf	ぉ
 ltu	っ
 lu	ぅ
 lwa	ゎ
