@@ -521,6 +521,7 @@ xp	しょう
 xq	しゃい
 xu	しゅ
 xw	しぇい
+xf	しぇい
 xz	しゃん
 ya	や
 yf	ゆ
