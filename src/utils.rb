@@ -4,9 +4,8 @@ class Utils
   class << self
     DOTFILES_ROOT = File.expand_path "..", __dir__
 
-    # @return [Boolean, nil]
     def exec(command)
-      system command
+      raise "Failed to execute command: #{command}" unless system command
     end
 
     # @return [String]
