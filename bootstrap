@@ -3,7 +3,7 @@
 cd $(dirname "${0}")
 export DOTFILES_ROOT=$(pwd -P)
 
-echo "${DOTFILES_ROOT}" > ${HOME}/.dotfiles_root
+echo "${DOTFILES_ROOT}" >${HOME}/.dotfiles_root
 
 . ${DOTFILES_ROOT}/lib/os.sh
 
@@ -13,9 +13,9 @@ if test ${OS} = "macos"; then
 fi
 
 if test ${OS} = "linux"; then
-  sudo apt-get install lua5.3
+  sudo apt-get install ruby
 else
-  brew install lua
+  brew install ruby
 fi
 
-lua ${DOTFILES_ROOT}/src/bootstrap.lua
+ruby ${DOTFILES_ROOT}/src/bootstrap.rb
