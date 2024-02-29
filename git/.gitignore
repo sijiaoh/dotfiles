@@ -156,3 +156,4 @@ fabric.properties
 .idea
 bin-local
 .local
+vendor/bundle
