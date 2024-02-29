@@ -84,6 +84,8 @@ function bi() {
 
 alias g='git'
 compdef g='git'
+alias ex='explorer.exe'
+compdef ex='explorer.exe'
 
 # utilities
 
