@@ -3,11 +3,6 @@
 ## File structure
 
 - [package]
-  - setup.lua
+  - setup.rb
   - foo.bar
-
-## setup.lua example
-
-```lua
-CreateSymlink("foo.bar", "~/.foo")
-```
+  - .dotfiles-that-will-autolink-to-home-directory
