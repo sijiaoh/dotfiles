@@ -25,7 +25,7 @@ class Utils
     def git_clone(path:, url:)
       return true if File.exist? path
 
-      exec "git clone #{url} #{path}"
+      exec "git clone --recursive #{url} #{path}"
     end
 
     def apt_install(package_name)
