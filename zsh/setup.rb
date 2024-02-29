@@ -1,4 +1,4 @@
-zprezto_root = "~/.zprezto"
+zprezto_root = File.expand_path "~/.zprezto"
 
 Utils.auto_install "zsh"
 Utils.git_clone path: zprezto_root, url: "https://github.com/sorin-ionescu/prezto.git"

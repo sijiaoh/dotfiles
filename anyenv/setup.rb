@@ -1,4 +1,4 @@
-anyenv_root = "~/.anyenv"
+anyenv_root = File.expand_path "~/.anyenv"
 
 unless File.exist? anyenv_root
   Utils.git_clone path: anyenv_root, url: "https://github.com/anyenv/anyenv.git"
