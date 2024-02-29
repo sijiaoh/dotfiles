@@ -45,11 +45,11 @@ class Utils
     end
 
     def linux?
-      run "uname -s | grep -i linux"
+      system "uname -s | grep -i linux"
     end
 
     def macos?
-      run "uname -s | grep -i darwin"
+      system "uname -s | grep -i darwin"
     end
   end
 end
