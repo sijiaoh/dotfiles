@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 vim.opt.number = true
-vim.opt.mouse = nil
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
 
 plugins = {
