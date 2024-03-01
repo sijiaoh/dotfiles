@@ -12,7 +12,7 @@ run() {
 }
 
 fe() {
-  IFS=$'\n' files=($(${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(find . -type f | ${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && run ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -23,13 +23,6 @@ fgd() {
 }
 
 fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | ${FZF_COMMAND} +m) &&
-    run cd "$dir"
-}
-
-fda() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | ${FZF_COMMAND} +m) && run cd "$dir"
 }
