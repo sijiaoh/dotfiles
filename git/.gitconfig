@@ -95,10 +95,13 @@
     pager = delta
 [interactive]
     diffFilter = delta --color-only
+[include]
+    path = ~/.dotfiles/git/themes.gitconfig
 [delta]
     navigate = true # n/N to move between diff sections
     light = false
     side-by-side = true
+    features = mantis-shrimp # Theme
 [merge]
     conflictstyle = diff3
 [diff]
