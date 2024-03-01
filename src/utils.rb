@@ -14,6 +14,8 @@ class Utils
     end
 
     def create_symlink(from, to = nil)
+      FileUtils.mkdir_p File.dirname(to) unless to.nil?
+
       file_name = File.basename from
       to ||= "~/#{file_name}"
       absolute_from = File.expand_path from, DOTFILES_ROOT
@@ -50,6 +52,10 @@ class Utils
 
     def macos?
       system "uname -s | grep -i darwin"
+    end
+
+    def download_file(url)
+      exec "curl -LO #{url}"
     end
   end
 end
