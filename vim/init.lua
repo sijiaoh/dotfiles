@@ -15,6 +15,10 @@ plugins = {
       vim.cmd("colorscheme jellybeans")
     end,
   },
+
+  -- AI.
+  -- Run `:Copilot setup` when first installed.
+  "github/copilot.vim"
 }
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
