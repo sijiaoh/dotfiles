@@ -7,6 +7,7 @@ plugins = {
   -- Utilities.
   "tpope/vim-surround",
   "easymotion/vim-easymotion",
+  "kien/ctrlp.vim",
 
   -- Color scheme.
   {
