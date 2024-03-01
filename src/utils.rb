@@ -60,5 +60,9 @@ class Utils
     def download_file(url)
       exec "curl -LO #{url}"
     end
+
+    def command_exists?(command)
+      system "command -v #{command} > /dev/null 2>&1"
+    end
   end
 end
