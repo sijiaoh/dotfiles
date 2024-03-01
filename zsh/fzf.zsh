@@ -6,27 +6,32 @@ fi
 
 export FZF_DEFAULT_OPTS="--bind 'ctrl-k:kill-line'"
 
+run() {
+  print -s $@
+  $@
+}
+
 fe() {
   IFS=$'\n' files=($(${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  [[ -n "$files" ]] && run ${EDITOR:-vim} "${files[@]}"
 }
 
 # Find git diff.
 fgd() {
   IFS=$'\n' files=($(git diff --name-only | ${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  [[ -n "$files" ]] && run ${EDITOR:-vim} "${files[@]}"
 }
 
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | ${FZF_COMMAND} +m) &&
-    cd "$dir"
+    run cd "$dir"
 }
 
 fda() {
   local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | ${FZF_COMMAND} +m) && cd "$dir"
+  dir=$(find ${1:-.} -type d 2> /dev/null | ${FZF_COMMAND} +m) && run cd "$dir"
 }
 
 fdd() {
@@ -40,7 +45,7 @@ fdd() {
     fi
   }
   local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | ${FZF_COMMAND})
-  cd "$DIR"
+  run cd "$DIR"
 }
 
 fge() {
@@ -50,7 +55,7 @@ fge() {
 
   if [[ -n $file ]]
   then
-    ${EDITOR:-vim} --no-wait $(echo $file)
+    run ${EDITOR:-vim} --no-wait $(echo $file)
   fi
 }
 
@@ -61,6 +66,6 @@ fgv() {
 
   if [[ -n $file ]]
   then
-    nvim $(echo $file)
+    run nvim $(echo $file)
   fi
 }
