@@ -1,6 +1,10 @@
+## Ruby version
+
+Ruby version is 3.0.2(.ruby-version). This because apt installs ruby 3.0.2 by default.
+
 ## File structure
 
-- dotfiles_root
+- dotfiles\_root
   - [package]
     - setup.rb
     - foo.bar
