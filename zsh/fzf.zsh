@@ -18,7 +18,7 @@ fe() {
 
 # Find git diff.
 fgd() {
-  IFS=$'\n' files=($(git diff --name-only | ${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(git diff --name-only HEAD | ${FZF_COMMAND} --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && run ${EDITOR:-vim} "${files[@]}"
 }
 
