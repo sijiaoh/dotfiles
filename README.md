@@ -1,6 +1,6 @@
 ## Ruby version
 
-Ruby version is 3.0.2(.ruby-version). This because apt installs ruby 3.0.2 by default.
+Ruby version is 3.0(.ruby-version). This because apt installs ruby 3.0 by default on Ubuntu 22.
 
 ## File structure
 
