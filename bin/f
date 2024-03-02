@@ -27,15 +27,15 @@ class F
   end
 
   def p
-    exec_with_fzf "find . -type f", editor
+    edit run_fzf("find . -type f")
   end
 
   def d
-    exec_with_fzf "find . -type d", "cd"
+    cd run_fzf("find . -mindepth 1 -type d")
   end
 
   def gd
-    exec_with_fzf "git diff HEAD --name-only", editor
+    edit run_fzf("git diff HEAD --name-only")
   end
 
   def gg
@@ -43,7 +43,7 @@ class F
 
     res = run_fzf "git grep --line-number #{@query}"
     file, line = res.split ":"
-    exec "#{editor} +#{line} #{file}"
+    edit "+#{line} #{file}"
   end
 
   private
@@ -73,12 +73,15 @@ class F
     res
   end
 
-  def exec_with_fzf(source_command, run_command)
-    res = run_fzf source_command
-    exec "#{run_command} #{res}"
+  def editor = ENV["EDITOR"] || "vim"
+
+  def edit(file)
+    exec "#{editor} #{file}"
   end
 
-  def editor = ENV.fetch("EDITOR", nil)
+  def cd(dir)
+    Dir.chdir dir
+  end
 end
 
 F.new(ARGV).send :run
