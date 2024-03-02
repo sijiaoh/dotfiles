@@ -13,7 +13,7 @@ if test ${OS} = "macos"; then
 fi
 
 if test ${OS} = "linux"; then
-  sudo apt-get install ruby
+  sudo apt install -y ruby
 else
   brew install ruby
 fi

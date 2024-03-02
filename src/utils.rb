@@ -33,7 +33,7 @@ class Utils
     end
 
     def apt_install(package_name)
-      exec "sudo apt-get install -y #{package_name}"
+      exec "sudo apt install -y #{package_name}"
     end
 
     def brew_install(package_name, cask: false)
