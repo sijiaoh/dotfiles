@@ -1,4 +1,0 @@
-#!/bin/bash
-
-bundle exec rubocop -A
-bundle exec rubocop -A bin/f
