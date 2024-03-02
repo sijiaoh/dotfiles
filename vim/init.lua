@@ -24,7 +24,41 @@ plugins = {
 
   -- AI.
   -- Run `:Copilot setup` when first installed.
-  "github/copilot.vim"
+  "github/copilot.vim",
+
+  -- Spacemacs-like keybindings.
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {},
+    config = function()
+      local wk = require("which-key")
+
+      wk.register({
+        ["b"] = {
+          name = "Buffer",
+          h = { ":bprev<CR>", "Previous buffer" },
+          l = { ":bnext<CR>", "Next buffer" },
+        },
+      }, { prefix = "<leader>" })
+
+      wk.register({
+        ["w"] = {
+          name = "Window",
+          j = { "<C-W>j", "Move to window below" },
+          k = { "<C-W>k", "Move to window above" },
+          h = { "<C-W>h", "Move to window on the left" },
+          l = { "<C-W>l", "Move to window on the right" },
+          v = { "<C-W>v", "Split window vertically" },
+          s = { "<C-W>s", "Split window horizontally" },
+        },
+      }, { prefix = "<leader>" })
+    end,
+  },
 }
 
 -- lazy.nvim
