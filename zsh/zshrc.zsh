@@ -49,6 +49,10 @@ bindkey '^[h' backward-kill-word
 
 source ${DOTFILES_ROOT}/zsh/fzf.zsh
 
+function f() {
+  eval "$(/usr/bin/ruby3.0 ${DOTFILES_ROOT}/fzf/fzf_command_generator.rb $@)"
+}
+
 function estart() {
   if ! emacsclient -e 0 > /dev/null 2>&1; then
     cd > /dev/null 2>&1

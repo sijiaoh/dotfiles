@@ -1,8 +1,7 @@
-#!/usr/bin/ruby3.0
-
 require "English"
 
-class F
+# This class is a command generator used by zshrc's f command.
+class FzfCommandGenerator
   def initialize(args)
     @options = args.select { |arg| arg.start_with? "-" }
     args -= @options
@@ -13,7 +12,7 @@ class F
   end
 
   def help
-    puts <<~HELP
+    text = <<~HELP
       Usage: f COMMAND [OPTIONS] [QUERY]
       Commands:
         help: Show this help.
@@ -24,6 +23,8 @@ class F
       Options:
         -h, --help: Show this help.
     HELP
+
+    "echo '#{text}'"
   end
 
   def p
@@ -50,15 +51,12 @@ class F
 
   # Public methods are commands.
   # If this method is public, it can be infinitely recursive.
-  def run
-    if @command.empty? || @options.include?("-h") || @options.include?("--help")
+  def generate_command
+    if @command.nil? || @options.include?("-h") || @options.include?("--help")
       help
     else
       public_send @command
     end
-  rescue NoMethodError => e
-    help
-    raise e
   end
 
   def in_tmux? = system("tmux list-sessions > /dev/null 2>&1")
@@ -69,19 +67,19 @@ class F
 
   def run_fzf(source_command)
     res = `#{source_command} | #{fzf_command} #{fzf_options}`
-    exit 1 if res.empty? || $CHILD_STATUS.exitstatus != 0
+    exit 1 if res&.empty? || $CHILD_STATUS.exitstatus != 0
     res
   end
 
   def editor = ENV["EDITOR"] || "vim"
 
   def edit(file)
-    exec "#{editor} #{file}"
+    "#{editor} #{file}"
   end
 
   def cd(dir)
-    Dir.chdir dir
+    "cd #{dir}"
   end
 end
 
-F.new(ARGV).send :run
+puts FzfCommandGenerator.new(ARGV).send(:generate_command)
