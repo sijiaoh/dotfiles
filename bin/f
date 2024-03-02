@@ -1,0 +1,84 @@
+#!/usr/bin/ruby3.0
+
+require "English"
+
+class F
+  def initialize(args)
+    @options = args.select { |arg| arg.start_with? "-" }
+    args -= @options
+
+    @command = args.shift
+
+    @query = args.join " "
+  end
+
+  def help
+    puts <<~HELP
+      Usage: f COMMAND [OPTIONS] [QUERY]
+      Commands:
+        help: Show this help.
+        p: Find a file.
+        d: Find a directory.
+        gd: Find a file in git diff.
+        gg QUERY: Find a string in git grep.
+      Options:
+        -h, --help: Show this help.
+    HELP
+  end
+
+  def p
+    exec_with_fzf "find . -type f", editor
+  end
+
+  def d
+    exec_with_fzf "find . -type d", "cd"
+  end
+
+  def gd
+    exec_with_fzf "git diff HEAD --name-only", editor
+  end
+
+  def gg
+    raise "No query given" if @query.empty?
+
+    res = run_fzf "git grep --line-number #{@query}"
+    file, line = res.split ":"
+    exec "#{editor} +#{line} #{file}"
+  end
+
+  private
+
+  # Public methods are commands.
+  # If this method is public, it can be infinitely recursive.
+  def run
+    if @command.empty? || @options.include?("-h") || @options.include?("--help")
+      help
+    else
+      public_send @command
+    end
+  rescue NoMethodError => e
+    help
+    raise e
+  end
+
+  def in_tmux? = system("tmux list-sessions > /dev/null 2>&1")
+
+  def fzf_command = in_tmux? ? "fzf-tmux" : "fzf"
+
+  def fzf_options = "--bind 'ctrl-k:kill-line' --query='#{@query}' --multi --select-1 --exit-0"
+
+  def run_fzf(source_command)
+    res = `#{source_command} | #{fzf_command} #{fzf_options}`
+    exit 1 if res.empty? || $CHILD_STATUS.exitstatus != 0
+    res
+  end
+
+  def exec_with_fzf(source_command, run_command)
+    res = run_fzf source_command
+    exec "#{run_command} #{res}"
+  end
+
+  def editor = ENV.fetch("EDITOR", nil)
+end
+
+F.new(ARGV).send :run

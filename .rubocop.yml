@@ -9,6 +9,9 @@ Style/Documentation:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+Metrics/MethodLength:
+  Enabled: false
+
 Style/MethodCallWithArgsParentheses:
   Enabled: true
   EnforcedStyle: omit_parentheses
