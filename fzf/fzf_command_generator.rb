@@ -1,6 +1,6 @@
 require "English"
 
-# This class is a command generator used by zshrc's f command.
+# This class is a command generator used from fzf.zsh.
 class FzfCommandGenerator
   def initialize(args)
     @options = args.select { |arg| arg.start_with? "-" }
