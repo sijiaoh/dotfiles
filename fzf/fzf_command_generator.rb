@@ -18,6 +18,7 @@ class FzfCommandGenerator
         help: Show this help.
         p: Edit a file.
         d: cd to a directory.
+        dd: cd to a parent directory.
         gd: Edit a file in git diff.
         gg QUERY: Edit a file in git grep.
       Options:
@@ -33,6 +34,14 @@ class FzfCommandGenerator
 
   def d
     cd run_fzf("find . -mindepth 1 -type d")
+  end
+
+  def dd
+    current_dir = Dir.pwd
+    parent_dirs = current_dir.split("/").map.with_index do |_, i|
+      File.expand_path "../" * i, current_dir
+    end[1..]
+    cd run_fzf("echo '#{parent_dirs.join("\n")}'")
   end
 
   def gd
