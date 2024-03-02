@@ -7,7 +7,12 @@ plugins = {
   -- Utilities.
   "tpope/vim-surround",
   "easymotion/vim-easymotion",
-  "kien/ctrlp.vim",
+  {
+    "kien/ctrlp.vim",
+    config = function()
+      vim.g.ctrlp_show_hidden = 1
+    end,
+  },
 
   -- Color scheme.
   {
