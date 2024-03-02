@@ -17,10 +17,10 @@ class F
       Usage: f COMMAND [OPTIONS] [QUERY]
       Commands:
         help: Show this help.
-        p: Find a file.
-        d: Find a directory.
-        gd: Find a file in git diff.
-        gg QUERY: Find a string in git grep.
+        p: Edit a file.
+        d: cd to a directory.
+        gd: Edit a file in git diff.
+        gg QUERY: Edit a file in git grep.
       Options:
         -h, --help: Show this help.
     HELP
