@@ -68,17 +68,22 @@ class FzfCommandGenerator
   def run_fzf(source_command)
     res = `#{source_command} | #{fzf_command} #{fzf_options}`
     exit 1 if res&.empty? || $CHILD_STATUS.exitstatus != 0
-    res
+    res.chomp
+  end
+
+  def to_command(command)
+    # Write to zsh history before executing the command.
+    "print -s '#{command}' && #{command}"
   end
 
   def editor = ENV["EDITOR"] || "vim"
 
   def edit(file)
-    "#{editor} #{file}"
+    to_command "#{editor} #{file}"
   end
 
   def cd(dir)
-    "cd #{dir}"
+    to_command "cd #{dir}"
   end
 end
 
