@@ -58,7 +58,6 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
-compdef e='emacsclient --no-wait'
 alias v='nvim'
 compdef v='nvim'
 
@@ -73,7 +72,6 @@ alias m='macvim'
 alias b='bundle'
 compdef b='bundle'
 alias be='bundle exec'
-compdef be='bundle exec'
 function bi() {
   bundle config path vendor/bundle
   bundle config bin vendor/bundle/bin
@@ -86,7 +84,6 @@ function bi() {
 alias g='git'
 compdef g='git'
 alias ex='explorer.exe'
-compdef ex='explorer.exe'
 
 # utilities
 
