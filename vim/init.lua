@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
+vim.opt.termguicolors = true
 
 plugins = {
   -- Utilities.
@@ -23,9 +24,9 @@ plugins = {
 
   -- Color scheme.
   {
-    "nanotech/jellybeans.vim",
+    "dracula/vim",
     config = function()
-      vim.cmd("colorscheme jellybeans")
+      vim.cmd("colorscheme dracula")
     end,
   },
 
