@@ -6,7 +6,14 @@ vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
 plugins = {
   -- Utilities.
   "tpope/vim-surround",
-  "easymotion/vim-easymotion",
+  {
+    "ggandor/leap.nvim",
+    opts = {
+      -- Remove s key from labels.
+      safe_labels = 'fnut/FNLHMUGTZ?',
+      labels = 'fnjklhodweimbuyvrgtaqpcxz/FNJKLHODWEIMBUYVRGTAQPCXZ?',
+    },
+  },
   {
     "kien/ctrlp.vim",
     config = function()
@@ -37,6 +44,16 @@ plugins = {
     opts = {},
     config = function()
       local wk = require("which-key")
+
+      -- leap.nvim
+      wk.register({
+        ["<leader>"] = {
+          name = "Leap",
+          f = { "<Plug>(leap-forward)", "Forward" },
+          F = { "<Plug>(leap-backward)", "Backward" },
+          g = { "<Plug>(leap-from-window)", "From window" },
+        },
+      }, { prefix = "<leader>" })
 
       wk.register({
         ["b"] = {
