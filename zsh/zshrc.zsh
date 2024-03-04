@@ -97,3 +97,10 @@ if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Use cute prompt.
+typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION="(#'-'%)/"
+typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='(#;-;%)\\'
+
+# Enable rbenv prompt.
+typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
