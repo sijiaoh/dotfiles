@@ -2,7 +2,8 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true -- Enable true color support.
+vim.opt.ignorecase = true -- Ignore case when searching.
 
 function register_to_space_panel(opts)
   local wk = require("which-key")
