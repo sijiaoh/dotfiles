@@ -75,7 +75,23 @@ plugins = {
           s = { "<C-W>s", "Split window horizontally" },
         },
       }, { prefix = "<leader>" })
+
+      wk.register({
+        ["t"] = {
+          name = "Tree",
+          t = { ":NvimTreeToggle<CR>", "Toggle" },
+          r = { ":NvimTreeRefresh<CR>", "Refresh" },
+          f = { ":NvimTreeFindFile<CR>", "Find file" },
+          c = { ":NvimTreeCollapse<CR>", "Collapse" },
+        },
+      }, { prefix = "<leader>" })
     end,
+  },
+
+  -- File tree.
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {},
   },
 }
 
