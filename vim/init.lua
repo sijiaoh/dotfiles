@@ -77,6 +77,14 @@ plugins = {
           s = { "<C-W>s", "Split window horizontally" },
         },
       })
+
+      register_to_space_panel({
+        ["t"] = {
+          name = "Terminal",
+          t = { ":terminal<CR>", "Open terminal" },
+        },
+      })
+      vim.api.nvim_set_keymap("t", "<C-w>", "<C-\\><C-n><C-w>", { noremap = true })
     end,
   },
 
