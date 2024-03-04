@@ -64,7 +64,7 @@ plugins = {
           h = { ":bprev<CR>", "Previous buffer" },
           l = { ":bnext<CR>", "Next buffer" },
         },
-      }, { prefix = "<leader>" })
+      })
 
       register_to_space_panel({
         ["w"] = {
@@ -76,7 +76,7 @@ plugins = {
           v = { "<C-W>v", "Split window vertically" },
           s = { "<C-W>s", "Split window horizontally" },
         },
-      }, { prefix = "<leader>" })
+      })
     end,
   },
 
