@@ -87,8 +87,9 @@ plugins = {
       require("nvim-tree").setup()
 
       register_to_space_panel({
-        ["t"] = {
-          name = "Tree",
+        ["e"] = {
+          name = "Explorer",
+          e = { ":NvimTreeToggle<CR>", "Toggle" },
           t = { ":NvimTreeToggle<CR>", "Toggle" },
           r = { ":NvimTreeRefresh<CR>", "Refresh" },
           f = { ":NvimTreeFindFile<CR>", "Find file" },
