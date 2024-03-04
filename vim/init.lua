@@ -4,6 +4,11 @@ vim.opt.number = true
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
 vim.opt.termguicolors = true
 
+function register_to_space_panel(opts)
+  local wk = require("which-key")
+  wk.register(opts, { prefix = "<leader>" })
+end
+
 plugins = {
   -- Utilities.
   "tpope/vim-surround",
@@ -14,6 +19,16 @@ plugins = {
       safe_labels = 'fnut/FNLHMUGTZ?',
       labels = 'fnjklhodweimbuyvrgtaqpcxz/FNJKLHODWEIMBUYVRGTAQPCXZ?',
     },
+    config = function()
+      register_to_space_panel({
+        ["<leader>"] = {
+          name = "Leap",
+          f = { "<Plug>(leap-forward)", "Forward" },
+          F = { "<Plug>(leap-backward)", "Backward" },
+          g = { "<Plug>(leap-from-window)", "From window" },
+        },
+      })
+    end,
   },
   {
     "kien/ctrlp.vim",
@@ -42,21 +57,8 @@ plugins = {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    opts = {},
     config = function()
-      local wk = require("which-key")
-
-      -- leap.nvim
-      wk.register({
-        ["<leader>"] = {
-          name = "Leap",
-          f = { "<Plug>(leap-forward)", "Forward" },
-          F = { "<Plug>(leap-backward)", "Backward" },
-          g = { "<Plug>(leap-from-window)", "From window" },
-        },
-      }, { prefix = "<leader>" })
-
-      wk.register({
+      register_to_space_panel({
         ["b"] = {
           name = "Buffer",
           h = { ":bprev<CR>", "Previous buffer" },
@@ -64,7 +66,7 @@ plugins = {
         },
       }, { prefix = "<leader>" })
 
-      wk.register({
+      register_to_space_panel({
         ["w"] = {
           name = "Window",
           j = { "<C-W>j", "Move to window below" },
@@ -75,8 +77,16 @@ plugins = {
           s = { "<C-W>s", "Split window horizontally" },
         },
       }, { prefix = "<leader>" })
+    end,
+  },
 
-      wk.register({
+  -- File tree.
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("nvim-tree").setup()
+
+      register_to_space_panel({
         ["t"] = {
           name = "Tree",
           t = { ":NvimTreeToggle<CR>", "Toggle" },
@@ -84,14 +94,8 @@ plugins = {
           f = { ":NvimTreeFindFile<CR>", "Find file" },
           c = { ":NvimTreeCollapse<CR>", "Collapse" },
         },
-      }, { prefix = "<leader>" })
+      })
     end,
-  },
-
-  -- File tree.
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = {},
   },
 }
 
