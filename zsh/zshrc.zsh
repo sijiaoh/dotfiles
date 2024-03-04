@@ -101,6 +101,8 @@ if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
 # Use cute prompt.
 typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION="(#'-'%)/"
 typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='(#;-;%)\\'
+autoload -Uz colors; colors
+SPROMPT="%{$fg[blue]%}%{$suggest%}(#'o'%)? < もしかして %B%r%b %{$fg[blue]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
 
 # Enable rbenv prompt.
 typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
