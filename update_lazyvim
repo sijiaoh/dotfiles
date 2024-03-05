@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eu
+
+# Add remote if not exist.
+if ! git remote | grep -q lazyvim; then
+  git remote add lazyvim https://github.com/LazyVim/starter
+fi
+
+git fetch nvim main
+git subtree pull --prefix=nvim/lazyvim lazyvim main

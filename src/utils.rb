@@ -27,7 +27,7 @@ class Utils
     end
 
     def git_clone(path:, url:)
-      return true if File.exist? path
+      return true if File.exist? File.expand_path(path)
 
       exec "git clone --recursive #{url} #{path}"
     end
