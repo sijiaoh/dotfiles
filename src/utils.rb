@@ -18,7 +18,7 @@ class Utils
         absolute_to = File.expand_path to
         FileUtils.rm_rf absolute_to
 
-        absolute_to_dir = File.dirname to
+        absolute_to_dir = File.dirname absolute_to
         FileUtils.mkdir_p absolute_to_dir
       end
 
