@@ -7,5 +7,5 @@ if ! git remote | grep -q lazyvim; then
   git remote add lazyvim https://github.com/LazyVim/starter
 fi
 
-git fetch nvim main
+git fetch lazyvim main
 git subtree pull --prefix=nvim/lazyvim lazyvim main
