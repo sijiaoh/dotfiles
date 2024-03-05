@@ -5,7 +5,8 @@ File.delete "nvim.appimage"
 Utils.exec "sudo rm -rf /usr/local/lib/nvim && sudo mv squashfs-root /usr/local/lib/nvim"
 Utils.exec "sudo ln -sf /usr/local/lib/nvim/usr/bin/nvim /usr/local/bin/nvim"
 
-# Download LazyVim
+# Use LazyVim.
+Utils.auto_install "g++"
 Utils.create_symlink "nvim/lazyvim", "~/.config/nvim"
 
 # init.lua is a configuration file that works without LazyVim.
