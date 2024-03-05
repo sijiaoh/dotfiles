@@ -14,10 +14,10 @@ class Utils
     end
 
     def create_symlink(from, to = nil)
-      absolute_to = File.expand_path to
-      FileUtils.rm_rf absolute_to
-
       unless to.nil?
+        absolute_to = File.expand_path to
+        FileUtils.rm_rf absolute_to
+
         absolute_to_dir = File.dirname to
         FileUtils.mkdir_p absolute_to_dir
       end
