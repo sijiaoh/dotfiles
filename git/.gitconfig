@@ -33,9 +33,13 @@
   cob   = checkout -b
 
   d     = diff
+  ds    = -c delta.side-by-side=false diff
   dw    = diff --color-words
+  dws   = -c delta.side-by-side=false dw
   dc    = diff --cached
-  dcw   = diff --cached --color-words
+  dcs   = -c delta.side-by-side=false dc
+  dcw   = dc  --color-words
+  dcws  = -c delta.side-by-side=false dcw
 
   f     = fetch
   fa    = fetch --all
@@ -43,12 +47,11 @@
   g     = grep
 
   l     = log --date=format:"'%Y/%m/%d %H:%M:%S'"
-  lp    = log --date=format:"'%Y/%m/%d %H:%M:%S'" -p
-  ln    = log --date=format:"'%Y/%m/%d %H:%M:%S'" --name-status
+  lp    = l -p
+  lps   = -c delta.side-by-side=false l -p
+  ln    = l --name-status
   lo    = log --oneline
-  lon   = log --oneline --name-status
-  lod   = log --oneline --decorate
-  lond  = log --oneline --name-status --decorate
+  lon   = lo --name-status
 
   m     = merge
   moh   = merge origin/HEAD
