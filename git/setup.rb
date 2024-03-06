@@ -23,3 +23,5 @@ if Utils.linux?
 else
   Utils.brew_install "git-delta"
 end
+
+FileUtils.cp "git/.gitconfig", Utils.windows_home_dir if Utils.wsl?

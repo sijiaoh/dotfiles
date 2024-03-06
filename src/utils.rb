@@ -62,6 +62,18 @@ class Utils
       system "uname -s | grep -i darwin"
     end
 
+    def wsl?
+      system "uname -r | grep -i microsoft"
+    end
+
+    def windows_user_name
+      run("cmd.exe /c echo %USERNAME%").strip
+    end
+
+    def windows_home_dir
+      File.join "/", "mnt", "c", "Users", windows_user_name
+    end
+
     def download_file(url)
       exec "curl -LO #{url}"
     end
