@@ -5,6 +5,9 @@ File.delete "nvim.appimage"
 Utils.exec "sudo rm -rf /usr/local/lib/nvim && sudo mv squashfs-root /usr/local/lib/nvim"
 Utils.exec "sudo ln -sf /usr/local/lib/nvim/usr/bin/nvim /usr/local/bin/nvim"
 
+# Use xclip to sync system clipboard with neovim clipboard.
+Utils.apt_install "xclip"
+
 # Use LazyVim.
 Utils.auto_install "gcc g++"
 Utils.create_symlink "nvim/lazyvim", "~/.config/nvim"
