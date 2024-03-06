@@ -17,8 +17,8 @@ plugins = {
     "ggandor/leap.nvim",
     opts = {
       -- Remove s key from labels.
-      safe_labels = 'fnut/FNLHMUGTZ?',
-      labels = 'fnjklhodweimbuyvrgtaqpcxz/FNJKLHODWEIMBUYVRGTAQPCXZ?',
+      safe_labels = "fnut/FNLHMUGTZ?",
+      labels = "fnjklhodweimbuyvrgtaqpcxz/FNJKLHODWEIMBUYVRGTAQPCXZ?",
     },
     config = function()
       register_to_space_panel({
