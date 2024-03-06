@@ -36,10 +36,12 @@ class Utils
     end
 
     def apt_install(package_name)
-      exec "sudo apt install -y #{package_name}"
+      exec "sudo apt install -y #{package_name}" if linux?
     end
 
     def brew_install(package_name, cask: false)
+      return unless macos?
+
       cask_option_str = cask ? "--cask" : ""
       exec "brew install #{cask_option_str} #{package_name}"
     end
