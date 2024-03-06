@@ -56,7 +56,7 @@
         "name": "\u30b3\u30de\u30f3\u30c9 \u30d7\u30ed\u30f3\u30d7\u30c8"
       },
       {
-        "colorScheme": "Dracula",
+        "colorScheme": "Tokyo Night Moon",
         "commandline": "C:\\Windows\\system32\\wsl.exe",
         "cursorShape": "vintage",
         "experimental.retroTerminalEffect": false,
@@ -302,6 +302,29 @@
       "selectionBackground": "#555753",
       "white": "#D3D7CF",
       "yellow": "#C4A000"
+    },
+    {
+      "background": "#222436",
+      "black": "#1B1D2B",
+      "blue": "#82AAFF",
+      "brightBlack": "#444A73",
+      "brightBlue": "#82AAFF",
+      "brightCyan": "#86E1FC",
+      "brightGreen": "#C3E88D",
+      "brightPurple": "#FCA7EA",
+      "brightRed": "#FF757F",
+      "brightWhite": "#C8D3F5",
+      "brightYellow": "#FFC777",
+      "cursorColor": "#C8D3F5",
+      "cyan": "#86E1FC",
+      "foreground": "#C8D3F5",
+      "green": "#C3E88D",
+      "name": "Tokyo Night Moon",
+      "purple": "#C099FF",
+      "red": "#FF757F",
+      "selectionBackground": "#2D3F76",
+      "white": "#828BB8",
+      "yellow": "#FFC777"
     },
     {
       "background": "#300A24",
