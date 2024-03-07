@@ -5,3 +5,7 @@
 -- Fix typed `.` will break indentation in ruby file.
 -- From: https://github.com/nvim-treesitter/nvim-treesitter/issues/2566#issuecomment-1544822821
 vim.cmd([[autocmd FileType ruby setlocal indentkeys-=.]])
+
+-- Add .marksman.toml to root markers.
+-- Because Marksman hard-coded the marker.
+vim.g.root_spec = { { ".marksman.toml" }, "lsp", { ".git", "lua" }, "cwd" }

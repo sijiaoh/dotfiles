@@ -18,6 +18,12 @@ All files starting with `.` are automatically symlinked to the home directory by
 
 You can create a file `[package]/setup.rb`. This will be called from `./bootstrap`. Using the `Utils` class, you can easily create a setup script.
 
-## Update lazyvim
+## LazyVim
+
+### Update
 
 You can run `./update_lazyvim` to update /nvim/lazyvim subtree.
+
+### Project root
+
+Root marker is `.marksman.toml`.
