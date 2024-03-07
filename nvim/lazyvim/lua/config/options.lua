@@ -9,3 +9,6 @@ vim.cmd([[autocmd FileType ruby setlocal indentkeys-=.]])
 -- Add .marksman.toml to root markers.
 -- Because Marksman hard-coded the marker.
 vim.g.root_spec = { { ".marksman.toml" }, "lsp", { ".git", "lua" }, "cwd" }
+
+-- Turn off Chinese, Japanese, Korean spell check.
+vim.opt.spelllang:append("cjk")
