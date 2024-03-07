@@ -56,7 +56,7 @@
         "name": "\u30b3\u30de\u30f3\u30c9 \u30d7\u30ed\u30f3\u30d7\u30c8"
       },
       {
-        "colorScheme": "Tokyo Night Moon",
+        "colorScheme": "Dracula",
         "commandline": "C:\\Windows\\system32\\wsl.exe",
         "cursorShape": "vintage",
         "experimental.retroTerminalEffect": false,
