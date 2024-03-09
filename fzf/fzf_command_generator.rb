@@ -22,6 +22,7 @@ class FzfCommandGenerator
         dd: cd to a parent directory.
         gd: Edit a file in git diff.
         gg QUERY: Edit a file in git grep.
+        ga: git add a file.
       Options:
         -h, --help: Show this help.
     HELP
