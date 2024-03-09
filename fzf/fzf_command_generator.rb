@@ -45,7 +45,7 @@ class FzfCommandGenerator
   end
 
   def gd
-    edit run_fzf("git diff HEAD --name-only")
+    edit run_fzf("git diff HEAD --name-only --relative")
   end
 
   def gg
