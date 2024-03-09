@@ -23,6 +23,7 @@ class FzfCommandGenerator
         gd: Edit a file in git diff.
         gg QUERY: Edit a file in git grep.
         ga: git add a file.
+        gr: git reset a file.
       Options:
         -h, --help: Show this help.
     HELP
@@ -64,6 +65,10 @@ class FzfCommandGenerator
 
   def ga
     git_add run_fzf(all_changed_files_command(with_tracking: false))
+  end
+
+  def gr
+    git_reset run_fzf("git diff --name-only --relative --cached")
   end
 
   private
@@ -111,6 +116,10 @@ class FzfCommandGenerator
 
   def git_add(file)
     to_command "git add #{file}"
+  end
+
+  def git_reset(file)
+    to_command "git reset #{file}"
   end
 end
 
