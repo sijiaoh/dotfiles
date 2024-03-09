@@ -24,7 +24,7 @@ fi
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init - zsh)"
 
-if type "direnv" > /dev/null 2>&1; then
+if type "direnv" >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
@@ -34,7 +34,9 @@ export PATH=${GOPATH}/bin:${PATH}
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
-function chpwd() { ls }
+function chpwd() {
+  ls
+}
 
 alias -g L='| less'
 alias -g G='| grep'
@@ -51,10 +53,10 @@ bindkey '^[h' backward-kill-word
 source ${DOTFILES_ROOT}/zsh/fzf.zsh
 
 function estart() {
-  if ! emacsclient -e 0 > /dev/null 2>&1; then
-    cd > /dev/null 2>&1
-    emacs&
-    cd - > /dev/null 2>&1
+  if ! emacsclient -e 0 >/dev/null 2>&1; then
+    cd >/dev/null 2>&1
+    emacs &
+    cd - >/dev/null 2>&1
   fi
 }
 
@@ -102,7 +104,8 @@ if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
 # Use cute prompt.
 typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION="(#'-'%)/"
 typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='(#;-;%)\\'
-autoload -Uz colors; colors
+autoload -Uz colors
+colors
 SPROMPT="%{$fg[blue]%}%{$suggest%}(#'o'%)? < もしかして %B%r%b %{$fg[blue]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
 
 # Enable rbenv prompt.
