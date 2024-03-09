@@ -81,5 +81,13 @@ class Utils
     def command_exists?(command)
       system "command -v #{command} > /dev/null 2>&1"
     end
+
+    def editor_nvim?
+      exec "echo $EDITOR" == "nvim"
+    end
+
+    def editor_code?
+      exec "echo $EDITOR" == "code"
+    end
   end
 end

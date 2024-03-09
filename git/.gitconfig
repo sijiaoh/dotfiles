@@ -79,7 +79,6 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = nvim
   autocrlf = input
   quotepath = false
 [user]

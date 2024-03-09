@@ -1,4 +1,5 @@
 require "English"
+require_relative "../src/utils"
 
 # This class is a command generator used from fzf.zsh.
 class FzfCommandGenerator
@@ -53,7 +54,11 @@ class FzfCommandGenerator
 
     res = run_fzf "git grep --line-number #{@query}"
     file, line = res.split ":"
-    edit "+#{line} #{file}"
+    if Utils.editor_code?
+      edit "#{file}:#{line}"
+    else
+      edit "+#{line} #{file}"
+    end
   end
 
   private
