@@ -50,7 +50,7 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 
 bindkey '^[h' backward-kill-word
 
-source ${DOTFILES_ROOT}/zsh/fzf.zsh
+source ${DOTFILES_ROOT}/fzf/fzf.zsh
 
 function estart() {
   if ! emacsclient -e 0 >/dev/null 2>&1; then

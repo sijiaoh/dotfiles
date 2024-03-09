@@ -46,7 +46,7 @@ class FzfCommandGenerator
   end
 
   def gd
-    edit run_fzf("git diff HEAD --name-only --relative")
+    edit run_fzf(all_changed_files_command(with_tracking: true))
   end
 
   def gg
@@ -59,6 +59,10 @@ class FzfCommandGenerator
     else
       edit "+#{line} #{file}"
     end
+  end
+
+  def ga
+    git_add run_fzf(all_changed_files_command(with_tracking: false))
   end
 
   private
@@ -98,6 +102,14 @@ class FzfCommandGenerator
 
   def cd(dir)
     to_command "cd #{dir}"
+  end
+
+  def all_changed_files_command(with_tracking:)
+    "{ git diff #{with_tracking ? 'HEAD' : ''} --name-only --relative; git ls-files --others --exclude-standard; }"
+  end
+
+  def git_add(file)
+    to_command "git add #{file}"
   end
 end
 
