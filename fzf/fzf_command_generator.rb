@@ -17,7 +17,7 @@ class FzfCommandGenerator
       Usage: f COMMAND [OPTIONS] [QUERY]
       Commands:
         help: Show this help.
-        p: Edit a file.
+        f: Edit a file.
         d: cd to a directory.
         dd: cd to a parent directory.
         gd: Edit a file in git diff.
@@ -32,7 +32,7 @@ class FzfCommandGenerator
     "echo '#{text}'"
   end
 
-  def p
+  def f
     edit run_fzf("find . -type f")
   end
 
