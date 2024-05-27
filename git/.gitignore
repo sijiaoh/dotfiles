@@ -2,6 +2,9 @@
 .marksman.toml
 .project_root
 
+# VSCode workspace settings.
+*.code-workspace
+
 # Created by https://www.toptal.com/developers/gitignore/api/vim,visualstudiocode,macos,emacs,jetbrains,direnv
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,visualstudiocode,macos,emacs,jetbrains,direnv
 
