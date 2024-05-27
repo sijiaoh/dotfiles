@@ -79,6 +79,8 @@ alias bi='bundle install'
 
 alias g='git'
 compdef g='git'
+alias lg='lazygit'
+
 alias ex='explorer.exe'
 
 # utilities
