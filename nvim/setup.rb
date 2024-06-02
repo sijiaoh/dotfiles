@@ -9,8 +9,11 @@ Utils.exec "sudo ln -sf /usr/local/lib/nvim/usr/bin/nvim /usr/local/bin/nvim"
 Utils.apt_install "xclip"
 
 # Use LazyVim.
-Utils.auto_install "gcc g++"
-Utils.create_symlink "nvim/lazyvim", "~/.config/nvim"
+# Utils.auto_install "gcc g++"
+# Utils.create_symlink "nvim/lazyvim", "~/.config/nvim"
 
 # init.lua is a configuration file that works without LazyVim.
 # Utils.create_symlink "nvim/init.lua", "~/.config/nvim/init.lua"
+
+# vscode-neovim.lua is a configuration file that works with VSCode.
+Utils.create_symlink "nvim/vscode-neovim.lua", "~/.config/nvim/init.lua"
