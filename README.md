@@ -26,4 +26,4 @@ You can run `./update_lazyvim` to update /nvim/lazyvim subtree.
 
 ### Project root
 
-Root marker is `.marksman.toml`.
+Root marker is `.marksman.toml` and `.project_root`.
