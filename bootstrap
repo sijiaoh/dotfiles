@@ -20,4 +20,4 @@ fi
 . ${DOTFILES_ROOT}/mise/setup.sh
 . ${DOTFILES_ROOT}/ruby/setup.sh
 
-ruby ${DOTFILES_ROOT}/src/bootstrap.rb
+mise x -- ruby ${DOTFILES_ROOT}/src/bootstrap.rb
