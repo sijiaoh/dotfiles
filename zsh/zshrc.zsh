@@ -21,8 +21,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 
 if type "direnv" >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
