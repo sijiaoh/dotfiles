@@ -2,3 +2,4 @@ import = ["~/AppData/Roaming/alacritty/dracula.toml"]
 
 [font]
 normal = { family = "Moralerspace Krypton HWNF" }
+size = 12
