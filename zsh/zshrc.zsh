@@ -33,10 +33,6 @@ export PATH=${GOPATH}/bin:${PATH}
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
-function chpwd() {
-  ls
-}
-
 alias -g L='| less'
 alias -g G='| grep'
 alias -g H='| head'
@@ -50,6 +46,7 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 bindkey '^[h' backward-kill-word
 
 source ${DOTFILES_ROOT}/fzf/fzf.zsh
+source ${DOTFILES_ROOT}/eza/eza.zsh
 
 function estart() {
   if ! emacsclient -e 0 >/dev/null 2>&1; then
