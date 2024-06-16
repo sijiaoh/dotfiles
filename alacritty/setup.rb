@@ -1,5 +1,3 @@
-require_relative "../src/utils"
-
 if Utils.wsl?
   target_dir = File.join Utils.windows_appdata_dir, "alacritty"
 

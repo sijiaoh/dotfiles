@@ -18,6 +18,10 @@ All files starting with `.` are automatically symlinked to the home directory by
 
 You can create a file `[package]/setup.rb`. This will be called from `./bootstrap`. Using the `Utils` class, you can easily create a setup script.
 
+## ./exec
+
+If you want to run a single setup script, you can run `./exec xxx/setup.rb`.
+
 ## LazyVim
 
 ### Update
