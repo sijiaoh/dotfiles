@@ -74,6 +74,10 @@ class Utils
       File.join "/", "mnt", "c", "Users", windows_user_name
     end
 
+    def windows_appdata_dir
+      File.join windows_home_dir, "AppData", "Roaming"
+    end
+
     def download_file(url)
       exec "curl -LO #{url}"
     end

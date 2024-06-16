@@ -1,0 +1,4 @@
+import = ["~/AppData/Roaming/alacritty/dracula.toml"]
+
+[font]
+normal = { family = "Moralerspace Krypton HWNF" }
