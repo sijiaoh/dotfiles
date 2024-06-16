@@ -29,6 +29,12 @@ class Utils
       exec command
     end
 
+    def cp(from, to)
+      to_dir = File.dirname to
+      FileUtils.mkdir_p to_dir
+      FileUtils.cp from, to
+    end
+
     def git_clone(path:, url:)
       return true if File.exist? File.expand_path(path)
 
