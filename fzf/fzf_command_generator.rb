@@ -88,7 +88,7 @@ class FzfCommandGenerator
     end
   end
 
-  def in_tmux? = system("tmux list-sessions > /dev/null 2>&1")
+  def in_tmux? = `echo ${TERM_PROGRAM}`.strip == "tmux"
 
   def fzf_command = in_tmux? ? "fzf-tmux" : "fzf"
 
