@@ -1,6 +1,7 @@
 alias ls='eza --group-directories-first --icons --git'
-alias lt='ls --tree --level=2 --long --header'
-alias lta='lt --all'
+alias ltbase='ls --tree --level=2 --long --header --color=always'
+alias lt='ltbase | cat --plain'
+alias lta='ltbase --all | cat --plain'
 
 function chpwd() {
   ls
