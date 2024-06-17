@@ -48,6 +48,7 @@ bindkey '^[h' backward-kill-word
 source ${DOTFILES_ROOT}/fzf/fzf.zsh
 source ${DOTFILES_ROOT}/eza/eza.zsh
 source ${DOTFILES_ROOT}/zoxide/zoxide.zsh
+source ${DOTFILES_ROOT}/bat/bat.zsh
 
 function estart() {
   if ! emacsclient -e 0 >/dev/null 2>&1; then
