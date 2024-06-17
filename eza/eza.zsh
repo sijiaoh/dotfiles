@@ -1,5 +1,5 @@
-alias ls=eza
+alias ls='eza --group-directories-first --icons'
 
 function chpwd() {
-  eza
+  ls
 }
