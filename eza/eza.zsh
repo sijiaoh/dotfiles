@@ -1,4 +1,5 @@
 alias ls='eza --group-directories-first --icons --git'
+
 alias llbase='ls --long --header --icons=always --color=always'
 alias ll='llbase L'
 alias la='llbase --all L'
