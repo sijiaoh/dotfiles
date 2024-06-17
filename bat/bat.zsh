@@ -3,4 +3,4 @@ if command -v batcat &>/dev/null; then
 else
   alias cat=bat
 fi
-alias less=cat --plain
+alias less='cat --plain'
