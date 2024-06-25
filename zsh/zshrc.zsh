@@ -16,12 +16,14 @@ if test ${OS} = "macos"; then
 fi
 
 # Source Prezto.
-# brew のパスを通してから出ないと tmux が自動で立ち上がらない
+# brew のパスを通してからでないと tmux が自動で立ち上がらない。
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-eval "$(~/.local/bin/mise activate zsh)"
+# `mise activate`が推奨だが、スクリプト実行時にもmiseを動かすにはshimsを使用する必要がある。
+# https://mise.jdx.dev/dev-tools/shims.html
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 if type "direnv" >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
