@@ -7,7 +7,7 @@ return {
       -- Use <leader><space> to Leap.
       { "<leader><space>", nil },
       -- CtrlP like keybind.
-      { "<C-p>", Util.telescope("files"), desc = "Find Files (root dir)" },
+      { "<C-p>", Util.pick("files"), desc = "Find Files (root dir)" },
     },
   },
 }
