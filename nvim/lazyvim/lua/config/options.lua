@@ -12,3 +12,6 @@ vim.g.root_spec = { { ".marksman.toml", ".project_root" }, "lsp", { ".git", "lua
 
 -- Turn off Chinese, Japanese, Korean spell check.
 vim.opt.spelllang:append("cjk")
+
+-- Disable mouse.
+vim.opt.mouse = ""
