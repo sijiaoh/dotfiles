@@ -67,7 +67,9 @@
   r     = reset
   rh    = reset HEAD
   rp    = reset HEAD~
-  rph   = reset --hard HEAD~
+  rhp   = reset --hard HEAD~
+  ro   = !git reset origin/$(git rev-parse --abbrev-ref HEAD)
+  rho   = !git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
 
   re    = rebase
   rei   = rebase -i
