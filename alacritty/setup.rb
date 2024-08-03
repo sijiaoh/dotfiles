@@ -6,3 +6,5 @@ if Utils.wsl?
   Utils.cp "alacritty/dracula.toml", target_dir
   Utils.cp "alacritty/wsl.lnk", target_dir
 end
+
+Utils.create_symlink "alacritty", "~/.config/alacritty"
