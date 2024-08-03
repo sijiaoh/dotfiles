@@ -7,4 +7,6 @@ if Utils.wsl?
   Utils.cp "alacritty/wsl.lnk", target_dir
 end
 
+Utils.brew_install "alacritty", cask: true
+
 Utils.create_symlink "alacritty", "~/.config/alacritty"
