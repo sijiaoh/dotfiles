@@ -1,5 +1,6 @@
 Utils.brew_install "1password", cask: true
 Utils.brew_install "google-chrome", cask: true
+Utils.brew_install "docker", cask: true
 Utils.brew_install "visual-studio-code", cask: true
 
 # To disable cursor blinking in Firefox, set `ui.caretBlinkTime` to `0` in `about:config`.
