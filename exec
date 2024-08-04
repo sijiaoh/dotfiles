@@ -1,4 +1,4 @@
-#!/bin/env ruby
+#!/usr/bin/env ruby
 
 require_relative "src/utils"
 require_relative ARGV[0]
