@@ -5,6 +5,7 @@ else
 end
 
 Utils.auto_install "git-lfs"
+Utils.exec "sudo git lfs install --system"
 
 def install_linux_delta
   delta_tar_name = "delta-0.16.5-x86_64-unknown-linux-musl.tar.gz"
