@@ -112,3 +112,8 @@ SPROMPT="%{$fg[blue]%}%{$suggest%}(#'o'%)? < もしかして %B%r%b %{$fg[blue]%
 
 # Enable rbenv prompt.
 typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
+
+# Tiling window manager.
+if test ${OS} = "macos"; then
+  . ${DOTFILES_ROOT}/yabai/yabai.zsh
+fi
