@@ -4,6 +4,22 @@ alt - h: yabai -m window --focus west
 alt - j: yabai -m window --focus south
 alt - k: yabai -m window --focus north
 alt - l: yabai -m window --focus east
+
+shift + alt - h: yabai -m window --swap west
+shift + alt - j: yabai -m window --swap south
+shift + alt - k: yabai -m window --swap north
+shift + alt - l: yabai -m window --swap east
+
+ctrl + alt - h: yabai -m window --stack west
+ctrl + alt - j: yabai -m window --stack south
+ctrl + alt - k: yabai -m window --stack north
+ctrl + alt - l: yabai -m window --stack east
+
+ctrl + shift + alt - h: yabai -m window --warp west
+ctrl + shift + alt - j: yabai -m window --warp south
+ctrl + shift + alt - k: yabai -m window --warp north
+ctrl + shift + alt - l: yabai -m window --warp east
+
 alt - n: yabai -m window --focus stack.next || yabai -m window --focus stack.first
 alt - p: yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 cmd - pagedown: yabai -m window --focus stack.next || yabai -m window --focus stack.first
