@@ -5,6 +5,8 @@ if Utils.linux?
   File.delete "nvim.appimage"
   Utils.exec "sudo rm -rf /usr/local/lib/nvim && sudo mv squashfs-root /usr/local/lib/nvim"
   Utils.exec "sudo ln -sf /usr/local/lib/nvim/usr/bin/nvim /usr/local/bin/nvim"
+else
+  Utils.brew_install "nvim"
 end
 
 # Use xclip to sync system clipboard with neovim clipboard.
