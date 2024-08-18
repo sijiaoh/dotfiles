@@ -77,7 +77,7 @@
 
   rv    = revert
 
-  s     = status
+  s     = status -s
 
 [core]
   excludesfile = ~/.gitignore
