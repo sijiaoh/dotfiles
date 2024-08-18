@@ -8,6 +8,12 @@ alias ltbase='llbase --tree --level=2'
 alias lt='ltbase L'
 alias lta='ltbase --all L'
 
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
+
 function chpwd() {
   ls
 }
