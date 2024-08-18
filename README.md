@@ -31,3 +31,13 @@ You can run `./update_lazyvim` to update /nvim/lazyvim subtree.
 ### Project root
 
 Root marker is `.marksman.toml` and `.project_root`.
+
+## Mac
+
+以下の手順でMacのCtrl+Spaceを無効化する。
+
+1. システム環境設定
+2. キーボード
+3. ショートカット
+4. 入力ソース
+5. チェックボックスを外す
