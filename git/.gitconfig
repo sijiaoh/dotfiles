@@ -33,13 +33,13 @@
   cob   = checkout -b
 
   d     = diff
-  ds    = -c delta.side-by-side=false diff
+  ds    = -c delta.side-by-side=true diff
   dw    = diff --color-words
-  dws   = -c delta.side-by-side=false dw
+  dws   = -c delta.side-by-side=true dw
   dc    = diff --cached
-  dcs   = -c delta.side-by-side=false dc
+  dcs   = -c delta.side-by-side=true dc
   dcw   = dc  --color-words
-  dcws  = -c delta.side-by-side=false dcw
+  dcws  = -c delta.side-by-side=true dcw
 
   f     = fetch
   fa    = fetch --all
@@ -48,7 +48,7 @@
 
   l     = log --date=format:"'%Y/%m/%d %H:%M:%S'"
   lp    = l -p
-  lps   = -c delta.side-by-side=false l -p
+  lps   = -c delta.side-by-side=true l -p
   ln    = l --name-status
   lo    = log --oneline
   lon   = lo --name-status
@@ -106,7 +106,6 @@
 [delta]
     navigate = true # n/N to move between diff sections
     light = false
-    side-by-side = true
     features = arctic-fox # Theme
 [merge]
     conflictstyle = diff3
