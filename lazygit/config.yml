@@ -2,3 +2,5 @@ git:
   paging:
     colorArg: always
     pager: delta --paging=never
+# Disable the prompt when open a file with editor.
+promptToReturnFromSubprocess: false
