@@ -107,7 +107,6 @@
     navigate = true # n/N to move between diff sections
     light = false
     features = arctic-fox # Theme
-    paging = never
 [merge]
     conflictstyle = diff3
 [diff]
