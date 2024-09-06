@@ -15,10 +15,17 @@
   },
 
   "ui_font_size": 14,
-  "ui_font_family": "Moralerspace Krypton HWNF",
+  "ui_font_family": "Moralerspace Radon HWNF",
+  "buffer_font_family": "Moralerspace Radon HWNF",
   "buffer_font_size": 14,
   "terminal": {
-    "font_family": "Moralerspace Krypton HWNF"
+    "font_family": "Moralerspace Radon HWNF"
+  },
+
+  "scrollbar": {
+    // TODO: スクロールバーが右端の一文字を隠してしまう
+    // https://github.com/zed-industries/zed/issues/14966
+    "show": "never"
   },
 
   "theme": {
