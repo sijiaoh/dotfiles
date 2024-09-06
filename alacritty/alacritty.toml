@@ -1,7 +1,7 @@
 import = ["~/AppData/Roaming/alacritty/dracula.toml"]
 
 [font]
-normal = { family = "Moralerspace Krypton HWNF" }
+normal = { family = "Moralerspace Radon HWNF" }
 size = 12
 
 [mouse]
