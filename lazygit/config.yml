@@ -8,7 +8,6 @@ os:
   edit: "zed {{filename}}"
   editAtLine: "zed {{filename}}:{{line}}"
   editAtLineAndWait: "zed --wait {{filename}}:{{line}}"
-quitOnTopLevelReturn: true
 keybinding:
   universal:
     # Do not use q to quit.
