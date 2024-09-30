@@ -5,9 +5,9 @@ git:
 # Disable the prompt when open a file with editor.
 promptToReturnFromSubprocess: false
 os:
-  edit: "zed {{filename}}"
-  editAtLine: "zed {{filename}}:{{line}}"
-  editAtLineAndWait: "zed --wait {{filename}}:{{line}}"
+  edit: "code {{filename}}"
+  editAtLine: "code {{filename}}:{{line}}"
+  editAtLineAndWait: "code --wait {{filename}}:{{line}}"
 keybinding:
   universal:
     # Do not use q to quit.

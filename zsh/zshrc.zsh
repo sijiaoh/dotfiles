@@ -1,5 +1,5 @@
-export EDITOR='zed'
-export GIT_EDITOR='zed --wait'
+export EDITOR='code'
+export GIT_EDITOR='code --wait'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
