@@ -1,4 +1,4 @@
-if Utils.linux?
+if Utils.linux? && !Utils.dev_container?
   Utils.download_file "https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage"
   Utils.exec "chmod +x nvim.appimage"
   Utils.exec "./nvim.appimage --appimage-extract"

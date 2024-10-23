@@ -72,6 +72,10 @@ class Utils
       system "uname -r | grep -i microsoft"
     end
 
+    def dev_container?
+      ENV["REMOTE_CONTAINERS"] == "true"
+    end
+
     def windows_user_name
       run("cmd.exe /c echo %USERNAME%").strip
     end
