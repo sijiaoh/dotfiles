@@ -1,4 +1,10 @@
-alias ls='eza --group-directories-first --icons --git'
+# Disable --git option for aarch64.
+# TODO: Always enable --git option.
+# https://github.com/eza-community/eza/issues/1060
+if uname -m | grep -vq aarch64; then
+  GIT_OPTS='--git'
+fi
+alias ls="eza --group-directories-first --icons ${GIT_OPTS}"
 
 alias llbase='ls --long --header --icons=always --color=always'
 alias ll='llbase L'
