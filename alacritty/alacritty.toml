@@ -1,3 +1,4 @@
+[general]
 import = ["~/AppData/Roaming/alacritty/dracula.toml"]
 
 [font]
