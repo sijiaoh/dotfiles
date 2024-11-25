@@ -24,3 +24,5 @@ alt - n: yabai -m window --focus stack.next || yabai -m window --focus stack.fir
 alt - p: yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 cmd - pagedown: yabai -m window --focus stack.next || yabai -m window --focus stack.first
 cmd - pageup: yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+
+alt - m: yabai -m window --toggle zoom-parent
