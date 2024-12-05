@@ -45,6 +45,12 @@ class Utils
       exec "sudo apt install -y #{package_name}" if linux?
     end
 
+    def brew_tap(formula)
+      return unless macos?
+
+      exec "brew tap #{formula}"
+    end
+
     def brew_install(package_name, cask: false)
       return unless macos?
 
