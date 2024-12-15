@@ -46,6 +46,10 @@ alias GF='find . -type f | xargs grep'
 
 alias cdr='cd $(git rev-parse --show-toplevel)'
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 bindkey '^[h' backward-kill-word
 
 source ${DOTFILES_ROOT}/fzf/fzf.zsh
