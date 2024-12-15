@@ -14,3 +14,5 @@ keybinding:
     # I want to use q to return.
     # But it is not possible return from input mode.
     quit: ""
+gui:
+  mouseEvents: false
