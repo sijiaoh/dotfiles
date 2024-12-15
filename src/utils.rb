@@ -45,6 +45,10 @@ class Utils
       exec "sudo apt install -y #{package_name}" if linux?
     end
 
+    def snap_install(package_name)
+      exec "sudo snap install #{package_name}" if linux?
+    end
+
     def brew_tap(formula)
       return unless macos?
 
