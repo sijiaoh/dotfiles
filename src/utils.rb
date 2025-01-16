@@ -46,7 +46,7 @@ class Utils
     end
 
     def snap_install(package_name)
-      exec "sudo snap install #{package_name}" if linux?
+      exec "sudo snap install #{package_name}" if linux? && !dev_container?
     end
 
     def brew_tap(formula)
