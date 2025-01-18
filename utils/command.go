@@ -36,6 +36,14 @@ func ExecCommand(name string, arg ...string) (*CommandOutput, error) {
 	return &output, nil
 }
 
+func MustExecCommand(name string, arg ...string) *CommandOutput {
+	output, err := ExecCommand(name, arg...)
+	if err != nil {
+		panic(err)
+	}
+	return output
+}
+
 func ExecScript(script string) (*CommandOutput, error) {
 	script = ExpandPath(script)
 	return ExecCommand("sh", "-c", script)

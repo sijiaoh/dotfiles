@@ -7,6 +7,7 @@ import (
 	"github.com/sijiaoh/dotfiles/eza"
 	"github.com/sijiaoh/dotfiles/fzf"
 	"github.com/sijiaoh/dotfiles/lazygit"
+	"github.com/sijiaoh/dotfiles/mac"
 )
 
 func main() {
@@ -17,6 +18,7 @@ func main() {
 		eza.Setup,
 		fzf.Setup,
 		lazygit.Setup,
+		mac.Setup,
 	}
 
 	for _, setup := range setups {
