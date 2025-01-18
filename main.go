@@ -12,6 +12,7 @@ import (
 	"github.com/sijiaoh/dotfiles/lf"
 	"github.com/sijiaoh/dotfiles/mac"
 	"github.com/sijiaoh/dotfiles/power_shell"
+	"github.com/sijiaoh/dotfiles/tmux"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
 	"github.com/sijiaoh/dotfiles/yabai"
 	"github.com/sijiaoh/dotfiles/zed"
@@ -31,6 +32,7 @@ func main() {
 		lf.Setup,
 		mac.Setup,
 		power_shell.Setup,
+		tmux.Setup,
 		windows_terminal.Setup,
 		yabai.Setup,
 		zed.Setup,
