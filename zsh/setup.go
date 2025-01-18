@@ -11,13 +11,11 @@ import (
 func Setup() {
 	zpreztoRoot := utils.ExpandPath("~/.zprezto")
 	utils.AutoInstall("zsh")
-	output, err := utils.ExecCommand("git clone https://github.com/sorin-ionescu/prezto.git " + zpreztoRoot)
-	if err != nil && !strings.Contains(output.Stderr, "already exists") {
-		panic(err)
-	}
+
+	utils.GitClone("https://github.com/sorin-ionescu/prezto.git", zpreztoRoot)
 
 	command := fmt.Sprintf("find %s -type f -not -name README.md", path.Join(zpreztoRoot, "runcoms"))
-	output, err = utils.ExecCommand(command)
+	output, err := utils.ExecCommand(command)
 	if err != nil {
 		panic(err)
 	}

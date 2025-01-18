@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path"
+	"strings"
 )
 
 func MkdirP(dir string) {
@@ -52,6 +53,13 @@ func CreateSymlink(src, dest string) {
 
 	_, err := ExecCommand(fmt.Sprintf("ln -sf %s %s", src, dest))
 	if err != nil {
+		panic(err)
+	}
+}
+
+func GitClone(repo, dest string) {
+	output, err := ExecCommand(fmt.Sprintf("git clone --recursive %s %s", repo, dest))
+	if err != nil && !strings.Contains(output.Stderr, "already exists") {
 		panic(err)
 	}
 }
