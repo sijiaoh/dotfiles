@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"os"
 	"runtime"
 	"strings"
@@ -19,7 +20,7 @@ func IsWsl() bool {
 		return false
 	}
 
-	output, err := ExecCommand("uname", "-a")
+	output, err := ExecCommand("uname -a")
 	if err != nil {
 		panic(err)
 	}
@@ -40,7 +41,7 @@ func AptInstall(pkg string) {
 	if !IsLinux() {
 		return
 	}
-	_, err := ExecCommand("sudo", "apt", "install", pkg)
+	_, err := ExecCommand(fmt.Sprintf("sudo apt install -y %s", pkg))
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +51,7 @@ func SnapInstall(pkg string) {
 	if !IsLinux() || IsDevContainer() {
 		return
 	}
-	_, err := ExecCommand("sudo", "snap", "install", pkg)
+	_, err := ExecCommand(fmt.Sprintf("sudo snap install %s", pkg))
 	if err != nil {
 		panic(err)
 	}
@@ -60,7 +61,7 @@ func BrewTap(fomula string) {
 	if !IsMac() {
 		return
 	}
-	_, err := ExecCommand("brew", "tap", fomula)
+	_, err := ExecCommand(fmt.Sprintf("brew tap %s", fomula))
 	if err != nil {
 		panic(err)
 	}
@@ -70,7 +71,7 @@ func BrewInstall(pkg string) {
 	if !IsMac() {
 		return
 	}
-	output, err := ExecCommand("brew", "install", pkg)
+	output, err := ExecCommand(fmt.Sprintf("brew install %s", pkg))
 	if err != nil && !strings.Contains(output.Stderr, "already installed") {
 		panic(err)
 	}
@@ -80,7 +81,7 @@ func BrewCaskInstall(pkg string) {
 	if !IsMac() {
 		return
 	}
-	output, err := ExecCommand("brew", "install", "--cask", pkg)
+	output, err := ExecCommand(fmt.Sprintf("brew install --cask %s", pkg))
 	if err != nil && !strings.Contains(output.Stderr, "already installed") {
 		panic(err)
 	}

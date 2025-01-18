@@ -13,8 +13,8 @@ type CommandOutput struct {
 	Stderr string
 }
 
-func ExecCommand(name string, arg ...string) (*CommandOutput, error) {
-	cmd := exec.Command(name, arg...)
+func ExecCommand(command string) (*CommandOutput, error) {
+	cmd := exec.Command("sh", "-c", command)
 
 	outBuffer := bytes.Buffer{}
 	errBuffer := bytes.Buffer{}
@@ -36,8 +36,8 @@ func ExecCommand(name string, arg ...string) (*CommandOutput, error) {
 	return &output, nil
 }
 
-func MustExecCommand(name string, arg ...string) *CommandOutput {
-	output, err := ExecCommand(name, arg...)
+func MustExecCommand(command string) *CommandOutput {
+	output, err := ExecCommand(command)
 	if err != nil {
 		panic(err)
 	}
@@ -46,5 +46,5 @@ func MustExecCommand(name string, arg ...string) *CommandOutput {
 
 func ExecScript(script string) (*CommandOutput, error) {
 	script = ExpandPath(script)
-	return ExecCommand("sh", "-c", script)
+	return ExecCommand(script)
 }

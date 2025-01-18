@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"io"
 	"os"
 )
@@ -46,7 +47,7 @@ func CreateSymlink(src, dest string) {
 		}
 	}
 
-	_, err := ExecCommand("ln", "-sf", src, dest)
+	_, err := ExecCommand(fmt.Sprintf("ln -sf %s %s", src, dest))
 	if err != nil {
 		panic(err)
 	}

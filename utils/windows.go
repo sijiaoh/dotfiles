@@ -3,7 +3,7 @@ package utils
 import "path"
 
 func WindowsUserName() string {
-	output, err := ExecCommand("cmd.exe", "/c", "echo", "%USERNAME%")
+	output, err := ExecCommand("cmd.exe /c echo %USERNAME%")
 	if err != nil {
 		panic(err)
 	}

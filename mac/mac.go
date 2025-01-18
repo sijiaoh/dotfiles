@@ -14,12 +14,12 @@ func Setup() {
 
 	if utils.IsMac() {
 		// Disable cursor blinking.
-		utils.MustExecCommand("defaults", "write", "-g", "NSTextInsertionPointBlinkPeriodOn", "-float", "999999")
-		utils.MustExecCommand("defaults", "write", "-g", "NSTextInsertionPointBlinkPeriodOff", "-float", "1")
+		utils.MustExecCommand("defaults write -g NSTextInsertionPointBlinkPeriodOn -float 999999")
+		utils.MustExecCommand("defaults write -g NSTextInsertionPointBlinkPeriodOff -float 1")
 
 		// Enable key repeat.
-		utils.MustExecCommand("defaults", "write", "-g", "ApplePressAndHoldEnabled", "-bool", "false")
-		utils.MustExecCommand("defaults", "write", "-g", "InitialKeyRepeat", "-int", "20")
-		utils.MustExecCommand("defaults", "write", "-g", "KeyRepeat", "-int", "3")
+		utils.MustExecCommand("defaults write -g ApplePressAndHoldEnabled -bool false")
+		utils.MustExecCommand("defaults write -g InitialKeyRepeat -int 20")
+		utils.MustExecCommand("defaults write -g KeyRepeat -int 3")
 	}
 }
