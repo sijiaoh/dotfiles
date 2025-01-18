@@ -34,7 +34,7 @@ func installLinuxDelta() {
 	defer utils.MustExecCommand("rm -rf " + deltaTarPath)
 
 	utils.MustExecCommand("tar -xvf " + deltaTarPath)
-	deltaDirPath := utils.ExpandPath("./" + strings.TrimSuffix(deltaTarPath, ".tar.gz"))
+	deltaDirPath := strings.TrimSuffix(deltaTarPath, ".tar.gz")
 	defer utils.MustExecCommand("rm -rf " + deltaDirPath)
 
 	utils.MustExecCommand(fmt.Sprintf("sudo mv %s /usr/local/bin", path.Join(deltaDirPath, "delta")))
