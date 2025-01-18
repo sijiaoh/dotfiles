@@ -13,11 +13,7 @@ func Setup() error {
 	}
 	utils.CreateSymlink("alacritty", "~/.config/alacritty")
 
-	isWsl, err := utils.IsWsl()
-	if err != nil {
-		return err
-	}
-	if isWsl {
+	if utils.IsWsl() {
 		windowsAppDataDir := os.Getenv("APPDATA")
 		targetDir := path.Join(windowsAppDataDir, "alacritty")
 		if err := utils.MkdirP(targetDir); err != nil {

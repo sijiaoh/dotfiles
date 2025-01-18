@@ -14,17 +14,17 @@ func IsLinux() bool {
 	return runtime.GOOS == "linux"
 }
 
-func IsWsl() (bool, error) {
+func IsWsl() bool {
 	if !IsLinux() {
-		return false, nil
+		return false
 	}
 
 	output, err := ExecCommand("uname", "-a")
 	if err != nil {
-		return false, err
+		panic(err)
 	}
 
-	return strings.Contains(string(output.Stdout), "microsoft"), nil
+	return strings.Contains(string(output.Stdout), "microsoft")
 }
 
 func IsDevContainer() bool {
