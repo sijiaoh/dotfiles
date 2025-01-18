@@ -8,7 +8,7 @@ import (
 
 func Setup() {
 	utils.BrewCaskInstall("alacritty")
-	utils.CreateSymlink("alacritty", "~/.config/alacritty")
+	utils.CreateSymlink("./alacritty", "~/.config/alacritty")
 
 	if utils.IsWsl() {
 		targetDir := path.Join(utils.WindowsAppDataDir(), "alacritty")

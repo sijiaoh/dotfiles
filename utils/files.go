@@ -3,16 +3,20 @@ package utils
 import (
 	"io"
 	"os"
-	"path"
 )
 
 func MkdirP(dir string) {
+	dir = ExpandPath(dir)
+
 	if err := os.MkdirAll(dir, 0755); err != nil {
 		panic(err)
 	}
 }
 
 func CopyFileTo(src, dest string) {
+	src = ExpandPath(src)
+	dest = ExpandPath(dest)
+
 	srcFile, err := os.Open(src)
 	if err != nil {
 		panic(err)
@@ -33,11 +37,8 @@ func CopyFileTo(src, dest string) {
 
 // src: 自動でDotfilesRoot()が付与される
 func CreateSymlink(src, dest string) {
-	absoluteSrc := path.Join(DotfilesRoot(), src)
-
-	if dest[:2] == "~/" {
-		dest = path.Join(os.Getenv("HOME"), dest[2:])
-	}
+	src = ExpandPath(src)
+	dest = ExpandPath(dest)
 
 	if _, err := os.Stat(dest); err == nil {
 		if err := os.Remove(dest); err != nil {
@@ -45,7 +46,7 @@ func CreateSymlink(src, dest string) {
 		}
 	}
 
-	_, err := ExecCommand("ln", "-sf", absoluteSrc, dest)
+	_, err := ExecCommand("ln", "-sf", src, dest)
 	if err != nil {
 		panic(err)
 	}
