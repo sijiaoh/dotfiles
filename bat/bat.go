@@ -9,6 +9,5 @@ func Setup() error {
 	if err := utils.CreateSymlink("bat/config", "~/.config/bat/config"); err != nil {
 		return err
 	}
-
 	return nil
 }

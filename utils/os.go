@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"os"
 	"runtime"
 	"strings"
 )
@@ -26,6 +27,10 @@ func IsWsl() (bool, error) {
 	return strings.Contains(string(output.Stdout), "microsoft"), nil
 }
 
+func IsDevContainer() bool {
+	return os.Getenv("REMOTE_CONTAINERS") == "true"
+}
+
 func AutoInstall(pkg string) error {
 	if err := AptInstall(pkg); err != nil {
 		return err
@@ -41,6 +46,14 @@ func AptInstall(pkg string) error {
 		return nil
 	}
 	_, err := ExecCommand("sudo", "apt", "install", pkg)
+	return err
+}
+
+func SnapInstall(pkg string) error {
+	if !IsLinux() || IsDevContainer() {
+		return nil
+	}
+	_, err := ExecCommand("sudo", "snap", "install", pkg)
 	return err
 }
 
