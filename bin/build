@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+
+# Linux x86_64
+GOOS=linux GOARCH=amd64 go build -o build/linux-x86_64
+
+# Linux ARM64
+GOOS=linux GOARCH=arm64 go build -o build/linux-arm64
+
+# Darwin ARM64
+GOOS=darwin GOARCH=arm64 go build -o build/darwin-arm64
