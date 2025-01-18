@@ -10,6 +10,7 @@ import (
 	"github.com/sijiaoh/dotfiles/lazygit"
 	"github.com/sijiaoh/dotfiles/lf"
 	"github.com/sijiaoh/dotfiles/mac"
+	"github.com/sijiaoh/dotfiles/power_shell"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
 	"github.com/sijiaoh/dotfiles/yabai"
 	"github.com/sijiaoh/dotfiles/zed"
@@ -27,6 +28,7 @@ func main() {
 		lazygit.Setup,
 		lf.Setup,
 		mac.Setup,
+		power_shell.Setup,
 		windows_terminal.Setup,
 		yabai.Setup,
 		zed.Setup,
