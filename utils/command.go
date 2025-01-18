@@ -35,3 +35,8 @@ func ExecCommand(name string, arg ...string) (*CommandOutput, error) {
 	}
 	return &output, nil
 }
+
+func ExecScript(script string) (*CommandOutput, error) {
+	script = ExpandPath(script)
+	return ExecCommand("sh", "-c", script)
+}
