@@ -7,6 +7,7 @@ import (
 	"github.com/sijiaoh/dotfiles/eza"
 	"github.com/sijiaoh/dotfiles/fzf"
 	"github.com/sijiaoh/dotfiles/lazygit"
+	"github.com/sijiaoh/dotfiles/lf"
 	"github.com/sijiaoh/dotfiles/mac"
 )
 
@@ -18,6 +19,7 @@ func main() {
 		eza.Setup,
 		fzf.Setup,
 		lazygit.Setup,
+		lf.Setup,
 		mac.Setup,
 	}
 
