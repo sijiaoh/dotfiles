@@ -54,3 +54,14 @@ func BrewInstall(pkg string) error {
 	}
 	return nil
 }
+
+func BrewCaskInstall(pkg string) error {
+	if !IsMac() {
+		return nil
+	}
+	output, err := ExecCommand("brew", "install", "--cask", pkg)
+	if err != nil && !strings.Contains(output.Stderr, "already installed") {
+		return err
+	}
+	return nil
+}

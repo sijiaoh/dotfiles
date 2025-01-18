@@ -5,6 +5,7 @@ import (
 	"path"
 )
 
+// src: 自動でDotfilesRoot()が付与される
 func CreateSymlink(src, dest string) error {
 	absoluteSrc := path.Join(DotfilesRoot(), src)
 
