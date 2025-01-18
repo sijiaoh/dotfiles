@@ -1,7 +1,6 @@
 package alacritty
 
 import (
-	"os"
 	"path"
 
 	"github.com/sijiaoh/dotfiles/utils"
@@ -12,8 +11,7 @@ func Setup() {
 	utils.CreateSymlink("alacritty", "~/.config/alacritty")
 
 	if utils.IsWsl() {
-		windowsAppDataDir := os.Getenv("APPDATA")
-		targetDir := path.Join(windowsAppDataDir, "alacritty")
+		targetDir := path.Join(utils.WindowsAppDataDir(), "alacritty")
 		utils.MkdirP(targetDir)
 
 		files := []string{"alacritty/alacritty.toml", "alacritty/dracula.toml", "alacritty/wsl.lnk"}
