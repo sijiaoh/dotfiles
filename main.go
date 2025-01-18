@@ -18,6 +18,7 @@ import (
 	"github.com/sijiaoh/dotfiles/yabai"
 	"github.com/sijiaoh/dotfiles/zed"
 	"github.com/sijiaoh/dotfiles/zoxide"
+	"github.com/sijiaoh/dotfiles/zsh"
 )
 
 func main() {
@@ -39,6 +40,7 @@ func main() {
 		yabai.Setup,
 		zed.Setup,
 		zoxide.Setup,
+		zsh.Setup,
 	}
 
 	for _, setup := range setups {
