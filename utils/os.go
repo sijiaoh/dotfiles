@@ -31,50 +31,47 @@ func IsDevContainer() bool {
 	return os.Getenv("REMOTE_CONTAINERS") == "true"
 }
 
-func AutoInstall(pkg string) error {
-	if err := AptInstall(pkg); err != nil {
-		return err
-	}
-	if err := BrewInstall(pkg); err != nil {
-		return err
-	}
-	return nil
+func AutoInstall(pkg string) {
+	AptInstall(pkg)
+	BrewInstall(pkg)
 }
 
-func AptInstall(pkg string) error {
+func AptInstall(pkg string) {
 	if !IsLinux() {
-		return nil
+		return
 	}
 	_, err := ExecCommand("sudo", "apt", "install", pkg)
-	return err
+	if err != nil {
+		panic(err)
+	}
 }
 
-func SnapInstall(pkg string) error {
+func SnapInstall(pkg string) {
 	if !IsLinux() || IsDevContainer() {
-		return nil
+		return
 	}
 	_, err := ExecCommand("sudo", "snap", "install", pkg)
-	return err
+	if err != nil {
+		panic(err)
+	}
 }
 
-func BrewInstall(pkg string) error {
+func BrewInstall(pkg string) {
 	if !IsMac() {
-		return nil
+		return
 	}
 	output, err := ExecCommand("brew", "install", pkg)
 	if err != nil && !strings.Contains(output.Stderr, "already installed") {
-		return err
+		panic(err)
 	}
-	return nil
 }
 
-func BrewCaskInstall(pkg string) error {
+func BrewCaskInstall(pkg string) {
 	if !IsMac() {
-		return nil
+		return
 	}
 	output, err := ExecCommand("brew", "install", "--cask", pkg)
 	if err != nil && !strings.Contains(output.Stderr, "already installed") {
-		return err
+		panic(err)
 	}
-	return nil
 }

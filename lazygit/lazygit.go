@@ -5,9 +5,7 @@ import (
 )
 
 func Setup() error {
-	if err := utils.BrewInstall("lazygit"); err != nil {
-		return err
-	}
+	utils.BrewInstall("lazygit")
 
 	if utils.IsLinux() {
 		utils.CreateSymlink("lazygit/config.yml", "~/.config/lazygit/config.yml")

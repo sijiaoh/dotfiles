@@ -8,9 +8,7 @@ import (
 )
 
 func Setup() error {
-	if err := utils.BrewCaskInstall("alacritty"); err != nil {
-		return err
-	}
+	utils.BrewCaskInstall("alacritty")
 	utils.CreateSymlink("alacritty", "~/.config/alacritty")
 
 	if utils.IsWsl() {
