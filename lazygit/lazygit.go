@@ -10,13 +10,9 @@ func Setup() error {
 	}
 
 	if utils.IsLinux() {
-		if err := utils.CreateSymlink("lazygit/config.yml", "~/.config/lazygit/config.yml"); err != nil {
-			return err
-		}
+		utils.CreateSymlink("lazygit/config.yml", "~/.config/lazygit/config.yml")
 	} else {
-		if err := utils.CreateSymlink("lazygit/config.yml", "~/Library/Application Support/lazygit/config.yml"); err != nil {
-			return err
-		}
+		utils.CreateSymlink("lazygit/config.yml", "~/Library/Application Support/lazygit/config.yml")
 	}
 
 	return nil

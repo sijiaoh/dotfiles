@@ -6,7 +6,7 @@ import (
 )
 
 // src: 自動でDotfilesRoot()が付与される
-func CreateSymlink(src, dest string) error {
+func CreateSymlink(src, dest string) {
 	absoluteSrc := path.Join(DotfilesRoot(), src)
 
 	if dest[:2] == "~/" {
@@ -15,10 +15,12 @@ func CreateSymlink(src, dest string) error {
 
 	if _, err := os.Stat(dest); err == nil {
 		if err := os.Remove(dest); err != nil {
-			return err
+			panic(err)
 		}
 	}
 
 	_, err := ExecCommand("ln", "-sf", absoluteSrc, dest)
-	return err
+	if err != nil {
+		panic(err)
+	}
 }
