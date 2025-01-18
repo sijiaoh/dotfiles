@@ -14,17 +14,13 @@ func Setup() error {
 	if utils.IsWsl() {
 		windowsAppDataDir := os.Getenv("APPDATA")
 		targetDir := path.Join(windowsAppDataDir, "alacritty")
-		if err := utils.MkdirP(targetDir); err != nil {
-			return err
-		}
+		utils.MkdirP(targetDir)
 
 		files := []string{"alacritty/alacritty.toml", "alacritty/dracula.toml", "alacritty/wsl.lnk"}
 		for _, file := range files {
 			from := path.Join(utils.DotfilesRoot(), file)
 			to := path.Join(targetDir, path.Base(file))
-			if err := utils.CopyFileTo(from, to); err != nil {
-				return err
-			}
+			utils.CopyFileTo(from, to)
 		}
 	}
 
