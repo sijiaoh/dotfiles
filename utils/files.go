@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path"
 )
 
 func MkdirP(dir string) {
@@ -46,6 +47,8 @@ func CreateSymlink(src, dest string) {
 			panic(err)
 		}
 	}
+
+	MkdirP(path.Dir(dest))
 
 	_, err := ExecCommand(fmt.Sprintf("ln -sf %s %s", src, dest))
 	if err != nil {
