@@ -13,6 +13,12 @@ func CreateSymlink(src, dest string) error {
 		dest = path.Join(os.Getenv("HOME"), dest[2:])
 	}
 
+	if _, err := os.Stat(dest); err == nil {
+		if err := os.Remove(dest); err != nil {
+			return err
+		}
+	}
+
 	_, err := ExecCommand("ln", "-sf", absoluteSrc, dest)
 	return err
 }
