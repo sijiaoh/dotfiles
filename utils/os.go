@@ -7,6 +7,11 @@ import (
 	"strings"
 )
 
+func IsCommandExist(command string) bool {
+	_, err := ExecCommand("which " + command)
+	return err == nil
+}
+
 func IsMac() bool {
 	return runtime.GOOS == "darwin"
 }
@@ -48,7 +53,7 @@ func AptInstall(pkg string) {
 }
 
 func SnapInstall(pkg string) {
-	if !IsLinux() || IsDevContainer() {
+	if !IsCommandExist("snap") {
 		return
 	}
 	_, err := ExecCommand(fmt.Sprintf("sudo snap install %s", pkg))
