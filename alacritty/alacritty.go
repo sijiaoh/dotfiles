@@ -7,7 +7,7 @@ import (
 	"github.com/sijiaoh/dotfiles/utils"
 )
 
-func Setup() error {
+func Setup() {
 	utils.BrewCaskInstall("alacritty")
 	utils.CreateSymlink("alacritty", "~/.config/alacritty")
 
@@ -23,6 +23,4 @@ func Setup() error {
 			utils.CopyFileTo(from, to)
 		}
 	}
-
-	return nil
 }

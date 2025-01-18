@@ -2,8 +2,7 @@ package btop
 
 import "github.com/sijiaoh/dotfiles/utils"
 
-func Setup() error {
+func Setup() {
 	utils.SnapInstall("btop")
 	utils.BrewInstall("btop")
-	return nil
 }

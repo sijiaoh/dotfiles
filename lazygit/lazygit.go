@@ -4,7 +4,7 @@ import (
 	"github.com/sijiaoh/dotfiles/utils"
 )
 
-func Setup() error {
+func Setup() {
 	utils.BrewInstall("lazygit")
 
 	if utils.IsLinux() {
@@ -12,6 +12,4 @@ func Setup() error {
 	} else {
 		utils.CreateSymlink("lazygit/config.yml", "~/Library/Application Support/lazygit/config.yml")
 	}
-
-	return nil
 }

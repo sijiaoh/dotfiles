@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	setups := []func() error{
+	setups := []func(){
 		alacritty.Setup,
 		bat.Setup,
 		btop.Setup,
@@ -16,8 +16,6 @@ func main() {
 	}
 
 	for _, setup := range setups {
-		if err := setup(); err != nil {
-			panic(err)
-		}
+		setup()
 	}
 }
