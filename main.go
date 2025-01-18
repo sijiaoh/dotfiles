@@ -2,13 +2,15 @@ package main
 
 import (
 	"github.com/sijiaoh/dotfiles/alacritty"
+	"github.com/sijiaoh/dotfiles/bat"
 	"github.com/sijiaoh/dotfiles/lazygit"
 )
 
 func main() {
 	setups := []func() error{
-		lazygit.Setup,
 		alacritty.Setup,
+		bat.Setup,
+		lazygit.Setup,
 	}
 
 	for _, setup := range setups {
