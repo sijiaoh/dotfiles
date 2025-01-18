@@ -9,6 +9,7 @@ import (
 	"github.com/sijiaoh/dotfiles/lazygit"
 	"github.com/sijiaoh/dotfiles/lf"
 	"github.com/sijiaoh/dotfiles/mac"
+	"github.com/sijiaoh/dotfiles/yabai"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 		lazygit.Setup,
 		lf.Setup,
 		mac.Setup,
+		yabai.Setup,
 	}
 
 	for _, setup := range setups {

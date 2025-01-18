@@ -56,6 +56,16 @@ func SnapInstall(pkg string) {
 	}
 }
 
+func BrewTap(fomula string) {
+	if !IsMac() {
+		return
+	}
+	_, err := ExecCommand("brew", "tap", fomula)
+	if err != nil {
+		panic(err)
+	}
+}
+
 func BrewInstall(pkg string) {
 	if !IsMac() {
 		return
