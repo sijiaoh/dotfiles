@@ -17,6 +17,8 @@ if test ${OS} = "linux"; then
   sudo apt upgrade -y
 fi
 
+. ${DOTFILES_ROOT}/mise/setup.sh
+
 if test ${OS} = "linux"; then
   ARCH=$(uname -m)
   if [ "$ARCH" = "aarch64" ]; then
