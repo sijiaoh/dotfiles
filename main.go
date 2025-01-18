@@ -12,6 +12,7 @@ import (
 	"github.com/sijiaoh/dotfiles/mac"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
 	"github.com/sijiaoh/dotfiles/yabai"
+	"github.com/sijiaoh/dotfiles/zoxide"
 )
 
 func main() {
@@ -27,6 +28,7 @@ func main() {
 		mac.Setup,
 		windows_terminal.Setup,
 		yabai.Setup,
+		zoxide.Setup,
 	}
 
 	for _, setup := range setups {
