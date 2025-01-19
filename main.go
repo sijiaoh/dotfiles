@@ -12,6 +12,7 @@ import (
 	"github.com/sijiaoh/dotfiles/lazygit"
 	"github.com/sijiaoh/dotfiles/lf"
 	"github.com/sijiaoh/dotfiles/mac"
+	"github.com/sijiaoh/dotfiles/nvim"
 	"github.com/sijiaoh/dotfiles/power_shell"
 	"github.com/sijiaoh/dotfiles/tmux"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
@@ -34,6 +35,7 @@ func main() {
 		lazygit.Setup,
 		lf.Setup,
 		mac.Setup,
+		nvim.Setup,
 		power_shell.Setup,
 		tmux.Setup,
 		windows_terminal.Setup,
