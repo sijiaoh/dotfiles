@@ -5,14 +5,6 @@
 local Util = require("lazyvim.util")
 local map = vim.keymap.set
 
--- Unmap C-hjkl in terminal.
-vim.cmd([[
-  tunmap <C-h>
-  tunmap <C-j>
-  tunmap <C-k>
-  tunmap <C-l>
-]])
-
 -- Add border to floating terminal.
 local lazyterm = function()
   Util.terminal(nil, { cwd = Util.root(), border = "rounded" })
