@@ -2,22 +2,26 @@ package nvim
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/sijiaoh/dotfiles/utils"
 )
 
 func Setup() {
-	if utils.IsLinux() && !utils.IsDevContainer() {
-		appImagePath := "./nvim.appimage"
-		appImageUrl := "https://github.com/neovim/neovim/releases/download/v0.10.3/nvim.appimage"
+	if utils.IsLinux() {
+		tarPath := "./nvim-linux64.tar.gz"
+		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
+		tarUrl := "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
 
-		utils.MustExecCommand(fmt.Sprintf("curl -L %s -o %s", appImageUrl, appImagePath))
-		defer utils.MustExecCommand("rm -f " + appImagePath)
+		utils.MustExecCommand(fmt.Sprintf("curl -L %s -o %s", tarUrl, tarPath))
+		defer utils.MustExecCommand("rm -f " + tarPath)
 
-		utils.MustExecCommand("chmod +x " + appImagePath)
-		utils.MustExecCommand(appImagePath + " --appimage-extract")
-		utils.MustExecCommand("sudo rm -rf /usr/local/lib/nvim && sudo mv squashfs-root /usr/local/lib/nvim")
-		utils.MustExecCommand("sudo ln -sf /usr/local/lib/nvim/usr/bin/nvim /usr/local/bin/nvim")
+		utils.MustExecCommand("tar -xf " + tarPath)
+		defer utils.MustExecCommand("rm -rf " + dirPath)
+
+		utils.MustExecCommand(fmt.Sprintf("sudo install %s/bin/nvim /usr/local/bin/nvim", dirPath))
+		utils.MustExecCommand(fmt.Sprintf("sudo cp -R %s/lib /usr/local/", dirPath))
+		utils.MustExecCommand(fmt.Sprintf("sudo cp -R %s/share /usr/local/", dirPath))
 	} else {
 		utils.BrewInstall("nvim")
 	}
