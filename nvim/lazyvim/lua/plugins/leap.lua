@@ -1,13 +1,5 @@
 return {
   {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<leader><space>"] = { name = "+leap" },
-      },
-    },
-  },
-  {
     "ggandor/leap.nvim",
     keys = {
       -- EasyMotion like keybinds.
