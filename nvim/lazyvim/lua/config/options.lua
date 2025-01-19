@@ -15,3 +15,7 @@ vim.opt.spelllang:append("cjk")
 
 -- Disable mouse.
 vim.opt.mouse = ""
+
+-- From: https://mise.jdx.dev/ide-integration.html#neovim
+-- Prepend mise shims to PATH
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
