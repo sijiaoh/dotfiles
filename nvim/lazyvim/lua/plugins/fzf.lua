@@ -2,7 +2,7 @@ local Util = require("lazyvim.util")
 
 return {
   {
-    "nvim-telescope/telescope.nvim",
+    "ibhagwan/fzf-lua",
     keys = {
       -- Use <leader><space> to Leap.
       { "<leader><space>", nil },
