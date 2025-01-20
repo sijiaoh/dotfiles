@@ -15,6 +15,7 @@ import (
 	"github.com/sijiaoh/dotfiles/nvim"
 	"github.com/sijiaoh/dotfiles/power_shell"
 	"github.com/sijiaoh/dotfiles/tmux"
+	"github.com/sijiaoh/dotfiles/utils"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
 	"github.com/sijiaoh/dotfiles/yabai"
 	"github.com/sijiaoh/dotfiles/zed"
@@ -48,4 +49,6 @@ func main() {
 	for _, setup := range setups {
 		setup()
 	}
+
+	utils.LinkDotfiles()
 }
