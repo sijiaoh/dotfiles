@@ -5,9 +5,10 @@ git:
 # Disable the prompt when open a file with editor.
 promptToReturnFromSubprocess: false
 os:
-  edit: "code {{filename}}"
-  editAtLine: "code {{filename}}:{{line}}"
-  editAtLineAndWait: "code --wait {{filename}}:{{line}}"
+  # From: https://github.com/jesseduffield/lazygit/issues/996#issuecomment-1624329763
+  edit: 'nvim --server "$NVIM" --remote-tab {{filename}}'
+  editAtLine: 'nvim --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || nvim --server "$NVIM" --remote-send ":{{line}}<CR>"'
+  editAtLineAndWait: "nvim +{{line}} {{filename}}"
 keybinding:
   universal:
     # Do not use q to quit.

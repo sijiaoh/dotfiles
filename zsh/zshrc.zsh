@@ -1,6 +1,6 @@
-export EDITOR='code'
-export VISUAL='code'
-export GIT_EDITOR='code --wait'
+export EDITOR='nvim --listen /tmp/nvim-server.pipe'
+export VISUAL='nvim --listen /tmp/nvim-server.pipe'
+export GIT_EDITOR='nvim --listen /tmp/nvim-server.pipe'
 
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
@@ -66,7 +66,8 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
-alias v='nvim'
+alias nvim='nvim --listen /tmp/nvim-server.pipe'
+alias v='nvim --listen /tmp/nvim-server.pipe'
 compdef v='nvim'
 
 function macvim() {
