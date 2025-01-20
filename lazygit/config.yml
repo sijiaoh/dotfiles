@@ -2,18 +2,19 @@ git:
   paging:
     colorArg: always
     pager: delta --paging=never
+
 # Disable the prompt when open a file with editor.
 promptToReturnFromSubprocess: false
 os:
-  # From: https://github.com/jesseduffield/lazygit/issues/996#issuecomment-1624329763
-  edit: 'nvim --server "$NVIM" --remote-tab {{filename}}'
-  editAtLine: 'nvim --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || nvim --server "$NVIM" --remote-send ":{{line}}<CR>"'
-  editAtLineAndWait: "nvim +{{line}} {{filename}}"
-keybinding:
-  universal:
-    # Do not use q to quit.
-    # I want to use q to return.
-    # But it is not possible return from input mode.
-    quit: ""
+  editPreset: nvim-remote
+
+# snacks.vim will use q to quit lazygit.
+# keybinding:
+#   universal:
+#     # Do not use q to quit.
+#     # I want to use q to return.
+#     # But it is not possible return from input mode.
+#     quit: ""
+
 gui:
   mouseEvents: false
