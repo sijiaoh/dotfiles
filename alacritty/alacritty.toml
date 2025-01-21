@@ -6,6 +6,9 @@ normal = { family = "Moralerspace Radon HWNF" }
 size = 12
 
 [mouse]
-bindings = [
-  { mouse = "Right", action = "Paste" },
-]
+bindings = [{ mouse = "Right", action = "Paste" }]
+
+# C-/が効かない問題を修正
+# From: https://github.com/alacritty/alacritty/issues/3586#issuecomment-613198188
+[keyboard]
+bindings = [{ key = "Slash", mods = "Control", chars = "\u001f" }]
