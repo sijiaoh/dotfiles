@@ -12,3 +12,6 @@ map({ "i", "c" }, "<C-a>", "<Home>")
 map({ "i", "c" }, "<C-e>", "<End>")
 map({ "i", "c" }, "<C-h>", "<BS>")
 map({ "i", "c" }, "<C-d>", "<Del>")
+
+-- Use C-w in terminal mode
+map("t", "<C-w>", [[<C-\><C-n><C-w>]], { noremap = true, silent = true })
