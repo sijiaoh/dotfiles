@@ -30,6 +30,6 @@ func Setup() {
 	utils.AptInstall("xclip")
 
 	utils.AutoInstall("gcc")
-	utils.AutoInstall("g++")
+	utils.AptInstall("g++")
 	utils.CreateSymlink("./nvim/lazyvim", "~/.config/nvim")
 }
