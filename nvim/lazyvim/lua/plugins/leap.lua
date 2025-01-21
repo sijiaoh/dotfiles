@@ -13,5 +13,15 @@ return {
       { "<leader><space>F", "<Plug>(leap-backward)", desc = "Leap backward to" },
       { "<leader><space>g", "<Plug>(leap-from-window)", desc = "Leap from window" },
     },
+    config = function(_, opts)
+      local leap = require("leap")
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      -- sキーは通常通り使いたい
+      -- leap.add_default_mappings(true)
+      vim.keymap.del({ "x", "o" }, "x")
+      vim.keymap.del({ "x", "o" }, "X")
+    end,
   },
 }
