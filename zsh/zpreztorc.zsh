@@ -40,8 +40,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'history-substring-search' \
   'prompt' \
-  'docker'
-  # 'tmux'
+  'docker' \
+  'tmux'
 
 #
 # Autosuggestions
