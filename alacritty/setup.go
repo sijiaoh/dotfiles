@@ -14,7 +14,12 @@ func Setup() {
 		targetDir := path.Join(utils.WindowsAppDataDir(), "alacritty")
 		utils.MkdirP(targetDir)
 
-		files := []string{"alacritty/alacritty.toml", "alacritty/dracula.toml", "alacritty/wsl.lnk"}
+		files := []string{
+			"alacritty/alacritty.toml",
+			"alacritty/dracula.toml",
+			"alacritty/tokyonight.toml",
+			"alacritty/wsl.lnk",
+		}
 		for _, file := range files {
 			from := path.Join(utils.DotfilesRoot(), file)
 			to := path.Join(targetDir, path.Base(file))

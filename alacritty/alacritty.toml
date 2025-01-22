@@ -1,5 +1,5 @@
 [general]
-import = ["~/AppData/Roaming/alacritty/dracula.toml"]
+import = ["./tokyonight.toml"]
 
 [font]
 normal = { family = "Moralerspace Radon HWNF" }
