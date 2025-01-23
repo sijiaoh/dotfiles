@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local map = vim.keymap.set
+local Util = require("lazyvim.util")
 
 -- Emacs like keybindings
 map({ "i", "c" }, "<C-p>", "<Up>")
@@ -12,6 +13,9 @@ map({ "i", "c" }, "<C-a>", "<Home>")
 map({ "i", "c" }, "<C-e>", "<End>")
 map({ "i", "c" }, "<C-h>", "<BS>")
 map({ "i", "c" }, "<C-d>", "<Del>")
+
+-- CtrlP like keybind.
+map("n", "<C-p>", Util.pick("files"))
 
 -- Use C-w in terminal mode
 map("t", "<C-w>", [[<C-\><C-n><C-w>]], { noremap = true, silent = true })

@@ -12,5 +12,19 @@ return {
         },
       },
     },
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-f>"] = false,
+            ["<c-b>"] = false,
+            ["<c-a>"] = false,
+            ["<c-e>"] = false,
+            ["<c-h>"] = false,
+            ["<c-d>"] = false,
+          },
+        },
+      },
+    },
   },
 }
