@@ -37,7 +37,8 @@ func Setup() {
 	utils.AutoInstall("gcc")
 
 	// For vim snacks picker
-	utils.AutoInstall("rg")
+	utils.AptInstall("ripgrep")
+	utils.BrewInstall("rg")
 
 	utils.AptInstall("g++")
 	utils.CreateSymlink("./nvim/lazyvim", "~/.config/nvim")
