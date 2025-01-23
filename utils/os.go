@@ -20,6 +20,14 @@ func IsLinux() bool {
 	return runtime.GOOS == "linux"
 }
 
+func IsAmd64() bool {
+	return runtime.GOARCH == "amd64"
+}
+
+func IsArm64() bool {
+	return runtime.GOARCH == "arm64"
+}
+
 func IsWsl() bool {
 	if !IsLinux() {
 		return false
