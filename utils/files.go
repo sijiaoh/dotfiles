@@ -57,8 +57,25 @@ func CreateSymlink(src, dest string) {
 	}
 }
 
-func GitClone(repo, dest string) {
-	output, err := ExecCommand(fmt.Sprintf("git clone --recursive %s %s", repo, dest))
+type GitCloneOptions struct {
+	Tag   *string
+	Depth *int
+}
+
+func GitClone(repo, dest string, opts *GitCloneOptions) {
+	if opts == nil {
+		opts = &GitCloneOptions{}
+	}
+
+	commandOpts := ""
+	if opts.Tag != nil {
+		commandOpts += " --branch=" + *opts.Tag
+	}
+	if opts.Depth != nil {
+		commandOpts += " --depth=" + string(*opts.Depth)
+	}
+
+	output, err := ExecCommand(fmt.Sprintf("git clone --recursive %s %s %s", commandOpts, repo, dest))
 	if err != nil && !strings.Contains(output.Stderr, "already exists") {
 		panic(err)
 	}

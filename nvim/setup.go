@@ -24,7 +24,14 @@ func Setup() {
 		utils.MustExecCommand(fmt.Sprintf("sudo cp -R %s/share /usr/local/", dirPath))
 	} else if utils.IsLinux() && utils.IsArm64() {
 		utils.AptInstall("ninja-build gettext cmake curl build-essential")
-		utils.GitClone("https://github.com/neovim/neovim", "/tmp/neovim")
+		utils.GitClone(
+			"https://github.com/neovim/neovim",
+			"/tmp/neovim",
+			&utils.GitCloneOptions{
+				Tag:   utils.ToStringPtr("v0.10.3"),
+				Depth: utils.ToIntPtr(1),
+			},
+		)
 		defer utils.MustExecCommand("rm -rf /tmp/neovim")
 		utils.MustExecCommand("cd /tmp/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install")
 	} else {

@@ -12,7 +12,7 @@ func Setup() {
 	zpreztoRoot := utils.ExpandPath("~/.zprezto")
 	utils.AutoInstall("zsh")
 
-	utils.GitClone("https://github.com/sorin-ionescu/prezto.git", zpreztoRoot)
+	utils.GitClone("https://github.com/sorin-ionescu/prezto.git", zpreztoRoot, nil)
 
 	command := fmt.Sprintf("find %s -type f -not -name README.md", path.Join(zpreztoRoot, "runcoms"))
 	output, err := utils.ExecCommand(command)
