@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 )
 
@@ -72,7 +73,7 @@ func GitClone(repo, dest string, opts *GitCloneOptions) {
 		commandOpts += " --branch=" + *opts.Tag
 	}
 	if opts.Depth != nil {
-		commandOpts += " --depth=" + string(*opts.Depth)
+		commandOpts += " --depth=" + strconv.Itoa(*opts.Depth)
 	}
 
 	output, err := ExecCommand(fmt.Sprintf("git clone --recursive %s %s %s", commandOpts, repo, dest))
