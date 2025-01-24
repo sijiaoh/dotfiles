@@ -104,6 +104,8 @@ function docker_stop_all() {
 # Speed up tab completion in wsl2.
 unsetopt PATH_DIRS
 
+source ${DOTFILES_ROOT}/devcontainer/devcontainer.zsh
+
 if [ -f "${HOME}/.zshrc.local" ]; then source "${HOME}/.zshrc.local"; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
