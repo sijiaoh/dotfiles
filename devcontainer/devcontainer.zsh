@@ -12,7 +12,7 @@ function devup() {
     autossh -M 0 -f -N -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null -L ${port}:localhost:${port} -p 2222 vscode@localhost
   done
 
-  devcontainer up --workspace-folder=. --dotfiles-repository=git@github.com:sijiaoh/dotfiles.git --dotfiles-target-path='~/.dotfiles' --dotfiles-install-command=bootstrap
+  devcontainer up --workspace-folder=. --dotfiles-repository=git@github.com:sijiaoh/dotfiles.git --dotfiles-target-path='~/.dotfiles' --dotfiles-install-command=bootstrap $@
 }
 
 alias devreset='devup --remove-existing-container'
