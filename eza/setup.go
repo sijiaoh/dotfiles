@@ -8,5 +8,5 @@ func Setup() {
 	}
 	utils.BrewInstall("eza")
 
-	utils.CreateSymlink("eza/theme.yml", "~/.config/eza/theme.yml")
+	utils.CreateSymlink("./eza/theme.yml", "~/.config/eza/theme.yml")
 }
