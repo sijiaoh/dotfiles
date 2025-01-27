@@ -7,4 +7,6 @@ func Setup() {
 		utils.ExecScript("./eza/linux.sh")
 	}
 	utils.BrewInstall("eza")
+
+	utils.CreateSymlink("eza/theme.yml", "~/.config/eza/theme.yml")
 }

@@ -1,3 +1,5 @@
+export EZA_CONFIG_DIR="~/.config/eza"
+
 # Disable --git option for aarch64.
 # TODO: Always enable --git option.
 # https://github.com/eza-community/eza/issues/1060
