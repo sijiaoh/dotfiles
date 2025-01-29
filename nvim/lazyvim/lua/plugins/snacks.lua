@@ -22,9 +22,20 @@ return {
             ["<c-e>"] = false,
             ["<c-h>"] = false,
             ["<c-d>"] = false,
+            -- <option-,>
+            ["≤"] = { "toggle_ignored", mode = { "i", "n" } },
+            -- <option-.>
+            ["≥"] = { "toggle_hidden", mode = { "i", "n" } },
+            -- <option-?>
+            ["÷"] = { "toggle_follow", mode = { "i", "n" } },
           },
         },
       },
+      sources = {
+        files = {
+          hidden = true,
+        }
+      }
     },
   },
   keys = {
