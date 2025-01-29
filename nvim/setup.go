@@ -43,6 +43,9 @@ func Setup() {
 
 	utils.AutoInstall("gcc")
 
+	// For lua language server packages.
+	utils.AptInstall("unzip")
+
 	// For vim snacks picker
 	utils.AptInstall("ripgrep")
 	utils.BrewInstall("rg")
