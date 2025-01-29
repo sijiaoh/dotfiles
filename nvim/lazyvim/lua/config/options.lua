@@ -16,3 +16,23 @@ vim.opt.spelllang:append("cjk")
 -- From: https://mise.jdx.dev/ide-integration.html#neovim
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+
+-- Tmux内ではTmuxのクリップボードを使用する
+if vim.env.TMUX ~= nil then
+  vim.opt.clipboard = "unnamedplus"
+  local copy = { "tmux", "load-buffer", "-w", "-" }
+  -- OSC52のクリップボード同期を待つ必要がある
+  local paste = { "bash", "-c", "tmux refresh-client -l && sleep 0.1 && tmux save-buffer -" }
+  vim.g.clipboard = {
+    name = "tmux",
+    copy = {
+      ["+"] = copy,
+      ["*"] = copy,
+    },
+    paste = {
+      ["+"] = paste,
+      ["*"] = paste,
+    },
+    cache_enabled = 0,
+  }
+end

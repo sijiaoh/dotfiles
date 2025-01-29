@@ -12,3 +12,6 @@ bindings = [{ mouse = "Right", action = "Paste" }]
 # From: https://github.com/alacritty/alacritty/issues/3586#issuecomment-613198188
 [keyboard]
 bindings = [{ key = "Slash", mods = "Control", chars = "\u001f" }]
+
+[terminal]
+osc52 = "CopyPaste"
