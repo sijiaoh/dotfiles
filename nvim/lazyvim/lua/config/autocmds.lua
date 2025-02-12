@@ -6,3 +6,7 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- ターミナル終了時に`[Process exited 1]`などで止まらないようにする
+-- From: https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+vim.cmd(":autocmd TermClose * execute 'bdelete! ' . expand('<abuf>')")
