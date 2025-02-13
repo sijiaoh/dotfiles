@@ -34,8 +34,15 @@ return {
       sources = {
         files = {
           hidden = true,
-        }
-      }
+        },
+      },
+    },
+    lazygit = {
+      win = {
+        bo = {
+          filetype = "lazygit",
+        },
+      },
     },
   },
   keys = {
