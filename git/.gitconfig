@@ -102,12 +102,11 @@
 [interactive]
     diffFilter = delta --color-only
 [include]
-    path = ~/.dotfiles/git/themes.gitconfig
+    path = ~/.dotfiles/git/tokyonight_night.gitconfig
 [delta]
     navigate = true # n/N to move between diff sections
     light = false
-    features = arctic-fox # Theme
+    dark = true
+    true-color = always
 [merge]
-    conflictstyle = diff3
-[diff]
-    colorMoved = default
+    conflictstyle = zdiff3
