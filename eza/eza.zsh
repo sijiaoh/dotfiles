@@ -6,9 +6,9 @@ export EZA_CONFIG_DIR="~/.config/eza"
 if uname -m | grep -vq aarch64; then
   GIT_OPTS='--git'
 fi
-alias ls="eza --group-directories-first --icons ${GIT_OPTS}"
+alias ls="eza --group-directories-first --icons=always --color=always ${GIT_OPTS}"
 
-alias llbase='ls --long --header --icons=always --color=always'
+alias llbase='ls --long --header'
 alias ll='llbase L'
 alias la='llbase --all L'
 
