@@ -9,9 +9,9 @@ import (
 
 func Setup() {
 	if utils.IsLinux() && utils.IsAmd64() {
-		tarPath := "./nvim-linux64.tar.gz"
+		tarPath := "./nvim-linux-x86_64.tar.gz"
 		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
-		tarUrl := "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
+		tarUrl := "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz"
 
 		utils.MustExecCommand(fmt.Sprintf("curl -L %s -o %s", tarUrl, tarPath))
 		defer utils.MustExecCommand("rm -f " + tarPath)
