@@ -2,7 +2,6 @@ package utils
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"path"
 	"strconv"
@@ -21,19 +20,7 @@ func CopyFileTo(src, dest string) {
 	src = ExpandPath(src)
 	dest = ExpandPath(dest)
 
-	srcFile, err := os.Open(src)
-	if err != nil {
-		panic(err)
-	}
-	defer srcFile.Close()
-
-	destFile, err := os.Create(dest)
-	if err != nil {
-		panic(err)
-	}
-	defer destFile.Close()
-
-	_, err = io.Copy(destFile, srcFile)
+	_, err := ExecCommand(fmt.Sprintf("cp -r %s %s", src, dest))
 	if err != nil {
 		panic(err)
 	}
