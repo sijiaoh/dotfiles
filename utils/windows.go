@@ -1,13 +1,16 @@
 package utils
 
-import "path"
+import (
+	"path"
+	"strings"
+)
 
 func WindowsUserName() string {
 	output, err := ExecCommand("cmd.exe /c echo %USERNAME%")
 	if err != nil {
 		panic(err)
 	}
-	return output.Stdout
+	return strings.TrimRight(output.Stdout, "\r\n")
 }
 
 func WindowsHomeDir() string {
