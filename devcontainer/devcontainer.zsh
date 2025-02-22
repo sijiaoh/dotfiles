@@ -16,4 +16,4 @@ function devup() {
 }
 
 alias devreset='devup --remove-existing-container'
-alias devin='devcontainer exec --workspace-folder=. zsh'
+alias devin='devcontainer exec --remote-env SHELL=/usr/bin/zsh --workspace-folder=. zsh'
