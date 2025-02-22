@@ -16,6 +16,8 @@ if test ${OS} = "macos"; then
   . ${DOTFILES_ROOT}/lib/brew_path.sh
 fi
 
+export TERM=xterm-256color
+
 # Source Prezto.
 # brew のパスを通してからでないと tmux が自動で立ち上がらない。
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
