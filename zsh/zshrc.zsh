@@ -16,7 +16,9 @@ if test ${OS} = "macos"; then
   . ${DOTFILES_ROOT}/lib/brew_path.sh
 fi
 
+# 256 color support.
 export TERM=xterm-256color
+export COLORTERM=truecolor
 
 # Source Prezto.
 # brew のパスを通してからでないと tmux が自動で立ち上がらない。
