@@ -6,7 +6,12 @@ git:
 # Disable the prompt when open a file with editor.
 promptToReturnFromSubprocess: false
 os:
-  editPreset: nvim-remote
+  # `editPreset: nvim-remote`だとタブで開いてしまうため、--remote-silentで開くようカスタマイズ
+  # https://github.com/jesseduffield/lazygit/blob/1b571f9e6b0a9a0040654aaf99333509a74613fc/pkg/config/editor_presets.go#L59-L62
+  edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote-silent {{filename}})'
+  editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote-silent {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")'
+  editAtLineAndWait: "nvim +{{line}} {{filename}}"
+
   copyToClipboardCmd: >
     if [ -n "$TMUX" ]; then
       echo -n "{{text}}" | tmux load-buffer -w -
