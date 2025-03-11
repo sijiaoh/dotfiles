@@ -4,6 +4,38 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Map ctrl + m to enter",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "return_or_enter" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map ctrl + [ to escape",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": ["control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change option + qwert to control + 1-5",
                         "manipulators": [
                             {
