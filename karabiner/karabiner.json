@@ -4,6 +4,79 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Change right_control a + mouse movement to scroll",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "key_up_value": false,
+                                            "name": "enable_mouse_motion_to_scroll",
+                                            "value": true
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "enable_mouse_motion_to_scroll",
+                                        "type": "variable_if",
+                                        "value": true
+                                    }
+                                ],
+                                "from": { "modifiers": { "optional": ["any"] } },
+                                "type": "mouse_motion_to_scroll"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map right_control + fds to mouse buttons",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "pointing_button": "button1" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "pointing_button": "button2" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "pointing_button": "button3" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Map ctrl + m to enter",
                         "manipulators": [
                             {
