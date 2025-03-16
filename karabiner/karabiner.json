@@ -5,6 +5,7 @@
                 "rules": [
                     {
                         "description": "Set right_control alone to mouse left click",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -26,6 +27,7 @@
                     },
                     {
                         "description": "Change right_control a + mouse movement to scroll",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -60,13 +62,13 @@
                         ]
                     },
                     {
-                        "description": "Map right_control + fds to mouse buttons",
+                        "description": "Map option + fdscv to mouse buttons",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -77,7 +79,7 @@
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["option"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -88,11 +90,33 @@
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["option"],
                                         "optional": ["any"]
                                     }
                                 },
                                 "to": [{ "pointing_button": "button3" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "pointing_button": "button4" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": ["option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "pointing_button": "button5" }],
                                 "type": "basic"
                             }
                         ]
