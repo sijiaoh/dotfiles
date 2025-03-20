@@ -26,4 +26,4 @@ cmd - pagedown: yabai -m window --focus stack.next || yabai -m window --focus st
 cmd - pageup: yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 
 alt - m: yabai -m window --toggle zoom-fullscreen
-alt - n: yabai --restart-service
+alt + shift - m: yabai --restart-service
