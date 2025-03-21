@@ -50,6 +50,10 @@ func Setup() {
 	utils.AptInstall("ripgrep")
 	utils.BrewInstall("rg")
 
+	// For vim snacks explorer
+	utils.BrewInstall("fd")
+	utils.AptInstall("fd-find")
+
 	utils.AptInstall("g++")
 	utils.CreateSymlink("./nvim/lazyvim", "~/.config/nvim")
 }
