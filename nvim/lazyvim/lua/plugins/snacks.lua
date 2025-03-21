@@ -45,7 +45,4 @@ return {
       },
     },
   },
-  keys = {
-    { "<leader><space>", false },
-  },
 }

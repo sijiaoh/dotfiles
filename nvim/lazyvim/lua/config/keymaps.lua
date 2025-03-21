@@ -14,9 +14,6 @@ map({ "i", "c" }, "<C-e>", "<End>")
 map({ "i", "c" }, "<C-h>", "<BS>")
 map({ "i", "c" }, "<C-d>", "<Del>")
 
--- CtrlP like keybind.
-map("n", "<C-p>", Util.pick("files"))
-
 -- This will break C-w in lazygit.
 -- Use C-w in terminal mode.
 -- map("t", "<C-w>", [[<C-\><C-n><C-w>]], { noremap = true, silent = true })
