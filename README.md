@@ -30,10 +30,10 @@ Root marker is `.marksman.toml` and `.project_root`.
 
 ## Mac
 
-以下の手順でMacのCtrl+Spaceを無効化する。
+以下の画面でMacのCtrl+Spaceを適当なキーに変更する。macismで使用するため無効化してはいけない。
 
 1. システム環境設定
 2. キーボード
-3. ショートカット
+3. キーボードショートカット
 4. 入力ソース
-5. チェックボックスを外す
+5. 前の入力ソースを選択

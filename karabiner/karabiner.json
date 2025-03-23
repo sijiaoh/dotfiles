@@ -499,6 +499,32 @@
                         ]
                     },
                     {
+                        "description": "right_shift to switch to chinese https://github.com/pqrs-org/Karabiner-Elements/issues/1602#issuecomment-2152913803",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_shift",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 100 },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "description": "引数がわからない場合はmacismコマンドで見れる",
+                                        "shell_command": "/opt/homebrew/bin/macism im.rime.inputmethod.Squirrel.Hans"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_shift" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Disable Cmd+M Minimize (rev 2)",
                         "manipulators": [
                             {
