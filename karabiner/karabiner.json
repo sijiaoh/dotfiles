@@ -168,6 +168,7 @@
                     },
                     {
                         "description": "Map option + fdscv to mouse buttons",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
