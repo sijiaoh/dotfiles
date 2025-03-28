@@ -5,7 +5,7 @@ return {
     -- stylua: ignore
     keys = {
       {
-        "L",
+        "gl",
         mode = { "n", "x", "o" },
         function()
           local Flash = require("flash")
