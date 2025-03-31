@@ -35,6 +35,21 @@ return {
         files = {
           hidden = true,
         },
+        explorer = {
+          hidden = true,
+          win = {
+            list = {
+              keys = {
+                -- <option-,>
+                ["≤"] = "toggle_ignored",
+                -- <option-.>
+                ["≥"] = "toggle_hidden",
+                -- <option-?>
+                ["÷"] = "toggle_follow",
+              },
+            },
+          },
+        },
       },
     },
     lazygit = {
