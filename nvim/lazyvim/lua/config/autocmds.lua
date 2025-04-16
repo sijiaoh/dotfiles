@@ -9,7 +9,7 @@
 
 -- Railsのdatabase.ymlをeruby.yamlとして開く
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*/config/database.yml" },
+  pattern = { "*/config/database.yml", "*/config/cable.yml" },
   callback = function()
     vim.bo.filetype = "eruby.yaml"
     vim.b.autoformat = false
