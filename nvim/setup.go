@@ -28,7 +28,7 @@ func Setup() {
 			"https://github.com/neovim/neovim",
 			"/tmp/neovim",
 			&utils.GitCloneOptions{
-				Tag:   utils.ToStringPtr("v0.10.3"),
+				Tag:   utils.ToStringPtr("v0.11.0"),
 				Depth: utils.ToIntPtr(1),
 			},
 		)
