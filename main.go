@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/sijiaoh/dotfiles/alacritty"
 	"github.com/sijiaoh/dotfiles/bat"
 	"github.com/sijiaoh/dotfiles/btop"
@@ -23,31 +25,51 @@ import (
 	"github.com/sijiaoh/dotfiles/zsh"
 )
 
+type SetupFunc struct {
+	Name  string
+	Setup func()
+}
+
 func main() {
-	setups := []func(){
-		alacritty.Setup,
-		bat.Setup,
-		btop.Setup,
-		eza.Setup,
-		fzf.Setup,
-		git.Setup,
-		karabiner.Setup,
-		lazydocker.Setup,
-		lazygit.Setup,
-		lf.Setup,
-		mac.Setup,
-		nvim.Setup,
-		power_shell.Setup,
-		tmux.Setup,
-		windows_terminal.Setup,
-		yabai.Setup,
-		zed.Setup,
-		zoxide.Setup,
-		zsh.Setup,
+	args := os.Args[1:]
+
+	setupFuncs := []SetupFunc{
+		{"alacritty", alacritty.Setup},
+		{"bat", bat.Setup},
+		{"btop", btop.Setup},
+		{"eza", eza.Setup},
+		{"fzf", fzf.Setup},
+		{"git", git.Setup},
+		{"karabiner", karabiner.Setup},
+		{"lazydocker", lazydocker.Setup},
+		{"lazygit", lazygit.Setup},
+		{"lf", lf.Setup},
+		{"mac", mac.Setup},
+		{"nvim", nvim.Setup},
+		{"power_shell", power_shell.Setup},
+		{"tmux", tmux.Setup},
+		{"windows_terminal", windows_terminal.Setup},
+		{"yabai", yabai.Setup},
+		{"zed", zed.Setup},
+		{"zoxide", zoxide.Setup},
+		{"zsh", zsh.Setup},
 	}
 
-	for _, setup := range setups {
-		setup()
+	for _, setupFunc := range setupFuncs {
+		isNeedCall := len(args) == 0
+
+		if !isNeedCall {
+			for _, arg := range args {
+				if setupFunc.Name == arg {
+					isNeedCall = true
+					break
+				}
+			}
+		}
+
+		if isNeedCall {
+			setupFunc.Setup()
+		}
 	}
 
 	utils.LinkDotfiles()
