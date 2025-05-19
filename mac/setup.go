@@ -18,5 +18,8 @@ func Setup() {
 		utils.MustExecCommand("defaults write -g ApplePressAndHoldEnabled -bool false")
 		utils.MustExecCommand("defaults write -g InitialKeyRepeat -int 20")
 		utils.MustExecCommand("defaults write -g KeyRepeat -int 3")
+
+		// Do not always show scroll bar when using mouse.
+		utils.MustExecCommand("defaults write -g AppleShowScrollBars -string 'WhenScrolling'")
 	}
 }
