@@ -71,9 +71,9 @@ Conversion	Ctrl k	SegmentWidthShrink
 Conversion	Ctrl l	SegmentWidthExpand
 Conversion	Ctrl Left	SegmentFocusFirst
 Conversion	Ctrl m	Commit
-Conversion	Ctrl n	CommitOnlyFirstSegment
+Conversion	Ctrl n	ConvertNext
 Conversion	Ctrl o	ConvertToHalfWidth
-Conversion	Ctrl p	ConvertToFullAlphanumeric
+Conversion	Ctrl p	ConvertPrev
 Conversion	Ctrl Right	SegmentFocusLast
 Conversion	Ctrl s	SegmentFocusLeft
 Conversion	Ctrl Shift Space	InsertFullSpace
