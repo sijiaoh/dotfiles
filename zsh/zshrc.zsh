@@ -129,3 +129,7 @@ typeset -g POWERLEVEL9K_RBENV_PROMPT_ALWAYS_SHOW=true
 if test ${OS} = "macos"; then
   . ${DOTFILES_ROOT}/yabai/yabai.zsh
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/kiyoshi_ou/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

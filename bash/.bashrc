@@ -7,3 +7,7 @@ if test ${OS} = "macos"; then
 fi
 
 exec zsh -l
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/kiyoshi_ou/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
