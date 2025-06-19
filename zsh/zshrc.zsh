@@ -1,7 +1,3 @@
-export EDITOR='nvim --listen /tmp/nvim-server.pipe'
-export VISUAL='nvim --listen /tmp/nvim-server.pipe'
-export GIT_EDITOR='nvim --listen /tmp/nvim-server.pipe'
-
 export DOTFILES_ROOT=$(cat ${HOME}/.dotfiles_root)
 
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
@@ -56,6 +52,7 @@ alias ....='cd ../../..'
 
 bindkey '^[h' backward-kill-word
 
+source ${DOTFILES_ROOT}/nvim/nvim.zsh
 source ${DOTFILES_ROOT}/fzf/fzf.zsh
 source ${DOTFILES_ROOT}/eza/eza.zsh
 source ${DOTFILES_ROOT}/zoxide/zoxide.zsh
@@ -70,9 +67,6 @@ function estart() {
 }
 
 alias e='emacsclient --no-wait'
-alias nvim='nvim --listen /tmp/nvim-server.pipe'
-alias v='nvim --listen /tmp/nvim-server.pipe'
-compdef v='nvim'
 
 function macvim() {
   if [ ! -e ${1} ]; then
