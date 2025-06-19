@@ -11,7 +11,7 @@ func Setup() {
 	if utils.IsLinux() && utils.IsAmd64() {
 		tarPath := "./nvim-linux-x86_64.tar.gz"
 		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
-		tarUrl := "https://github.com/neovim/neovim/releases/v0.10.4/download/nvim-linux-x86_64.tar.gz"
+		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz"
 
 		utils.MustExecCommand(fmt.Sprintf("curl -L %s -o %s", tarUrl, tarPath))
 		defer utils.MustExecCommand("rm -f " + tarPath)
@@ -35,7 +35,20 @@ func Setup() {
 		defer utils.MustExecCommand("rm -rf /tmp/neovim")
 		utils.MustExecCommand("cd /tmp/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install")
 	} else {
-		utils.BrewInstall("nvim")
+		tarPath := "./nvim-macos-arm64.tar.gz"
+		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
+		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-macos-arm64.tar.gz"
+
+		utils.MustExecCommand(fmt.Sprintf("curl -L --output %s %s", tarPath, tarUrl))
+		defer utils.MustExecCommand("rm -f " + tarPath)
+
+		utils.MustExecCommand("xattr -c " + tarPath)
+		utils.MustExecCommand("tar xzvf " + tarPath)
+		defer utils.MustExecCommand("rm -rf " + dirPath)
+
+		utils.MustExecCommand(fmt.Sprintf("sudo cp %s/bin/nvim /usr/local/bin/nvim", dirPath))
+		utils.MustExecCommand(fmt.Sprintf("sudo cp -R %s/lib /usr/local/", dirPath))
+		utils.MustExecCommand(fmt.Sprintf("sudo cp -R %s/share /usr/local/", dirPath))
 	}
 
 	// Use xclip to sync system clipboard with neovim clipboard.
