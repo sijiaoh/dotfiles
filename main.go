@@ -18,6 +18,7 @@ import (
 	"github.com/sijiaoh/dotfiles/power_shell"
 	"github.com/sijiaoh/dotfiles/tmux"
 	"github.com/sijiaoh/dotfiles/utils"
+	"github.com/sijiaoh/dotfiles/wezterm"
 	"github.com/sijiaoh/dotfiles/windows_terminal"
 	"github.com/sijiaoh/dotfiles/yabai"
 	"github.com/sijiaoh/dotfiles/zed"
@@ -48,6 +49,7 @@ func main() {
 		{"nvim", nvim.Setup},
 		{"power_shell", power_shell.Setup},
 		{"tmux", tmux.Setup},
+		{"wezterm", wezterm.Setup},
 		{"windows_terminal", windows_terminal.Setup},
 		{"yabai", yabai.Setup},
 		{"zed", zed.Setup},
