@@ -36,3 +36,7 @@ if vim.env.TMUX ~= nil then
     cache_enabled = 0,
   }
 end
+
+-- 重すぎるため無効化
+-- https://github.com/Shopify/ruby-lsp/issues/2446
+vim.g.lazyvim_ruby_lsp = "disable"
