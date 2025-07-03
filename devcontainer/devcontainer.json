@@ -6,7 +6,8 @@
   },
   "remoteUser": "vscode",
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+    "source=work,target=/home/vscode/work,type=volume"
   ],
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
