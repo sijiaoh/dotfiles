@@ -1,0 +1,10 @@
+font-family = "Moralerspace Krypton HWNF"
+
+cursor-style = bar
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+clipboard-read = allow
+clipboard-write = allow
+
+theme = "./ghostty/tokyonight_night"

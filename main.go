@@ -8,6 +8,7 @@ import (
 	"github.com/sijiaoh/dotfiles/btop"
 	"github.com/sijiaoh/dotfiles/eza"
 	"github.com/sijiaoh/dotfiles/fzf"
+	"github.com/sijiaoh/dotfiles/ghostty"
 	"github.com/sijiaoh/dotfiles/git"
 	"github.com/sijiaoh/dotfiles/karabiner"
 	"github.com/sijiaoh/dotfiles/lazydocker"
@@ -40,6 +41,7 @@ func main() {
 		{"btop", btop.Setup},
 		{"eza", eza.Setup},
 		{"fzf", fzf.Setup},
+		{"ghostty", ghostty.Setup},
 		{"git", git.Setup},
 		{"karabiner", karabiner.Setup},
 		{"lazydocker", lazydocker.Setup},
