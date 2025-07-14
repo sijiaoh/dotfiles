@@ -27,3 +27,13 @@ cmd - pageup: yabai -m window --focus stack.prev || yabai -m window --focus stac
 
 alt - g: yabai -m window --toggle zoom-fullscreen
 alt - z: yabai --restart-service
+
+# send window to desktop and follow focus
+shift + alt - q : yabai -m window --space 1 && yabai -m window --focus recent
+shift + alt - w : yabai -m window --space 2 && yabai -m window --focus recent
+shift + alt - e : yabai -m window --space 3 && yabai -m window --focus recent
+shift + alt - r : yabai -m window --space 4 && yabai -m window --focus recent
+shift + alt - a : yabai -m window --space 5 && yabai -m window --focus recent
+shift + alt - s : yabai -m window --space 6 && yabai -m window --focus recent
+shift + alt - d : yabai -m window --space 7 && yabai -m window --focus recent
+shift + alt - f : yabai -m window --space 8 && yabai -m window --focus recent
