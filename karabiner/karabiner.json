@@ -260,7 +260,7 @@
                         ]
                     },
                     {
-                        "description": "Change option + qwertas to control + 1-6",
+                        "description": "Change option + qwertasdf to control + 1-8",
                         "manipulators": [
                             {
                                 "from": {
@@ -335,6 +335,32 @@
                                 "to": [
                                     {
                                         "key_code": "6",
+                                        "modifiers": "left_control"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "7",
+                                        "modifiers": "left_control"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "8",
                                         "modifiers": "left_control"
                                     }
                                 ],
