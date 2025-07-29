@@ -68,3 +68,14 @@ func GitClone(repo, dest string, opts *GitCloneOptions) {
 		panic(err)
 	}
 }
+
+func DownloadFile(url, dest string) {
+	dest = ExpandPath(dest)
+	RemoveFileOrDirectory(dest)
+	MustExecCommand(fmt.Sprintf("curl -L --output %s %s", dest, url))
+}
+
+func RemoveFileOrDirectory(path string) {
+	path = ExpandPath(path)
+	MustExecCommand("rm -rf " + path)
+}
