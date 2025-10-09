@@ -1,9 +1,8 @@
-export EDITOR='nvim --listen /tmp/nvim-server.pipe'
-export VISUAL='nvim --listen /tmp/nvim-server.pipe'
-export GIT_EDITOR='nvim --listen /tmp/nvim-server.pipe'
+export EDITOR='nvim'
+export VISUAL='nvim'
+export GIT_EDITOR='nvim'
 
-alias nvim='nvim --listen /tmp/nvim-server.pipe'
-alias v='nvim --listen /tmp/nvim-server.pipe'
+alias v='nvim'
 compdef v='nvim'
 
 # Neovim with Godot integration
