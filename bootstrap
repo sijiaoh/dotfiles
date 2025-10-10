@@ -1,5 +1,23 @@
 #!/bin/bash -eu
 
+while getopts "Ih" opt; do
+  case ${opt} in
+  I)
+    SKIP_INITIALIZATION=1
+    ;;
+  h)
+    echo "Usage: bootstrap [-I] [-h] [packages...]"
+    echo "  -I    Skip installation of package manager (Homebrew or apt)"
+    echo "  -h    Show this help message"
+    exit 0
+    ;;
+  \?)
+    echo "Invalid option: -${OPTARG}" >&2
+    exit 1
+    ;;
+  esac
+done
+
 cd $(dirname "${0}")
 export DOTFILES_ROOT=$(pwd -P)
 
@@ -7,17 +25,19 @@ echo "${DOTFILES_ROOT}" >${HOME}/.dotfiles_root
 
 . ${DOTFILES_ROOT}/lib/os.sh
 
-if test ${OS} = "macos"; then
-  . ${DOTFILES_ROOT}/lib/install_brew.sh
-  . ${DOTFILES_ROOT}/lib/brew_path.sh
-fi
+if [ -z ${SKIP_INITIALIZATION+x} ]; then
+  if test ${OS} = "macos"; then
+    . ${DOTFILES_ROOT}/lib/install_brew.sh
+    . ${DOTFILES_ROOT}/lib/brew_path.sh
+  fi
 
-if test ${OS} = "linux"; then
-  sudo apt update -y
-  sudo apt upgrade -y
-fi
+  if test ${OS} = "linux"; then
+    sudo apt update -y
+    sudo apt upgrade -y
+  fi
 
-. ${DOTFILES_ROOT}/mise/setup.sh
+  . ${DOTFILES_ROOT}/mise/setup.sh
+fi
 
 if test ${OS} = "linux"; then
   ARCH=$(uname -m)
@@ -27,7 +47,7 @@ if test ${OS} = "linux"; then
     ARCH="x86_64"
   fi
 
-  ${DOTFILES_ROOT}/build/linux-${ARCH}
+  ${DOTFILES_ROOT}/build/linux-${ARCH} "$@"
 elif test ${OS} = "macos"; then
-  ${DOTFILES_ROOT}/build/darwin-arm64
+  ${DOTFILES_ROOT}/build/darwin-arm64 "$@"
 fi
