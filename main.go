@@ -60,21 +60,26 @@ func main() {
 	}
 
 	for _, setupFunc := range setupFuncs {
-		isNeedCall := len(args) == 0
-
-		if !isNeedCall {
-			for _, arg := range args {
-				if setupFunc.Name == arg {
-					isNeedCall = true
-					break
-				}
-			}
-		}
-
-		if isNeedCall {
+		if argsContainOrEmpty(args, setupFunc.Name) {
 			setupFunc.Setup()
 		}
 	}
 
-	utils.LinkDotfiles()
+	if argsContainOrEmpty(args, "link") {
+		utils.LinkDotfiles()
+	}
+}
+
+func argsContainOrEmpty(args []string, name string) bool {
+	if len(args) == 0 {
+		return true
+	}
+
+	for _, arg := range args {
+		if arg == name {
+			return true
+		}
+	}
+
+	return false
 }
