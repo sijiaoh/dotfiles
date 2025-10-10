@@ -1,10 +1,10 @@
 ## File structure
 
 - dotfiles\_root
-  - [package]
-    - setup.rb
-    - foo.bar
-    - .dotfiles-that-will-autolink-to-home-directory
+    - [package]
+        - setup.rb
+        - foo.bar
+        - .dotfiles-that-will-autolink-to-home-directory
 
 ## Auto link dotfiles
 
