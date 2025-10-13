@@ -11,7 +11,7 @@ func Setup() {
 	if utils.IsLinux() && utils.IsAmd64() {
 		tarPath := "./nvim-linux-x86_64.tar.gz"
 		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
-		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz"
+		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.tar.gz"
 
 		utils.MustExecCommand(fmt.Sprintf("curl -L %s -o %s", tarUrl, tarPath))
 		defer utils.MustExecCommand("rm -f " + tarPath)
@@ -28,7 +28,7 @@ func Setup() {
 			"https://github.com/neovim/neovim",
 			"/tmp/neovim",
 			&utils.GitCloneOptions{
-				Tag:   utils.ToStringPtr("v0.10.4"),
+				Tag:   utils.ToStringPtr("v0.11.4"),
 				Depth: utils.ToIntPtr(1),
 			},
 		)
@@ -37,7 +37,7 @@ func Setup() {
 	} else {
 		tarPath := "./nvim-macos-arm64.tar.gz"
 		dirPath := strings.TrimSuffix(tarPath, ".tar.gz")
-		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-macos-arm64.tar.gz"
+		tarUrl := "https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-macos-arm64.tar.gz"
 
 		utils.MustExecCommand(fmt.Sprintf("curl -L --output %s %s", tarPath, tarUrl))
 		defer utils.MustExecCommand("rm -f " + tarPath)
