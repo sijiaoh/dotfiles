@@ -1,3 +1,7 @@
+function echo_default_gateway() {
+  route -n get default | grep 'gateway' | awk '{print $2}'
+}
+
 # ~/.zshrc.localでPROXY_IPを定義するとプロキシ設定が有効になる
 PROXY_HTTP_PORT=${PROXY_HTTP_PORT:-1234}
 PROXY_SOCKS_PORT=${PROXY_SOCKS_PORT:-1235}
