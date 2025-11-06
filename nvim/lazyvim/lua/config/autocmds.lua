@@ -15,3 +15,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.b.autoformat = false
   end,
 })
+
+-- jbuilderはRubyファイルとして開く
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.jbuilder" },
+  callback = function()
+    vim.bo.filetype = "ruby"
+  end,
+})
