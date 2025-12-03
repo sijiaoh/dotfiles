@@ -6,6 +6,7 @@ import (
 	"github.com/sijiaoh/dotfiles/alacritty"
 	"github.com/sijiaoh/dotfiles/bat"
 	"github.com/sijiaoh/dotfiles/btop"
+	"github.com/sijiaoh/dotfiles/claude"
 	"github.com/sijiaoh/dotfiles/eza"
 	"github.com/sijiaoh/dotfiles/fzf"
 	"github.com/sijiaoh/dotfiles/ghostty"
@@ -39,6 +40,7 @@ func main() {
 		{"alacritty", alacritty.Setup},
 		{"bat", bat.Setup},
 		{"btop", btop.Setup},
+		{"claude", claude.Setup},
 		{"eza", eza.Setup},
 		{"fzf", fzf.Setup},
 		{"ghostty", ghostty.Setup},
