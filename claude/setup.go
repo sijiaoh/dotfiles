@@ -8,4 +8,5 @@ func Setup() {
 	}
 
 	utils.CreateSymlink("./claude/settings.json", "~/.claude/settings.json")
+	utils.CreateSymlink("./claude/commands", "~/.claude/commands")
 }
