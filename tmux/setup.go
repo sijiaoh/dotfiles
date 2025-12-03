@@ -20,4 +20,8 @@ func Setup() {
 		utils.MustExecCommand("cd tmux-* && ./configure")
 		utils.MustExecCommand("cd tmux-* && make && sudo make install")
 	}
+
+	// TPM (Tmux Plugin Manager)
+	tpmPath := utils.ExpandPath("~/.tmux/plugins/tpm")
+	utils.GitClone("https://github.com/tmux-plugins/tpm", tpmPath, nil)
 }
