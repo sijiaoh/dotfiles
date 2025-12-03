@@ -24,7 +24,8 @@
       "Bash(git branch:*)",
       "Bash(git stash:*)",
       "Bash(git clone:*)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch"
     ],
     "deny": [
       "Read(**/.env)",
