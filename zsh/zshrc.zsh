@@ -85,6 +85,8 @@ alias g='git'
 compdef g='git'
 alias lg='lazygit'
 
+alias ld='lazydocker'
+
 alias ex='explorer.exe'
 
 # utilities
