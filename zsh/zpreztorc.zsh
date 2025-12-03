@@ -39,12 +39,12 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'history-substring-search' \
-  'prompt' \
+  'prompt'
   # zsh5.9で表示色のバグがあるため無効化
   # https://github.com/zsh-users/zsh-autosuggestions/issues/789
   # 'autosuggestions' \
-  'docker' \
-  'tmux'
+  # なぜかセッション二重開始警告が毎回出るため無効化
+  # 'tmux'
 
 #
 # Autosuggestions
