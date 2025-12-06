@@ -52,7 +52,6 @@
       "Bash(wget:*)"
     ]
   },
-  "alwaysThinkingEnabled": true,
   "hooks": {
     "Stop": [
       {
@@ -77,5 +76,6 @@
         ]
       }
     ]
-  }
+  },
+  "alwaysThinkingEnabled": false
 }
