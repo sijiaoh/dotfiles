@@ -2,15 +2,16 @@ package git
 
 import (
 	"fmt"
-	"path"
-	"strings"
+	"os"
+	"path/filepath"
 
 	"github.com/sijiaoh/dotfiles/utils"
 )
 
 func Setup() {
 	if utils.IsLinux() {
-		utils.MustExecCommand("sudo curl --output /usr/local/bin/git-filter-repo https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo")
+		utils.MustExecCommand("sudo curl -fL --output /usr/local/bin/git-filter-repo https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo")
+		utils.MustExecCommand("sudo chmod +x /usr/local/bin/git-filter-repo")
 	}
 	utils.BrewInstall("git-filter-repo")
 
@@ -29,13 +30,33 @@ func Setup() {
 }
 
 func installLinuxDelta() {
-	deltaTarPath := utils.ExpandPath("./delta-0.16.5-x86_64-unknown-linux-musl.tar.gz")
-	utils.MustExecCommand("curl -L https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-x86_64-unknown-linux-musl.tar.gz -o " + deltaTarPath)
-	defer utils.MustExecCommand("rm -rf " + deltaTarPath)
+	version := "0.16.5"
+	arch := "x86_64"
+	if utils.IsArm64() {
+		arch = "aarch64"
+	}
 
-	utils.MustExecCommand("tar -xvf " + deltaTarPath)
-	deltaDirPath := strings.TrimSuffix(deltaTarPath, ".tar.gz")
-	defer utils.MustExecCommand("rm -rf " + deltaDirPath)
+	// /tmpを使用して一時ファイルを配置
+	tmpDir, err := os.MkdirTemp("", "delta-install-")
+	if err != nil {
+		panic(err)
+	}
+	defer os.RemoveAll(tmpDir)
 
-	utils.MustExecCommand(fmt.Sprintf("sudo mv %s /usr/local/bin", path.Join(deltaDirPath, "delta")))
+	tarName := fmt.Sprintf("delta-%s-%s-unknown-linux-musl.tar.gz", version, arch)
+	tarPath := filepath.Join(tmpDir, tarName)
+	downloadURL := fmt.Sprintf("https://github.com/dandavison/delta/releases/download/%s/%s", version, tarName)
+
+	// -f オプションで404時に失敗させる
+	utils.MustExecCommand(fmt.Sprintf("curl -fL %s -o %s", downloadURL, tarPath))
+
+	// tmpDir内に展開
+	utils.MustExecCommand(fmt.Sprintf("tar -xzf %s -C %s", tarPath, tmpDir))
+
+	// 展開されたディレクトリ名
+	extractedDir := filepath.Join(tmpDir, fmt.Sprintf("delta-%s-%s-unknown-linux-musl", version, arch))
+	deltaBinary := filepath.Join(extractedDir, "delta")
+
+	utils.MustExecCommand(fmt.Sprintf("sudo mv %s /usr/local/bin/delta", deltaBinary))
+	utils.MustExecCommand("sudo chmod +x /usr/local/bin/delta")
 }
