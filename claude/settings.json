@@ -24,6 +24,7 @@
       "Bash(git branch:*)",
       "Bash(git stash:*)",
       "Bash(git clone:*)",
+      "Bash(git restore --staged:*)",
       "WebSearch",
       "WebFetch"
     ],
