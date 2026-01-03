@@ -53,31 +53,6 @@
       "Bash(wget:*)"
     ]
   },
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"タスク完了\" with title \"Claude Code\" sound name \"Hero\"'",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"入力待ち\" with title \"Claude Code\" sound name \"Ping\"'",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
-  },
   "alwaysThinkingEnabled": true,
   "includeCoAuthoredBy": false
 }
