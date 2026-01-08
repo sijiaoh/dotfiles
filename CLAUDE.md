@@ -3,6 +3,7 @@
 ## Rules
 
 - Think in English, output in Japanese.
+- 「claudeの設定ファイル」は `./claude` ディレクトリを指す（`./.claude` ではない）。
 
 ## Overview
 
