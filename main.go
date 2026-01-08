@@ -9,6 +9,7 @@ import (
 	"github.com/sijiaoh/dotfiles/claude"
 	"github.com/sijiaoh/dotfiles/eza"
 	"github.com/sijiaoh/dotfiles/fzf"
+	"github.com/sijiaoh/dotfiles/gh"
 	"github.com/sijiaoh/dotfiles/ghostty"
 	"github.com/sijiaoh/dotfiles/git"
 	"github.com/sijiaoh/dotfiles/karabiner"
@@ -43,6 +44,7 @@ func main() {
 		{"claude", claude.Setup},
 		{"eza", eza.Setup},
 		{"fzf", fzf.Setup},
+		{"gh", gh.Setup},
 		{"ghostty", ghostty.Setup},
 		{"git", git.Setup},
 		{"karabiner", karabiner.Setup},
