@@ -1,4 +1,5 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Glob(./**/*)",
@@ -72,6 +73,5 @@
       "Bash(wget:*)"
     ]
   },
-  "alwaysThinkingEnabled": true,
-  "includeCoAuthoredBy": false
+  "alwaysThinkingEnabled": true
 }
