@@ -1,29 +1,29 @@
 ---
-description: コミットを作成
+description: Create a commit
 ---
 
-コミットを作成してください。
+Create a commit.
 
-ユーザーが変更を加えている可能性があるため、必ず最新のstatus・staged diff・unstaged diffを確認してからコミットすること。
+The user may have made changes, so always check the latest status, staged diff, and unstaged diff before committing.
 
-## 禁止事項
+## Prohibited
 
-- **`--amend` は引数で明示的に指定されない限り使用しないこと。** デフォルトでは常に新しいコミットを作成する。
+- **Do not use `--amend` unless explicitly specified as an argument.** Always create a new commit by default.
 
-## 引数がある場合
+## When arguments are provided
 
-引数: $ARGUMENTS
+Arguments: $ARGUMENTS
 
-### 引数が「amend」を含む場合
-直前のコミットを `--amend` で修正する。
+### If the argument contains "amend"
+Amend the previous commit using `--amend`.
 
-### 引数が「staged」の場合
-**絶対に新たなステージングを行わないこと。** 既にステージされている変更のみをコミットする。
+### If the argument is "staged"
+**Never stage any new changes.** Only commit changes that are already staged.
 
-### それ以外の引数の場合
-引数で指定された内容（トピックや機能）に関連する変更のみをステージングしてコミットする。
+### For any other arguments
+Stage and commit only changes related to the specified topic or feature.
 
-**重要:** 既にステージされている変更のうち、指定された内容に関連しないファイルは `git restore --staged` でアンステージすること。
+**Important:** Unstage any already-staged files that are not related to the specified topic using `git restore --staged`.
 
-### 引数が空の場合
-全ての変更を対象とする。
+### If no arguments are provided
+Include all changes.

@@ -46,7 +46,8 @@
       "Bash(gh search issues:*)",
       "Bash(gh search prs:*)",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "mcp__pockode__*"
     ],
     "deny": [
       "Read(**/.env)",
@@ -73,5 +74,8 @@
       "Bash(wget:*)"
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "env": {
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
+  }
 }
