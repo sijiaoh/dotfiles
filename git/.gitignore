@@ -7,7 +7,7 @@
 
 **/.claude/settings.local.json
 
-.pockode
+.pockode/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/vim,visualstudiocode,macos,emacs,jetbrains,direnv
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,visualstudiocode,macos,emacs,jetbrains,direnv
