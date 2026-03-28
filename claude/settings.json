@@ -28,6 +28,7 @@
       "Bash(git clone:*)",
       "Bash(git restore --staged:*)",
       "Bash(git grep:*)",
+      "Bash(git ls-tree:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr checks:*)",
