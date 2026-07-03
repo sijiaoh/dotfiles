@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -77,7 +80,6 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "env": {
-    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
-  }
+  "autoMemoryEnabled": false,
+  "tui": "fullscreen"
 }
