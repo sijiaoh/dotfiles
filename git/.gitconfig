@@ -114,7 +114,6 @@
   followTags = true
 [fetch]
   prune = true
-  pruneTags = true
   all = true
 [pull]
 	rebase = false
