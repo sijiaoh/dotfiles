@@ -4,6 +4,7 @@
   },
   "includeCoAuthoredBy": false,
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "Glob(./**/*)",
       "Read(./**/*)",
